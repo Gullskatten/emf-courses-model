@@ -1,0 +1,111 @@
+{
+    "school": {
+        "name": "NTNU",
+        "students": [
+            {
+                "name": "Espen G.",
+                "selectedProgram": {
+                    "id": 52,
+                    "name": "Msc. Informatics (2 years)",
+                    "requiredCredits": 120,
+                    "specialization": {
+                        "id": 23,
+                        "name": "Software Engineering",
+                        "semesters": [
+                            {
+                                "type": "AUTUMN_2020 (ENUM)",
+                                "mandatoryCourses": [],
+                                "electiveCourses": []
+                            },
+                            {
+                                "type": "SPRING_2021 (ENUM)",
+                                "mandatoryCourses": [],
+                                "electiveCourses": []
+                            },
+                            {
+                                "type": "AUTUMN_2021 (ENUM)",
+                                "mandatoryCourses": [],
+                                "electiveCourses": []
+                            },
+                            {
+                                "type": "SPRING_2022 (ENUM)",
+                                "mandatoryCourses": [],
+                                "electiveCourses": []
+                            }
+                        ]
+                    }
+                },
+                "studyPlan": {
+                    "totalCredits": 30,
+                    "semesters": [
+                        {
+                            "type":"AUTUMN_2020 (ENUM)",
+                            "mandatoryCourses": [
+                                {
+                                    "id": 1,
+                                    "name": "Information Systems",
+                                    "credits": 7.5,
+                                    "level": "HIGHER_DEGREE (ENUM)"
+                                }
+                            ],
+                            "selectedCourses": [
+                                {
+                                    "id": 2,
+                                    "name": "Advanced Software Design",
+                                    "credits": 7.5,
+                                    "level": "HIGHER_DEGREE (ENUM)"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Introduction to Artifical Intelligence",
+                                    "credits": 7.5,
+                                    "level": "3RD_LOWER_DEGREE (ENUM)"
+                                },
+                                {
+                                    "id": 4,
+                                    "name": "Advanced Software Engineering",
+                                    "credits": 7.5,
+                                    "level": "HIGHER_DEGREE (ENUM)"
+                                }
+                            ],
+                            "semesterCredits": 30
+                        }
+                    ]
+                }
+            }
+        ],
+        "availablePrograms": [
+            {
+                "id": 52,
+                "name": "Msc. Informatics (2 years)",
+                "requiredCredits": 120,
+                "specialization": {
+                    "id": 23,
+                    "name": "Software Engineering",
+                    "semesters": [
+                        {
+                            "type": "AUTUMN_2020 (ENUM)",
+                            "requiredCourses": [],
+                            "electiveCourses": []
+                        },
+                        {
+                            "type": "SPRING_2021 (ENUM)",
+                            "requiredCourses": [],
+                            "electiveCourses": []
+                        },
+                        {
+                            "type": "AUTUMN_2021 (ENUM)",
+                            "requiredCourses": [],
+                            "electiveCourses": []
+                        },
+                        {
+                            "type": "SPRING_2022 (ENUM)",
+                            "requiredCourses": [],
+                            "electiveCourses": []
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

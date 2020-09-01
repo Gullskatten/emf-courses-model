@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated CoursesGenModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="course.presentation.CourseModelWizardID"
+            name="%_UI_CourseModelWizard_label"
+            class="course.presentation.CourseModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CourseModelFile.gif">
+         <description>%_UI_CourseModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated CoursesGenModel -->
+      <editor
+            id="course.presentation.CourseEditorID"
+            name="%_UI_CourseEditor_label"
+            icon="icons/full/obj16/CourseModelFile.gif"
+            extensions="course"
+            class="course.presentation.CourseEditor"
+            contributorClass="course.presentation.CourseActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
