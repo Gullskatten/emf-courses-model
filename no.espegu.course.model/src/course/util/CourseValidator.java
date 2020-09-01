@@ -218,7 +218,18 @@ public class CourseValidator extends EObjectValidator {
 			totalCredits += semester.getTotalCredits();
 		}
 
-		if (requiredCredits != totalCredits) {
+		if (requiredCredits < totalCredits) {
+			if (diagnostics != null) {
+				diagnostics.add(createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "hasRequiredCreditsForSpecialization", getObjectLabel(studyPlan, context) },
+						new Object[] { studyPlan }, context));
+			}
+			return false;
+		}
+		
+		// 
+		if (requiredCredits > totalCredits) {
 			if (diagnostics != null) {
 				diagnostics.add(createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0,
 						"_UI_GenericConstraint_diagnostic",

@@ -5,6 +5,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
     xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore">
+  <programs>
+    <specializations>
+      <semesters>
+        <mandatoryCourses/>
+      </semesters>
+    </specializations>
+  </programs>
+  <programs/>
+  <students/>
+  <students/>
   <students/>
   <students/>
 </no.espegu:School>
