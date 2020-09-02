@@ -39,9 +39,10 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//StudyPlanSemester" containment="true" eOpposite="#//StudyPlanSemester/studyPlan"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="programYear" eType="#//ProgramYear"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startingYear" eType="#//ProgramYear"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="student" eType="#//Student"
         eOpposite="#//Student/studyPlan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specialization" eType="#//Specialization"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specialization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
