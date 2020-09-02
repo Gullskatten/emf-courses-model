@@ -128,6 +128,12 @@ public class CourseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoursePackage.NON_SPECIALIZED_PROGRAM: {
+				NonSpecializedProgram nonSpecializedProgram = (NonSpecializedProgram)theEObject;
+				T result = caseNonSpecializedProgram(nonSpecializedProgram);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -174,6 +180,21 @@ public class CourseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProgramYear(ProgramYear object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Non Specialized Program</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Non Specialized Program</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNonSpecializedProgram(NonSpecializedProgram object) {
 		return null;
 	}
 

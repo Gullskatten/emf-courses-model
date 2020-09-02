@@ -139,45 +139,16 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateProgramYear(ProgramYear programYear, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(programYear, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(programYear, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProgramYear_hasEitherSpecializationOrSemester(programYear, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(programYear, diagnostics, context);
 	}
 
 	/**
-	 * Validates the hasEitherSpecializationOrSemester constraint of '<em>Program Year</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProgramYear_hasEitherSpecializationOrSemester(ProgramYear programYear, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "hasEitherSpecializationOrSemester", getObjectLabel(programYear, context) },
-						 new Object[] { programYear },
-						 context));
-			}
-			return false;
-		}
-		return true;
+	public boolean validateNonSpecializedProgram(NonSpecializedProgram nonSpecializedProgram, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(nonSpecializedProgram, diagnostics, context);
 	}
 
 	/**
@@ -312,7 +283,45 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudyPlanSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(studyPlanSemester, diagnostics, context);
+		if (!validate_NoCircularContainment(studyPlanSemester, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStudyPlanSemester_isAllCoursesTaughtInSemester(studyPlanSemester, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isAllCoursesTaughtInSemester constraint of '<em>Study Plan Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStudyPlanSemester_isAllCoursesTaughtInSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isAllCoursesTaughtInSemester", getObjectLabel(studyPlanSemester, context) },
+						 new Object[] { studyPlanSemester },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

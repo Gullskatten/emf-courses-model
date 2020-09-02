@@ -6,6 +6,7 @@ import course.Course;
 import course.CourseFactory;
 import course.CourseLevel;
 import course.CoursePackage;
+import course.NonSpecializedProgram;
 import course.Program;
 import course.ProgramSemester;
 import course.ProgramYear;
@@ -56,6 +57,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	private EClass programYearEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nonSpecializedProgramEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,16 +322,6 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProgramYear_Semesters() {
-		return (EReference)programYearEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getProgramYear_Year() {
 		return (EAttribute)programYearEClass.getEStructuralFeatures().get(0);
 	}
@@ -335,6 +333,16 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 */
 	@Override
 	public EReference getProgramYear_Program() {
+		return (EReference)programYearEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProgramYear_NonSpecializedProgram() {
 		return (EReference)programYearEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -344,8 +352,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getProgramYear__AddSemester() {
-		return programYearEClass.getEOperations().get(0);
+	public EClass getNonSpecializedProgram() {
+		return nonSpecializedProgramEClass;
 	}
 
 	/**
@@ -354,8 +362,28 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getProgramYear__AddSpecialization() {
-		return programYearEClass.getEOperations().get(1);
+	public EReference getNonSpecializedProgram_Semesters() {
+		return (EReference)nonSpecializedProgramEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNonSpecializedProgram_ProgramYear() {
+		return (EReference)nonSpecializedProgramEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNonSpecializedProgram_Name() {
+		return (EAttribute)nonSpecializedProgramEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -406,6 +434,16 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	@Override
 	public EAttribute getCourse_Description() {
 		return (EAttribute)courseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCourse_TaughtInSemester() {
+		return (EAttribute)courseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -474,8 +512,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getStudyPlan_StartingYear() {
-		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
+	public EReference getStudyPlan_Specialization() {
+		return (EReference)studyPlanEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -484,7 +522,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getStudyPlan_Specialization() {
+	public EReference getStudyPlan_NonSpecializedProgram() {
 		return (EReference)studyPlanEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -495,7 +533,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 */
 	@Override
 	public EReference getStudyPlan_Student() {
-		return (EReference)studyPlanEClass.getEStructuralFeatures().get(2);
+		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -614,6 +652,16 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getStudyPlanSemester__AddCourseToSemester() {
+		return studyPlanSemesterEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProgramSemester() {
 		return programSemesterEClass;
 	}
@@ -713,6 +761,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEAttribute(courseEClass, COURSE__CREDITS);
 		createEAttribute(courseEClass, COURSE__LEVEL);
 		createEAttribute(courseEClass, COURSE__DESCRIPTION);
+		createEAttribute(courseEClass, COURSE__TAUGHT_IN_SEMESTER);
 
 		studentEClass = createEClass(STUDENT);
 		createEReference(studentEClass, STUDENT__STUDY_PLAN);
@@ -721,9 +770,9 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		studyPlanEClass = createEClass(STUDY_PLAN);
 		createEReference(studyPlanEClass, STUDY_PLAN__SEMESTERS);
-		createEReference(studyPlanEClass, STUDY_PLAN__STARTING_YEAR);
 		createEReference(studyPlanEClass, STUDY_PLAN__STUDENT);
 		createEReference(studyPlanEClass, STUDY_PLAN__SPECIALIZATION);
+		createEReference(studyPlanEClass, STUDY_PLAN__NON_SPECIALIZED_PROGRAM);
 
 		specializationEClass = createEClass(SPECIALIZATION);
 		createEReference(specializationEClass, SPECIALIZATION__SEMESTERS);
@@ -738,6 +787,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__SELECTED_COURSES);
 		createEAttribute(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__TOTAL_CREDITS);
 		createEReference(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__STUDY_PLAN);
+		createEOperation(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER);
 
 		programSemesterEClass = createEClass(PROGRAM_SEMESTER);
 		createEReference(programSemesterEClass, PROGRAM_SEMESTER__MANDATORY_COURSES);
@@ -746,10 +796,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		programYearEClass = createEClass(PROGRAM_YEAR);
 		createEAttribute(programYearEClass, PROGRAM_YEAR__YEAR);
 		createEReference(programYearEClass, PROGRAM_YEAR__SPECIALIZATIONS);
-		createEReference(programYearEClass, PROGRAM_YEAR__SEMESTERS);
 		createEReference(programYearEClass, PROGRAM_YEAR__PROGRAM);
-		createEOperation(programYearEClass, PROGRAM_YEAR___ADD_SEMESTER);
-		createEOperation(programYearEClass, PROGRAM_YEAR___ADD_SPECIALIZATION);
+		createEReference(programYearEClass, PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM);
+
+		nonSpecializedProgramEClass = createEClass(NON_SPECIALIZED_PROGRAM);
+		createEReference(nonSpecializedProgramEClass, NON_SPECIALIZED_PROGRAM__SEMESTERS);
+		createEReference(nonSpecializedProgramEClass, NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR);
+		createEAttribute(nonSpecializedProgramEClass, NON_SPECIALIZED_PROGRAM__NAME);
 
 		// Create enums
 		semesterTypeEEnum = createEEnum(SEMESTER_TYPE);
@@ -807,6 +860,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getCourse_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Level(), this.getCourseLevel(), "level", "First Degree Subject", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Description(), ecorePackage.getEString(), "description", "Add a description to this course.", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_TaughtInSemester(), this.getSemesterType(), "taughtInSemester", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudent_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Student(), "studyPlan", null, 0, 1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -815,9 +869,9 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudyPlan_Semesters(), this.getStudyPlanSemester(), this.getStudyPlanSemester_StudyPlan(), "semesters", null, 0, -1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStudyPlan_StartingYear(), this.getProgramYear(), null, "startingYear", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlan_Student(), this.getStudent(), this.getStudent_StudyPlan(), "student", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlan_Specialization(), this.getSpecialization(), null, "specialization", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudyPlan_NonSpecializedProgram(), this.getNonSpecializedProgram(), null, "nonSpecializedProgram", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specializationEClass, Specialization.class, "Specialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecialization_Semesters(), this.getProgramSemester(), null, "semesters", null, 0, -1, Specialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -833,6 +887,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getStudyPlanSemester_TotalCredits(), ecorePackage.getEInt(), "totalCredits", null, 0, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlanSemester_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Semesters(), "studyPlan", null, 0, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getStudyPlanSemester__AddCourseToSemester(), this.getCourse(), "addCourseToSemester", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(programSemesterEClass, ProgramSemester.class, "ProgramSemester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProgramSemester_MandatoryCourses(), this.getCourse(), null, "mandatoryCourses", null, 0, -1, ProgramSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramSemester_OptionalCourses(), this.getCourse(), null, "optionalCourses", null, 0, -1, ProgramSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -840,12 +896,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEClass(programYearEClass, ProgramYear.class, "ProgramYear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgramYear_Year(), this.getYear(), "year", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramYear_Specializations(), this.getSpecialization(), this.getSpecialization_ProgramYear(), "specializations", null, 0, -1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgramYear_Semesters(), this.getProgramSemester(), null, "semesters", null, 0, -1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramYear_Program(), this.getProgram(), this.getProgram_ProgramYears(), "program", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgramYear_NonSpecializedProgram(), this.getNonSpecializedProgram(), this.getNonSpecializedProgram_ProgramYear(), "nonSpecializedProgram", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getProgramYear__AddSemester(), this.getProgramSemester(), "addSemester", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getProgramYear__AddSpecialization(), this.getSpecialization(), "addSpecialization", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(nonSpecializedProgramEClass, NonSpecializedProgram.class, "NonSpecializedProgram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNonSpecializedProgram_Semesters(), this.getProgramSemester(), null, "semesters", null, 0, -1, NonSpecializedProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNonSpecializedProgram_ProgramYear(), this.getProgramYear(), this.getProgramYear_NonSpecializedProgram(), "programYear", null, 0, 1, NonSpecializedProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNonSpecializedProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, NonSpecializedProgram.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(semesterTypeEEnum, SemesterType.class, "SemesterType");
@@ -884,10 +941,10 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 			   "constraints", "hasRequiredCreditsForProgram"
 		   });
 		addAnnotation
-		  (programYearEClass,
+		  (studyPlanSemesterEClass,
 		   source,
 		   new String[] {
-			   "constraints", "hasEitherSpecializationOrSemester"
+			   "constraints", "isAllCoursesTaughtInSemester"
 		   });
 	}
 

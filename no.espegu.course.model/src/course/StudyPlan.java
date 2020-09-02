@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link course.StudyPlan#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link course.StudyPlan#getStartingYear <em>Starting Year</em>}</li>
  *   <li>{@link course.StudyPlan#getStudent <em>Student</em>}</li>
  *   <li>{@link course.StudyPlan#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link course.StudyPlan#getNonSpecializedProgram <em>Non Specialized Program</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlan()
@@ -41,28 +41,6 @@ public interface StudyPlan extends EObject {
 	EList<StudyPlanSemester> getSemesters();
 
 	/**
-	 * Returns the value of the '<em><b>Starting Year</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Starting Year</em>' reference.
-	 * @see #setStartingYear(ProgramYear)
-	 * @see course.CoursePackage#getStudyPlan_StartingYear()
-	 * @model
-	 * @generated
-	 */
-	ProgramYear getStartingYear();
-
-	/**
-	 * Sets the value of the '{@link course.StudyPlan#getStartingYear <em>Starting Year</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Starting Year</em>' reference.
-	 * @see #getStartingYear()
-	 * @generated
-	 */
-	void setStartingYear(ProgramYear value);
-
-	/**
 	 * Returns the value of the '<em><b>Specialization</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +61,28 @@ public interface StudyPlan extends EObject {
 	 * @generated
 	 */
 	void setSpecialization(Specialization value);
+
+	/**
+	 * Returns the value of the '<em><b>Non Specialized Program</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Non Specialized Program</em>' reference.
+	 * @see #setNonSpecializedProgram(NonSpecializedProgram)
+	 * @see course.CoursePackage#getStudyPlan_NonSpecializedProgram()
+	 * @model
+	 * @generated
+	 */
+	NonSpecializedProgram getNonSpecializedProgram();
+
+	/**
+	 * Sets the value of the '{@link course.StudyPlan#getNonSpecializedProgram <em>Non Specialized Program</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Non Specialized Program</em>' reference.
+	 * @see #getNonSpecializedProgram()
+	 * @generated
+	 */
+	void setNonSpecializedProgram(NonSpecializedProgram value);
 
 	/**
 	 * Returns the value of the '<em><b>Student</b></em>' reference.

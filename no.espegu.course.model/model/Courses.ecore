@@ -63,7 +63,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="isAllCoursesTaughtInSemester"/>
     </eAnnotations>
-    <eOperations name="addCourseToSemester" eType="#//Course"/>
+    <eOperations name="addCourseToSemester" eType="#//StudyPlanSemester">
+      <eParameters name="course" eType="#//Course"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedCourses" upperBound="-1"
         eType="#//Course" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -86,9 +88,9 @@
     <eLiterals name="THIRD_DEGREE" value="3" literal="Third Degree Subject"/>
     <eLiterals name="HIGHER_DEGREE" value="4" literal="Higher Degree Subject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Year" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Year" instanceClassName="java.lang.String"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramYear">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
         eType="#//Specialization" containment="true" eOpposite="#//Specialization/programYear"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="program" eType="#//Program"

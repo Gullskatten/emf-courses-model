@@ -3,12 +3,10 @@
 package course.impl;
 
 import course.CoursePackage;
+import course.NonSpecializedProgram;
 import course.Program;
-import course.ProgramSemester;
 import course.ProgramYear;
 import course.Specialization;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,8 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,8 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link course.impl.ProgramYearImpl#getYear <em>Year</em>}</li>
  *   <li>{@link course.impl.ProgramYearImpl#getSpecializations <em>Specializations</em>}</li>
- *   <li>{@link course.impl.ProgramYearImpl#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.impl.ProgramYearImpl#getProgram <em>Program</em>}</li>
+ *   <li>{@link course.impl.ProgramYearImpl#getNonSpecializedProgram <em>Non Specialized Program</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,14 +71,14 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	protected EList<Specialization> specializations;
 
 	/**
-	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
+	 * The cached value of the '{@link #getNonSpecializedProgram() <em>Non Specialized Program</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSemesters()
+	 * @see #getNonSpecializedProgram()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProgramSemester> semesters;
+	protected NonSpecializedProgram nonSpecializedProgram;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,19 +110,6 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 			specializations = new EObjectContainmentWithInverseEList<Specialization>(Specialization.class, this, CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS, CoursePackage.SPECIALIZATION__PROGRAM_YEAR);
 		}
 		return specializations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<ProgramSemester> getSemesters() {
-		if (semesters == null) {
-			semesters = new EObjectContainmentEList<ProgramSemester>(ProgramSemester.class, this, CoursePackage.PROGRAM_YEAR__SEMESTERS);
-		}
-		return semesters;
 	}
 
 	/**
@@ -201,10 +184,40 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 */
 	@Override
-	public ProgramSemester addSemester() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public NonSpecializedProgram getNonSpecializedProgram() {
+		if (nonSpecializedProgram != null && nonSpecializedProgram.eIsProxy()) {
+			InternalEObject oldNonSpecializedProgram = (InternalEObject)nonSpecializedProgram;
+			nonSpecializedProgram = (NonSpecializedProgram)eResolveProxy(oldNonSpecializedProgram);
+			if (nonSpecializedProgram != oldNonSpecializedProgram) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM, oldNonSpecializedProgram, nonSpecializedProgram));
+			}
+		}
+		return nonSpecializedProgram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NonSpecializedProgram basicGetNonSpecializedProgram() {
+		return nonSpecializedProgram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNonSpecializedProgram(NonSpecializedProgram newNonSpecializedProgram, NotificationChain msgs) {
+		NonSpecializedProgram oldNonSpecializedProgram = nonSpecializedProgram;
+		nonSpecializedProgram = newNonSpecializedProgram;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM, oldNonSpecializedProgram, newNonSpecializedProgram);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -213,10 +226,18 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 */
 	@Override
-	public Specialization addSpecialization() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setNonSpecializedProgram(NonSpecializedProgram newNonSpecializedProgram) {
+		if (newNonSpecializedProgram != nonSpecializedProgram) {
+			NotificationChain msgs = null;
+			if (nonSpecializedProgram != null)
+				msgs = ((InternalEObject)nonSpecializedProgram).eInverseRemove(this, CoursePackage.NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR, NonSpecializedProgram.class, msgs);
+			if (newNonSpecializedProgram != null)
+				msgs = ((InternalEObject)newNonSpecializedProgram).eInverseAdd(this, CoursePackage.NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR, NonSpecializedProgram.class, msgs);
+			msgs = basicSetNonSpecializedProgram(newNonSpecializedProgram, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM, newNonSpecializedProgram, newNonSpecializedProgram));
 	}
 
 	/**
@@ -234,6 +255,10 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProgram((Program)otherEnd, msgs);
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				if (nonSpecializedProgram != null)
+					msgs = ((InternalEObject)nonSpecializedProgram).eInverseRemove(this, CoursePackage.NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR, NonSpecializedProgram.class, msgs);
+				return basicSetNonSpecializedProgram((NonSpecializedProgram)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -248,10 +273,10 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 		switch (featureID) {
 			case CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS:
 				return ((InternalEList<?>)getSpecializations()).basicRemove(otherEnd, msgs);
-			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
-				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return basicSetProgram(null, msgs);
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				return basicSetNonSpecializedProgram(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -282,10 +307,11 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				return getYear();
 			case CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS:
 				return getSpecializations();
-			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
-				return getSemesters();
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return getProgram();
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				if (resolve) return getNonSpecializedProgram();
+				return basicGetNonSpecializedProgram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,12 +332,11 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				getSpecializations().clear();
 				getSpecializations().addAll((Collection<? extends Specialization>)newValue);
 				return;
-			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
-				getSemesters().clear();
-				getSemesters().addAll((Collection<? extends ProgramSemester>)newValue);
-				return;
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				setProgram((Program)newValue);
+				return;
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				setNonSpecializedProgram((NonSpecializedProgram)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,11 +356,11 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 			case CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS:
 				getSpecializations().clear();
 				return;
-			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
-				getSemesters().clear();
-				return;
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				setProgram((Program)null);
+				return;
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				setNonSpecializedProgram((NonSpecializedProgram)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -353,28 +378,12 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
 			case CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS:
 				return specializations != null && !specializations.isEmpty();
-			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
-				return semesters != null && !semesters.isEmpty();
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return getProgram() != null;
+			case CoursePackage.PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM:
+				return nonSpecializedProgram != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case CoursePackage.PROGRAM_YEAR___ADD_SEMESTER:
-				return addSemester();
-			case CoursePackage.PROGRAM_YEAR___ADD_SPECIALIZATION:
-				return addSpecialization();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

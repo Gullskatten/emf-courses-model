@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link course.ProgramYear#getYear <em>Year</em>}</li>
  *   <li>{@link course.ProgramYear#getSpecializations <em>Specializations</em>}</li>
- *   <li>{@link course.ProgramYear#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.ProgramYear#getProgram <em>Program</em>}</li>
+ *   <li>{@link course.ProgramYear#getNonSpecializedProgram <em>Non Specialized Program</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getProgramYear()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasEitherSpecializationOrSemester'"
+ * @model
  * @generated
  */
 public interface ProgramYear extends EObject {
@@ -39,18 +39,6 @@ public interface ProgramYear extends EObject {
 	 * @generated
 	 */
 	EList<Specialization> getSpecializations();
-
-	/**
-	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
-	 * The list contents are of type {@link course.ProgramSemester}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semesters</em>' containment reference list.
-	 * @see course.CoursePackage#getProgramYear_Semesters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ProgramSemester> getSemesters();
 
 	/**
 	 * Returns the value of the '<em><b>Year</b></em>' attribute.
@@ -99,19 +87,27 @@ public interface ProgramYear extends EObject {
 	void setProgram(Program value);
 
 	/**
+	 * Returns the value of the '<em><b>Non Specialized Program</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link course.NonSpecializedProgram#getProgramYear <em>Program Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @return the value of the '<em>Non Specialized Program</em>' reference.
+	 * @see #setNonSpecializedProgram(NonSpecializedProgram)
+	 * @see course.CoursePackage#getProgramYear_NonSpecializedProgram()
+	 * @see course.NonSpecializedProgram#getProgramYear
+	 * @model opposite="programYear"
 	 * @generated
 	 */
-	ProgramSemester addSemester();
+	NonSpecializedProgram getNonSpecializedProgram();
 
 	/**
+	 * Sets the value of the '{@link course.ProgramYear#getNonSpecializedProgram <em>Non Specialized Program</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @param value the new value of the '<em>Non Specialized Program</em>' reference.
+	 * @see #getNonSpecializedProgram()
 	 * @generated
 	 */
-	Specialization addSpecialization();
+	void setNonSpecializedProgram(NonSpecializedProgram value);
 
 } // ProgramYear

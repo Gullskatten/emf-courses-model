@@ -7,6 +7,7 @@ import course.CoursePackage;
 import course.StudyPlan;
 import course.StudyPlanSemester;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -173,6 +174,18 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @generated
 	 */
 	@Override
+	public Course addCourseToSemester() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
@@ -291,6 +304,20 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 				return getStudyPlan() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CoursePackage.STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER:
+				return addCourseToSemester();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

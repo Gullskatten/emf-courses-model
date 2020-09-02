@@ -49,6 +49,15 @@ public interface CourseFactory extends EFactory {
 	ProgramYear createProgramYear();
 
 	/**
+	 * Returns a new object of class '<em>Non Specialized Program</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Non Specialized Program</em>'.
+	 * @generated
+	 */
+	NonSpecializedProgram createNonSpecializedProgram();
+
+	/**
 	 * Returns a new object of class '<em>Course</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

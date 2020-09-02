@@ -235,13 +235,22 @@ public interface CoursePackage extends EPackage {
 	int COURSE__DESCRIPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Taught In Semester</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__TAUGHT_IN_SEMESTER = 4;
+
+	/**
 	 * The number of structural features of the '<em>Course</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_FEATURE_COUNT = 4;
+	int COURSE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Course</em>' class.
@@ -327,22 +336,13 @@ public interface CoursePackage extends EPackage {
 	int STUDY_PLAN__SEMESTERS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Starting Year</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN__STARTING_YEAR = 1;
-
-	/**
 	 * The feature id for the '<em><b>Student</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN__STUDENT = 2;
+	int STUDY_PLAN__STUDENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Specialization</b></em>' reference.
@@ -351,7 +351,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN__SPECIALIZATION = 3;
+	int STUDY_PLAN__SPECIALIZATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Non Specialized Program</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN__NON_SPECIALIZED_PROGRAM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Study Plan</em>' class.
@@ -546,13 +555,22 @@ public interface CoursePackage extends EPackage {
 	int STUDY_PLAN_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Add Course To Semester</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER = SEMESTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Study Plan Semester</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 0;
+	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.
@@ -646,22 +664,22 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_YEAR__SPECIALIZATIONS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_YEAR__SEMESTERS = 2;
-
-	/**
 	 * The feature id for the '<em><b>Program</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_YEAR__PROGRAM = 3;
+	int PROGRAM_YEAR__PROGRAM = 2;
+
+	/**
+	 * The feature id for the '<em><b>Non Specialized Program</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Program Year</em>' class.
@@ -673,31 +691,68 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_YEAR_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Add Semester</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_YEAR___ADD_SEMESTER = 0;
-
-	/**
-	 * The operation id for the '<em>Add Specialization</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_YEAR___ADD_SPECIALIZATION = 1;
-
-	/**
 	 * The number of operations of the '<em>Program Year</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_YEAR_OPERATION_COUNT = 2;
+	int PROGRAM_YEAR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link course.impl.NonSpecializedProgramImpl <em>Non Specialized Program</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.impl.NonSpecializedProgramImpl
+	 * @see course.impl.CoursePackageImpl#getNonSpecializedProgram()
+	 * @generated
+	 */
+	int NON_SPECIALIZED_PROGRAM = 10;
+
+	/**
+	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_SPECIALIZED_PROGRAM__SEMESTERS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Program Year</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_SPECIALIZED_PROGRAM__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Non Specialized Program</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_SPECIALIZED_PROGRAM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Non Specialized Program</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_SPECIALIZED_PROGRAM_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link course.SemesterType <em>Semester Type</em>}' enum.
@@ -707,7 +762,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getSemesterType()
 	 * @generated
 	 */
-	int SEMESTER_TYPE = 10;
+	int SEMESTER_TYPE = 11;
 
 	/**
 	 * The meta object id for the '{@link course.CourseLevel <em>Level</em>}' enum.
@@ -717,7 +772,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getCourseLevel()
 	 * @generated
 	 */
-	int COURSE_LEVEL = 11;
+	int COURSE_LEVEL = 12;
 
 
 	/**
@@ -728,7 +783,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getYear()
 	 * @generated
 	 */
-	int YEAR = 12;
+	int YEAR = 13;
 
 
 	/**
@@ -850,17 +905,6 @@ public interface CoursePackage extends EPackage {
 	EReference getProgramYear_Specializations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link course.ProgramYear#getSemesters <em>Semesters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
-	 * @see course.ProgramYear#getSemesters()
-	 * @see #getProgramYear()
-	 * @generated
-	 */
-	EReference getProgramYear_Semesters();
-
-	/**
 	 * Returns the meta object for the attribute '{@link course.ProgramYear#getYear <em>Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,24 +927,58 @@ public interface CoursePackage extends EPackage {
 	EReference getProgramYear_Program();
 
 	/**
-	 * Returns the meta object for the '{@link course.ProgramYear#addSemester() <em>Add Semester</em>}' operation.
+	 * Returns the meta object for the reference '{@link course.ProgramYear#getNonSpecializedProgram <em>Non Specialized Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Semester</em>' operation.
-	 * @see course.ProgramYear#addSemester()
+	 * @return the meta object for the reference '<em>Non Specialized Program</em>'.
+	 * @see course.ProgramYear#getNonSpecializedProgram()
+	 * @see #getProgramYear()
 	 * @generated
 	 */
-	EOperation getProgramYear__AddSemester();
+	EReference getProgramYear_NonSpecializedProgram();
 
 	/**
-	 * Returns the meta object for the '{@link course.ProgramYear#addSpecialization() <em>Add Specialization</em>}' operation.
+	 * Returns the meta object for class '{@link course.NonSpecializedProgram <em>Non Specialized Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Specialization</em>' operation.
-	 * @see course.ProgramYear#addSpecialization()
+	 * @return the meta object for class '<em>Non Specialized Program</em>'.
+	 * @see course.NonSpecializedProgram
 	 * @generated
 	 */
-	EOperation getProgramYear__AddSpecialization();
+	EClass getNonSpecializedProgram();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.NonSpecializedProgram#getSemesters <em>Semesters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
+	 * @see course.NonSpecializedProgram#getSemesters()
+	 * @see #getNonSpecializedProgram()
+	 * @generated
+	 */
+	EReference getNonSpecializedProgram_Semesters();
+
+	/**
+	 * Returns the meta object for the reference '{@link course.NonSpecializedProgram#getProgramYear <em>Program Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Program Year</em>'.
+	 * @see course.NonSpecializedProgram#getProgramYear()
+	 * @see #getNonSpecializedProgram()
+	 * @generated
+	 */
+	EReference getNonSpecializedProgram_ProgramYear();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.NonSpecializedProgram#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see course.NonSpecializedProgram#getName()
+	 * @see #getNonSpecializedProgram()
+	 * @generated
+	 */
+	EAttribute getNonSpecializedProgram_Name();
 
 	/**
 	 * Returns the meta object for class '{@link course.Course <em>Course</em>}'.
@@ -955,6 +1033,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCourse_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.Course#getTaughtInSemester <em>Taught In Semester</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Taught In Semester</em>'.
+	 * @see course.Course#getTaughtInSemester()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EAttribute getCourse_TaughtInSemester();
 
 	/**
 	 * Returns the meta object for class '{@link course.Student <em>Student</em>}'.
@@ -1021,17 +1110,6 @@ public interface CoursePackage extends EPackage {
 	EReference getStudyPlan_Semesters();
 
 	/**
-	 * Returns the meta object for the reference '{@link course.StudyPlan#getStartingYear <em>Starting Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Starting Year</em>'.
-	 * @see course.StudyPlan#getStartingYear()
-	 * @see #getStudyPlan()
-	 * @generated
-	 */
-	EReference getStudyPlan_StartingYear();
-
-	/**
 	 * Returns the meta object for the reference '{@link course.StudyPlan#getSpecialization <em>Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1041,6 +1119,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStudyPlan_Specialization();
+
+	/**
+	 * Returns the meta object for the reference '{@link course.StudyPlan#getNonSpecializedProgram <em>Non Specialized Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Non Specialized Program</em>'.
+	 * @see course.StudyPlan#getNonSpecializedProgram()
+	 * @see #getStudyPlan()
+	 * @generated
+	 */
+	EReference getStudyPlan_NonSpecializedProgram();
 
 	/**
 	 * Returns the meta object for the reference '{@link course.StudyPlan#getStudent <em>Student</em>}'.
@@ -1170,6 +1259,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStudyPlanSemester_StudyPlan();
+
+	/**
+	 * Returns the meta object for the '{@link course.StudyPlanSemester#addCourseToSemester() <em>Add Course To Semester</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Course To Semester</em>' operation.
+	 * @see course.StudyPlanSemester#addCourseToSemester()
+	 * @generated
+	 */
+	EOperation getStudyPlanSemester__AddCourseToSemester();
 
 	/**
 	 * Returns the meta object for class '{@link course.ProgramSemester <em>Program Semester</em>}'.
@@ -1352,14 +1451,6 @@ public interface CoursePackage extends EPackage {
 		EReference PROGRAM_YEAR__SPECIALIZATIONS = eINSTANCE.getProgramYear_Specializations();
 
 		/**
-		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM_YEAR__SEMESTERS = eINSTANCE.getProgramYear_Semesters();
-
-		/**
 		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1376,20 +1467,46 @@ public interface CoursePackage extends EPackage {
 		EReference PROGRAM_YEAR__PROGRAM = eINSTANCE.getProgramYear_Program();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Semester</b></em>' operation.
+		 * The meta object literal for the '<em><b>Non Specialized Program</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROGRAM_YEAR___ADD_SEMESTER = eINSTANCE.getProgramYear__AddSemester();
+		EReference PROGRAM_YEAR__NON_SPECIALIZED_PROGRAM = eINSTANCE.getProgramYear_NonSpecializedProgram();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Specialization</b></em>' operation.
+		 * The meta object literal for the '{@link course.impl.NonSpecializedProgramImpl <em>Non Specialized Program</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.impl.NonSpecializedProgramImpl
+		 * @see course.impl.CoursePackageImpl#getNonSpecializedProgram()
+		 * @generated
+		 */
+		EClass NON_SPECIALIZED_PROGRAM = eINSTANCE.getNonSpecializedProgram();
+
+		/**
+		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROGRAM_YEAR___ADD_SPECIALIZATION = eINSTANCE.getProgramYear__AddSpecialization();
+		EReference NON_SPECIALIZED_PROGRAM__SEMESTERS = eINSTANCE.getNonSpecializedProgram_Semesters();
+
+		/**
+		 * The meta object literal for the '<em><b>Program Year</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NON_SPECIALIZED_PROGRAM__PROGRAM_YEAR = eINSTANCE.getNonSpecializedProgram_ProgramYear();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NON_SPECIALIZED_PROGRAM__NAME = eINSTANCE.getNonSpecializedProgram_Name();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.CourseImpl <em>Course</em>}' class.
@@ -1432,6 +1549,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COURSE__DESCRIPTION = eINSTANCE.getCourse_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Taught In Semester</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COURSE__TAUGHT_IN_SEMESTER = eINSTANCE.getCourse_TaughtInSemester();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.StudentImpl <em>Student</em>}' class.
@@ -1486,20 +1611,20 @@ public interface CoursePackage extends EPackage {
 		EReference STUDY_PLAN__SEMESTERS = eINSTANCE.getStudyPlan_Semesters();
 
 		/**
-		 * The meta object literal for the '<em><b>Starting Year</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDY_PLAN__STARTING_YEAR = eINSTANCE.getStudyPlan_StartingYear();
-
-		/**
 		 * The meta object literal for the '<em><b>Specialization</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference STUDY_PLAN__SPECIALIZATION = eINSTANCE.getStudyPlan_Specialization();
+
+		/**
+		 * The meta object literal for the '<em><b>Non Specialized Program</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDY_PLAN__NON_SPECIALIZED_PROGRAM = eINSTANCE.getStudyPlan_NonSpecializedProgram();
 
 		/**
 		 * The meta object literal for the '<em><b>Student</b></em>' reference feature.
@@ -1602,6 +1727,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference STUDY_PLAN_SEMESTER__STUDY_PLAN = eINSTANCE.getStudyPlanSemester_StudyPlan();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Course To Semester</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER = eINSTANCE.getStudyPlanSemester__AddCourseToSemester();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.

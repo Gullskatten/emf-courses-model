@@ -6,6 +6,7 @@ import course.Course;
 import course.CourseLevel;
 import course.CoursePackage;
 
+import course.SemesterType;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link course.impl.CourseImpl#getCredits <em>Credits</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link course.impl.CourseImpl#getTaughtInSemester <em>Taught In Semester</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +111,16 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTaughtInSemester() <em>Taught In Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaughtInSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemesterType taughtInSemester;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,6 +239,29 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
+	public SemesterType getTaughtInSemester() {
+		return taughtInSemester;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTaughtInSemester(SemesterType newTaughtInSemester) {
+		SemesterType oldTaughtInSemester = taughtInSemester;
+		taughtInSemester = newTaughtInSemester == null ? null : newTaughtInSemester;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__TAUGHT_IN_SEMESTER, oldTaughtInSemester, taughtInSemester));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CoursePackage.COURSE__NAME:
@@ -237,6 +272,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getLevel();
 			case CoursePackage.COURSE__DESCRIPTION:
 				return getDescription();
+			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
+				return getTaughtInSemester();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,7 +281,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
@@ -260,6 +297,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return;
 			case CoursePackage.COURSE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
+				setTaughtInSemester((SemesterType) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -285,6 +325,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
+				setTaughtInSemester((SemesterType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,6 +348,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return level != LEVEL_EDEFAULT;
 			case CoursePackage.COURSE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
+				return taughtInSemester != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -327,6 +372,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		result.append(level);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", taughtInSemester: ");
+		result.append(taughtInSemester);
 		result.append(')');
 		return result.toString();
 	}

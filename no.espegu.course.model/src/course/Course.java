@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Course#getCredits <em>Credits</em>}</li>
  *   <li>{@link course.Course#getLevel <em>Level</em>}</li>
  *   <li>{@link course.Course#getDescription <em>Description</em>}</li>
+ *   <li>{@link course.Course#getTaughtInSemester <em>Taught In Semester</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getCourse()
@@ -116,5 +117,30 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Taught In Semester</b></em>' attribute.
+	 * The literals are from the enumeration {@link course.SemesterType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Taught In Semester</em>' attribute.
+	 * @see course.SemesterType
+	 * @see #setTaughtInSemester(SemesterType)
+	 * @see course.CoursePackage#getCourse_TaughtInSemester()
+	 * @model dataType="course.SemesterType"
+	 * @generated
+	 */
+	SemesterType getTaughtInSemester();
+
+	/**
+	 * Sets the value of the '{@link course.Course#getTaughtInSemester <em>Taught In Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Taught In Semester</em>' attribute.
+	 * @see course.SemesterType
+	 * @see #getTaughtInSemester()
+	 * @generated
+	 */
+	void setTaughtInSemester(SemesterType value);
 
 } // Course

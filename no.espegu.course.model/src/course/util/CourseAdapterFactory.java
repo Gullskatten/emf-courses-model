@@ -108,6 +108,10 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createProgramYearAdapter();
 			}
 			@Override
+			public Adapter caseNonSpecializedProgram(NonSpecializedProgram object) {
+				return createNonSpecializedProgramAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -166,6 +170,20 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramYearAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link course.NonSpecializedProgram <em>Non Specialized Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see course.NonSpecializedProgram
+	 * @generated
+	 */
+	public Adapter createNonSpecializedProgramAdapter() {
 		return null;
 	}
 

@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlanSemester()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtInSemester'"
  * @generated
  */
 public interface StudyPlanSemester extends Semester {
@@ -80,5 +80,13 @@ public interface StudyPlanSemester extends Semester {
 	 * @generated
 	 */
 	void setStudyPlan(StudyPlan value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Course addCourseToSemester();
 
 } // StudyPlanSemester
