@@ -74,13 +74,12 @@ public interface Semester extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Teached In Semester</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Teached In Semester</em>' attribute.
 	 * @see #isSetTeachedInSemester()
 	 * @see course.CoursePackage#getSemester_TeachedInSemester()
-	 * @model default="" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getTeachedInSemester();

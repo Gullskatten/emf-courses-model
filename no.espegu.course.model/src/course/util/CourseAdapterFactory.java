@@ -76,10 +76,6 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createProgramAdapter();
 			}
 			@Override
-			public Adapter caseProgramYear(ProgramYear object) {
-				return createProgramYearAdapter();
-			}
-			@Override
 			public Adapter caseCourse(Course object) {
 				return createCourseAdapter();
 			}
@@ -104,8 +100,12 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createStudyPlanSemesterAdapter();
 			}
 			@Override
-			public Adapter caseSpecializationSemester(SpecializationSemester object) {
-				return createSpecializationSemesterAdapter();
+			public Adapter caseProgramSemester(ProgramSemester object) {
+				return createProgramSemesterAdapter();
+			}
+			@Override
+			public Adapter caseProgramYear(ProgramYear object) {
+				return createProgramYearAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -254,16 +254,16 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link course.SpecializationSemester <em>Specialization Semester</em>}'.
+	 * Creates a new adapter for an object of class '{@link course.ProgramSemester <em>Program Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see course.SpecializationSemester
+	 * @see course.ProgramSemester
 	 * @generated
 	 */
-	public Adapter createSpecializationSemesterAdapter() {
+	public Adapter createProgramSemesterAdapter() {
 		return null;
 	}
 

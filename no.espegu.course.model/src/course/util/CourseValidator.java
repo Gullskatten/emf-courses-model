@@ -23,17 +23,15 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
  */
 public class CourseValidator extends EObjectValidator {
 	/**
-	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached model package
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final CourseValidator INSTANCE = new CourseValidator();
 
 	/**
-	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource()
-	 * source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode()
-	 * codes} from this package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
 	 * @generated
@@ -50,10 +48,9 @@ public class CourseValidator extends EObjectValidator {
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
 
 	/**
-	 * A constant with a fixed name that can be used as the base value for
-	 * additional hand written constants in a derived class. <!-- begin-user-doc -->
+	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
@@ -69,14 +66,14 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the package of this validator switch. <!-- begin-user-doc --> <!--
+	 * Returns the package of this validator switch.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	protected EPackage getEPackage() {
-		return CoursePackage.eINSTANCE;
+	  return CoursePackage.eINSTANCE;
 	}
 
 	/**
@@ -107,8 +104,8 @@ public class CourseValidator extends EObjectValidator {
 			return validateSemester((Semester) value, diagnostics, context);
 		case CoursePackage.STUDY_PLAN_SEMESTER:
 			return validateStudyPlanSemester((StudyPlanSemester) value, diagnostics, context);
-		case CoursePackage.SPECIALIZATION_SEMESTER:
-			return validateSpecializationSemester((SpecializationSemester) value, diagnostics, context);
+		case CoursePackage.PROGRAM_SEMESTER:
+			return validateProgramSemester((ProgramSemester) value, diagnostics, context);
 		case CoursePackage.SEMESTER_TYPE:
 			return validateSemesterType((SemesterType) value, diagnostics, context);
 		case CoursePackage.COURSE_LEVEL:
@@ -122,7 +119,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSchool(School school, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -131,7 +127,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateProgram(Program program, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -140,17 +135,53 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateProgramYear(ProgramYear programYear, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(programYear, diagnostics, context);
+		if (!validate_NoCircularContainment(programYear, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(programYear, diagnostics, context);
+		if (result || diagnostics != null) result &= validateProgramYear_hasEitherSpecializationOrSemester(programYear, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the hasEitherSpecializationOrSemester constraint of '<em>Program Year</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProgramYear_hasEitherSpecializationOrSemester(ProgramYear programYear, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasEitherSpecializationOrSemester", getObjectLabel(programYear, context) },
+						 new Object[] { programYear },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCourse(Course course, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -159,7 +190,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateStudent(Student student, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -168,30 +198,48 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateStudyPlan(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(studyPlan, diagnostics, context))
-			return false;
+		if (!validate_NoCircularContainment(studyPlan, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryDataValueConforms(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryReferenceIsContained(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryBidirectionalReferenceIsPaired(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryProxyResolves(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_UniqueID(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryKeyUnique(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryMapEntryUnique(studyPlan, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validateStudyPlan_hasRequiredCreditsForSpecialization(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStudyPlan_hasRequiredCreditsForProgram(studyPlan, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the hasRequiredCreditsForProgram constraint of '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasRequiredCreditsForProgram", getObjectLabel(studyPlan, context) },
+						 new Object[] { studyPlan },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -210,7 +258,7 @@ public class CourseValidator extends EObjectValidator {
 			return true;
 		}
 
-		int requiredCredits = studyPlan.getSpecialization().getStartingYear().getProgram().getRequiredCredits();
+		int requiredCredits = studyPlan.getSpecialization().getProgramYear().getProgram().getRequiredCredits();
 
 		int totalCredits = 0;
 
@@ -243,7 +291,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSpecialization(Specialization specialization, DiagnosticChain diagnostics,
@@ -253,7 +300,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateSemester(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -262,7 +308,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateStudyPlanSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics,
@@ -271,27 +316,24 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSpecializationSemester(SpecializationSemester specializationSemester,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(specializationSemester, diagnostics, context);
+	public boolean validateProgramSemester(ProgramSemester programSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(programSemester, diagnostics, context);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public boolean validateSemesterType(SemesterType value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateSemesterType(SemesterType semesterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateCourseLevel(CourseLevel courseLevel, DiagnosticChain diagnostics,
@@ -301,7 +343,6 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean validateYear(Integer year, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -309,16 +350,14 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the resource locator that will be used to fetch messages for this
-	 * validator's diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
 		// TODO
-		// Specialize this to return a resource locator for messages specific to this
-		// validator.
+		// Specialize this to return a resource locator for messages specific to this validator.
 		// Ensure that you remove @generated or mark it @generated NOT
 		return super.getResourceLocator();
 	}

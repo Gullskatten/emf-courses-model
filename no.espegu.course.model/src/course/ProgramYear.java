@@ -15,37 +15,51 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link course.ProgramYear#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link course.ProgramYear#getYear <em>Year</em>}</li>
+ *   <li>{@link course.ProgramYear#getSpecializations <em>Specializations</em>}</li>
+ *   <li>{@link course.ProgramYear#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.ProgramYear#getProgram <em>Program</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getProgramYear()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasEitherSpecializationOrSemester'"
  * @generated
  */
 public interface ProgramYear extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.
 	 * The list contents are of type {@link course.Specialization}.
+	 * It is bidirectional and its opposite is '{@link course.Specialization#getProgramYear <em>Program Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specializations</em>' containment reference list.
 	 * @see course.CoursePackage#getProgramYear_Specializations()
-	 * @model containment="true"
+	 * @see course.Specialization#getProgramYear
+	 * @model opposite="programYear" containment="true"
 	 * @generated
 	 */
 	EList<Specialization> getSpecializations();
 
 	/**
+	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
+	 * The list contents are of type {@link course.ProgramSemester}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Semesters</em>' containment reference list.
+	 * @see course.CoursePackage#getProgramYear_Semesters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ProgramSemester> getSemesters();
+
+	/**
 	 * Returns the value of the '<em><b>Year</b></em>' attribute.
-	 * The default value is <code>"2020"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Year</em>' attribute.
 	 * @see #setYear(Integer)
 	 * @see course.CoursePackage#getProgramYear_Year()
-	 * @model default="2020" dataType="course.Year"
+	 * @model dataType="course.Year"
 	 * @generated
 	 */
 	Integer getYear();
@@ -83,5 +97,21 @@ public interface ProgramYear extends EObject {
 	 * @generated
 	 */
 	void setProgram(Program value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ProgramSemester addSemester();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Specialization addSpecialization();
 
 } // ProgramYear

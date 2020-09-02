@@ -3,10 +3,9 @@
 package course.impl;
 
 import course.CoursePackage;
+import course.ProgramSemester;
 import course.ProgramYear;
 import course.Specialization;
-import course.SpecializationSemester;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link course.impl.SpecializationImpl#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link course.impl.SpecializationImpl#getStartingYear <em>Starting Year</em>}</li>
+ *   <li>{@link course.impl.SpecializationImpl#getProgramYear <em>Program Year</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,17 +46,7 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecializationSemester> semesters;
-
-	/**
-	 * The cached value of the '{@link #getStartingYear() <em>Starting Year</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStartingYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProgramYear startingYear;
+	protected EList<ProgramSemester> semesters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,9 +73,9 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public EList<SpecializationSemester> getSemesters() {
+	public EList<ProgramSemester> getSemesters() {
 		if (semesters == null) {
-			semesters = new EObjectContainmentEList<SpecializationSemester>(SpecializationSemester.class, this, CoursePackage.SPECIALIZATION__SEMESTERS);
+			semesters = new EObjectContainmentEList<ProgramSemester>(ProgramSemester.class, this, CoursePackage.SPECIALIZATION__SEMESTERS);
 		}
 		return semesters;
 	}
@@ -96,16 +86,9 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public ProgramYear getStartingYear() {
-		if (startingYear != null && startingYear.eIsProxy()) {
-			InternalEObject oldStartingYear = (InternalEObject)startingYear;
-			startingYear = (ProgramYear)eResolveProxy(oldStartingYear);
-			if (startingYear != oldStartingYear) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.SPECIALIZATION__STARTING_YEAR, oldStartingYear, startingYear));
-			}
-		}
-		return startingYear;
+	public ProgramYear getProgramYear() {
+		if (eContainerFeatureID() != CoursePackage.SPECIALIZATION__PROGRAM_YEAR) return null;
+		return (ProgramYear)eInternalContainer();
 	}
 
 	/**
@@ -113,8 +96,9 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProgramYear basicGetStartingYear() {
-		return startingYear;
+	public NotificationChain basicSetProgramYear(ProgramYear newProgramYear, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProgramYear, CoursePackage.SPECIALIZATION__PROGRAM_YEAR, msgs);
+		return msgs;
 	}
 
 	/**
@@ -123,11 +107,36 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public void setStartingYear(ProgramYear newStartingYear) {
-		ProgramYear oldStartingYear = startingYear;
-		startingYear = newStartingYear;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.SPECIALIZATION__STARTING_YEAR, oldStartingYear, startingYear));
+	public void setProgramYear(ProgramYear newProgramYear) {
+		if (newProgramYear != eInternalContainer() || (eContainerFeatureID() != CoursePackage.SPECIALIZATION__PROGRAM_YEAR && newProgramYear != null)) {
+			if (EcoreUtil.isAncestor(this, newProgramYear))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProgramYear != null)
+				msgs = ((InternalEObject)newProgramYear).eInverseAdd(this, CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS, ProgramYear.class, msgs);
+			msgs = basicSetProgramYear(newProgramYear, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.SPECIALIZATION__PROGRAM_YEAR, newProgramYear, newProgramYear));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProgramYear((ProgramYear)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -140,8 +149,24 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case CoursePackage.SPECIALIZATION__SEMESTERS:
 				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				return basicSetProgramYear(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				return eInternalContainer().eInverseRemove(this, CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS, ProgramYear.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -154,9 +179,8 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case CoursePackage.SPECIALIZATION__SEMESTERS:
 				return getSemesters();
-			case CoursePackage.SPECIALIZATION__STARTING_YEAR:
-				if (resolve) return getStartingYear();
-				return basicGetStartingYear();
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				return getProgramYear();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,10 +196,10 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case CoursePackage.SPECIALIZATION__SEMESTERS:
 				getSemesters().clear();
-				getSemesters().addAll((Collection<? extends SpecializationSemester>)newValue);
+				getSemesters().addAll((Collection<? extends ProgramSemester>)newValue);
 				return;
-			case CoursePackage.SPECIALIZATION__STARTING_YEAR:
-				setStartingYear((ProgramYear)newValue);
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				setProgramYear((ProgramYear)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,8 +216,8 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 			case CoursePackage.SPECIALIZATION__SEMESTERS:
 				getSemesters().clear();
 				return;
-			case CoursePackage.SPECIALIZATION__STARTING_YEAR:
-				setStartingYear((ProgramYear)null);
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				setProgramYear((ProgramYear)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,8 +233,8 @@ public class SpecializationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case CoursePackage.SPECIALIZATION__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
-			case CoursePackage.SPECIALIZATION__STARTING_YEAR:
-				return startingYear != null;
+			case CoursePackage.SPECIALIZATION__PROGRAM_YEAR:
+				return getProgramYear() != null;
 		}
 		return super.eIsSet(featureID);
 	}

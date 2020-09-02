@@ -103,13 +103,13 @@ public interface CourseFactory extends EFactory {
 	StudyPlanSemester createStudyPlanSemester();
 
 	/**
-	 * Returns a new object of class '<em>Specialization Semester</em>'.
+	 * Returns a new object of class '<em>Program Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specialization Semester</em>'.
+	 * @return a new object of class '<em>Program Semester</em>'.
 	 * @generated
 	 */
-	SpecializationSemester createSpecializationSemester();
+	ProgramSemester createProgramSemester();
 
 	/**
 	 * Returns the package supported by this factory.

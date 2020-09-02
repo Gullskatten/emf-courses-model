@@ -67,7 +67,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = "";
+	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->

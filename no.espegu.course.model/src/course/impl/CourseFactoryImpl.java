@@ -59,14 +59,14 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 		switch (eClass.getClassifierID()) {
 			case CoursePackage.SCHOOL: return createSchool();
 			case CoursePackage.PROGRAM: return createProgram();
-			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
 			case CoursePackage.COURSE: return createCourse();
 			case CoursePackage.STUDENT: return createStudent();
 			case CoursePackage.STUDY_PLAN: return createStudyPlan();
 			case CoursePackage.SPECIALIZATION: return createSpecialization();
 			case CoursePackage.SEMESTER: return createSemester();
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
-			case CoursePackage.SPECIALIZATION_SEMESTER: return createSpecializationSemester();
+			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
+			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,9 +215,9 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	@Override
-	public SpecializationSemester createSpecializationSemester() {
-		SpecializationSemesterImpl specializationSemester = new SpecializationSemesterImpl();
-		return specializationSemester;
+	public ProgramSemester createProgramSemester() {
+		ProgramSemesterImpl programSemester = new ProgramSemesterImpl();
+		return programSemester;
 	}
 
 	/**

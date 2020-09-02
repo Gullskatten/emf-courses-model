@@ -78,12 +78,6 @@ public class CourseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoursePackage.PROGRAM_YEAR: {
-				ProgramYear programYear = (ProgramYear)theEObject;
-				T result = caseProgramYear(programYear);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CoursePackage.COURSE: {
 				Course course = (Course)theEObject;
 				T result = caseCourse(course);
@@ -121,10 +115,16 @@ public class CourseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoursePackage.SPECIALIZATION_SEMESTER: {
-				SpecializationSemester specializationSemester = (SpecializationSemester)theEObject;
-				T result = caseSpecializationSemester(specializationSemester);
-				if (result == null) result = caseSemester(specializationSemester);
+			case CoursePackage.PROGRAM_SEMESTER: {
+				ProgramSemester programSemester = (ProgramSemester)theEObject;
+				T result = caseProgramSemester(programSemester);
+				if (result == null) result = caseSemester(programSemester);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoursePackage.PROGRAM_YEAR: {
+				ProgramYear programYear = (ProgramYear)theEObject;
+				T result = caseProgramYear(programYear);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -268,17 +268,17 @@ public class CourseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specialization Semester</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Program Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specialization Semester</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Program Semester</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpecializationSemester(SpecializationSemester object) {
+	public T caseProgramSemester(ProgramSemester object) {
 		return null;
 	}
 

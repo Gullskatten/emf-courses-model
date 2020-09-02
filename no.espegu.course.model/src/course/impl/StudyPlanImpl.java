@@ -3,6 +3,7 @@
 package course.impl;
 
 import course.CoursePackage;
+import course.ProgramYear;
 import course.Specialization;
 import course.Student;
 import course.StudyPlan;
@@ -32,8 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link course.impl.StudyPlanImpl#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link course.impl.StudyPlanImpl#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link course.impl.StudyPlanImpl#getStartingYear <em>Starting Year</em>}</li>
  *   <li>{@link course.impl.StudyPlanImpl#getStudent <em>Student</em>}</li>
+ *   <li>{@link course.impl.StudyPlanImpl#getSpecialization <em>Specialization</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +52,14 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	protected EList<StudyPlanSemester> semesters;
 
 	/**
-	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' reference.
+	 * The cached value of the '{@link #getStartingYear() <em>Starting Year</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecialization()
+	 * @see #getStartingYear()
 	 * @generated
 	 * @ordered
 	 */
-	protected Specialization specialization;
+	protected ProgramYear startingYear;
 
 	/**
 	 * The cached value of the '{@link #getStudent() <em>Student</em>}' reference.
@@ -68,6 +70,16 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * @ordered
 	 */
 	protected Student student;
+
+	/**
+	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected Specialization specialization;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,6 +111,46 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			semesters = new EObjectContainmentWithInverseEList<StudyPlanSemester>(StudyPlanSemester.class, this, CoursePackage.STUDY_PLAN__SEMESTERS, CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN);
 		}
 		return semesters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProgramYear getStartingYear() {
+		if (startingYear != null && startingYear.eIsProxy()) {
+			InternalEObject oldStartingYear = (InternalEObject)startingYear;
+			startingYear = (ProgramYear)eResolveProxy(oldStartingYear);
+			if (startingYear != oldStartingYear) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__STARTING_YEAR, oldStartingYear, startingYear));
+			}
+		}
+		return startingYear;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProgramYear basicGetStartingYear() {
+		return startingYear;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStartingYear(ProgramYear newStartingYear) {
+		ProgramYear oldStartingYear = startingYear;
+		startingYear = newStartingYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__STARTING_YEAR, oldStartingYear, startingYear));
 	}
 
 	/**
@@ -248,12 +300,15 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 		switch (featureID) {
 			case CoursePackage.STUDY_PLAN__SEMESTERS:
 				return getSemesters();
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				if (resolve) return getSpecialization();
-				return basicGetSpecialization();
+			case CoursePackage.STUDY_PLAN__STARTING_YEAR:
+				if (resolve) return getStartingYear();
+				return basicGetStartingYear();
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				if (resolve) return getStudent();
 				return basicGetStudent();
+			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
+				if (resolve) return getSpecialization();
+				return basicGetSpecialization();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,11 +326,14 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 				getSemesters().clear();
 				getSemesters().addAll((Collection<? extends StudyPlanSemester>)newValue);
 				return;
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)newValue);
+			case CoursePackage.STUDY_PLAN__STARTING_YEAR:
+				setStartingYear((ProgramYear)newValue);
 				return;
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)newValue);
+				return;
+			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
+				setSpecialization((Specialization)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,11 +350,14 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__SEMESTERS:
 				getSemesters().clear();
 				return;
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)null);
+			case CoursePackage.STUDY_PLAN__STARTING_YEAR:
+				setStartingYear((ProgramYear)null);
 				return;
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)null);
+				return;
+			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
+				setSpecialization((Specialization)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -312,10 +373,12 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 		switch (featureID) {
 			case CoursePackage.STUDY_PLAN__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				return specialization != null;
+			case CoursePackage.STUDY_PLAN__STARTING_YEAR:
+				return startingYear != null;
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				return student != null;
+			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
+				return specialization != null;
 		}
 		return super.eIsSet(featureID);
 	}

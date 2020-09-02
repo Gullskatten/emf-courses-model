@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link course.StudyPlan#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link course.StudyPlan#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link course.StudyPlan#getStartingYear <em>Starting Year</em>}</li>
  *   <li>{@link course.StudyPlan#getStudent <em>Student</em>}</li>
+ *   <li>{@link course.StudyPlan#getSpecialization <em>Specialization</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlan()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForSpecialization'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForProgram'"
  * @generated
  */
 public interface StudyPlan extends EObject {
@@ -38,6 +39,28 @@ public interface StudyPlan extends EObject {
 	 * @generated
 	 */
 	EList<StudyPlanSemester> getSemesters();
+
+	/**
+	 * Returns the value of the '<em><b>Starting Year</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Starting Year</em>' reference.
+	 * @see #setStartingYear(ProgramYear)
+	 * @see course.CoursePackage#getStudyPlan_StartingYear()
+	 * @model
+	 * @generated
+	 */
+	ProgramYear getStartingYear();
+
+	/**
+	 * Sets the value of the '{@link course.StudyPlan#getStartingYear <em>Starting Year</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Starting Year</em>' reference.
+	 * @see #getStartingYear()
+	 * @generated
+	 */
+	void setStartingYear(ProgramYear value);
 
 	/**
 	 * Returns the value of the '<em><b>Specialization</b></em>' reference.
