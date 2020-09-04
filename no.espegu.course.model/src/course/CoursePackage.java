@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see course.CourseFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegates='http://www.eclipse.org/acceleo/query/1.0'"
  * @generated
  */
 public interface CoursePackage extends EPackage {
@@ -561,7 +562,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER = SEMESTER_OPERATION_COUNT + 0;
+	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = SEMESTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Study Plan Semester</em>' class.
@@ -779,7 +780,7 @@ public interface CoursePackage extends EPackage {
 	 * The meta object id for the '<em>Year</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Integer
+	 * @see java.lang.String
 	 * @see course.impl.CoursePackageImpl#getYear()
 	 * @generated
 	 */
@@ -1261,14 +1262,14 @@ public interface CoursePackage extends EPackage {
 	EReference getStudyPlanSemester_StudyPlan();
 
 	/**
-	 * Returns the meta object for the '{@link course.StudyPlanSemester#addCourseToSemester() <em>Add Course To Semester</em>}' operation.
+	 * Returns the meta object for the '{@link course.StudyPlanSemester#addCourseToSemester(course.Course) <em>Add Course To Semester</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Course To Semester</em>' operation.
-	 * @see course.StudyPlanSemester#addCourseToSemester()
+	 * @see course.StudyPlanSemester#addCourseToSemester(course.Course)
 	 * @generated
 	 */
-	EOperation getStudyPlanSemester__AddCourseToSemester();
+	EOperation getStudyPlanSemester__AddCourseToSemester__Course();
 
 	/**
 	 * Returns the meta object for class '{@link course.ProgramSemester <em>Program Semester</em>}'.
@@ -1323,12 +1324,14 @@ public interface CoursePackage extends EPackage {
 	EEnum getCourseLevel();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Integer <em>Year</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.String <em>Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Year</em>'.
-	 * @see java.lang.Integer
-	 * @model instanceClass="java.lang.Integer"
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
+	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 hasCorrectYearLength='aql:self.length() = 4'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasCorrectYearLength'"
 	 * @generated
 	 */
 	EDataType getYear();
@@ -1734,7 +1737,7 @@ public interface CoursePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER = eINSTANCE.getStudyPlanSemester__AddCourseToSemester();
+		EOperation STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = eINSTANCE.getStudyPlanSemester__AddCourseToSemester__Course();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.
@@ -1786,7 +1789,7 @@ public interface CoursePackage extends EPackage {
 		 * The meta object literal for the '<em>Year</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Integer
+		 * @see java.lang.String
 		 * @see course.impl.CoursePackageImpl#getYear()
 		 * @generated
 		 */

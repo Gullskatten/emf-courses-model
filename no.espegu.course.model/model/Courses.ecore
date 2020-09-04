@@ -2,6 +2,9 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="course" nsURI="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
     nsPrefix="no.espegu">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="School">
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"
         eType="#//Program" containment="true" eOpposite="#//Program/school"/>
@@ -61,7 +64,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlanSemester" eSuperTypes="#//Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isAllCoursesTaughtInSemester"/>
+      <details key="constraints" value="isAllCoursesTaughtThisSemester"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
+      <details key="isAllCoursesTaughtThisSemester" value="aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester = self.semesterType)"/>
     </eAnnotations>
     <eOperations name="addCourseToSemester" eType="#//StudyPlanSemester">
       <eParameters name="course" eType="#//Course"/>
@@ -88,7 +94,14 @@
     <eLiterals name="THIRD_DEGREE" value="3" literal="Third Degree Subject"/>
     <eLiterals name="HIGHER_DEGREE" value="4" literal="Higher Degree Subject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Year" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Year" instanceClassName="java.lang.String">
+    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
+      <details key="hasCorrectYearLength" value="aql:self.length() = 4"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="hasCorrectYearLength"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramYear">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"

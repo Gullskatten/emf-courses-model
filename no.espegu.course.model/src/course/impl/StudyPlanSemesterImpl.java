@@ -174,7 +174,7 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @generated
 	 */
 	@Override
-	public Course addCourseToSemester() {
+	public StudyPlanSemester addCourseToSemester(Course course) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -314,8 +314,8 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case CoursePackage.STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER:
-				return addCourseToSemester();
+			case CoursePackage.STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE:
+				return addCourseToSemester((Course)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

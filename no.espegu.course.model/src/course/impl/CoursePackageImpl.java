@@ -652,7 +652,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getStudyPlanSemester__AddCourseToSemester() {
+	public EOperation getStudyPlanSemester__AddCourseToSemester__Course() {
 		return studyPlanSemesterEClass.getEOperations().get(0);
 	}
 
@@ -787,7 +787,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		createEReference(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__SELECTED_COURSES);
 		createEAttribute(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__TOTAL_CREDITS);
 		createEReference(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER__STUDY_PLAN);
-		createEOperation(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER);
+		createEOperation(studyPlanSemesterEClass, STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE);
 
 		programSemesterEClass = createEClass(PROGRAM_SEMESTER);
 		createEReference(programSemesterEClass, PROGRAM_SEMESTER__MANDATORY_COURSES);
@@ -887,14 +887,15 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		initEAttribute(getStudyPlanSemester_TotalCredits(), ecorePackage.getEInt(), "totalCredits", null, 0, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlanSemester_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Semesters(), "studyPlan", null, 0, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getStudyPlanSemester__AddCourseToSemester(), this.getCourse(), "addCourseToSemester", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getStudyPlanSemester__AddCourseToSemester__Course(), this.getStudyPlanSemester(), "addCourseToSemester", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCourse(), "course", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(programSemesterEClass, ProgramSemester.class, "ProgramSemester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProgramSemester_MandatoryCourses(), this.getCourse(), null, "mandatoryCourses", null, 0, -1, ProgramSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramSemester_OptionalCourses(), this.getCourse(), null, "optionalCourses", null, 0, -1, ProgramSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(programYearEClass, ProgramYear.class, "ProgramYear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProgramYear_Year(), this.getYear(), "year", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgramYear_Year(), this.getYear(), "year", "2020", 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramYear_Specializations(), this.getSpecialization(), this.getSpecialization_ProgramYear(), "specializations", null, 0, -1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramYear_Program(), this.getProgram(), this.getProgram_ProgramYears(), "program", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramYear_NonSpecializedProgram(), this.getNonSpecializedProgram(), this.getNonSpecializedProgram_ProgramYear(), "nonSpecializedProgram", null, 0, 1, ProgramYear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -916,7 +917,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		addEEnumLiteral(courseLevelEEnum, CourseLevel.HIGHER_DEGREE);
 
 		// Initialize data types
-		initEDataType(yearEDataType, Integer.class, "Year", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(yearEDataType, String.class, "Year", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -924,6 +925,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http://www.eclipse.org/acceleo/query/1.0
+		create_1Annotations();
 	}
 
 	/**
@@ -935,6 +938,12 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
+		   });
+		addAnnotation
 		  (studyPlanEClass,
 		   source,
 		   new String[] {
@@ -944,7 +953,35 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		  (studyPlanSemesterEClass,
 		   source,
 		   new String[] {
-			   "constraints", "isAllCoursesTaughtInSemester"
+			   "constraints", "isAllCoursesTaughtThisSemester"
+		   });
+		addAnnotation
+		  (yearEDataType,
+		   source,
+		   new String[] {
+			   "constraints", "hasCorrectYearLength"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/acceleo/query/1.0</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void create_1Annotations() {
+		String source = "http://www.eclipse.org/acceleo/query/1.0";
+		addAnnotation
+		  (studyPlanSemesterEClass,
+		   source,
+		   new String[] {
+			   "isAllCoursesTaughtThisSemester", "aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester = self.semesterType)"
+		   });
+		addAnnotation
+		  (yearEDataType,
+		   source,
+		   new String[] {
+			   "hasCorrectYearLength", "aql:self.length() = 4"
 		   });
 	}
 

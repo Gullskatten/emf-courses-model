@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlanSemester()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtInSemester'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtThisSemester'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 isAllCoursesTaughtThisSemester='aql:self.selectedCourses -&gt; collect(selectedCourse | selectedCourse.taughtInSemester) -&gt; forAll(semester | semester = self.semesterType)'"
  * @generated
  */
 public interface StudyPlanSemester extends Semester {
@@ -87,6 +88,6 @@ public interface StudyPlanSemester extends Semester {
 	 * @model
 	 * @generated
 	 */
-	Course addCourseToSemester();
+	StudyPlanSemester addCourseToSemester(Course course);
 
 } // StudyPlanSemester

@@ -37,7 +37,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer YEAR_EDEFAULT = new Integer(2020);
+	protected static final String YEAR_EDEFAULT = "2020";
 
 	/**
 	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
@@ -47,7 +47,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer year = YEAR_EDEFAULT;
+	protected String year = YEAR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSemesterType() <em>Semester Type</em>}' attribute.
@@ -94,7 +94,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public Integer getYear() {
+	public String getYear() {
 		return year;
 	}
 
@@ -104,8 +104,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public void setYear(Integer newYear) {
-		Integer oldYear = year;
+	public void setYear(String newYear) {
+		String oldYear = year;
 		year = newYear;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.SEMESTER__YEAR, oldYear, year));
@@ -193,7 +193,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				setSemesterType((SemesterType) newValue);
 				return;
 			case CoursePackage.SEMESTER__YEAR:
-				setYear((Integer) newValue);
+				setYear((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

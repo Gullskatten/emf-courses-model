@@ -59,7 +59,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Courses.ecore#//StudyPlanSemester/selectedCourses"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Courses.ecore#//StudyPlanSemester/totalCredits"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Courses.ecore#//StudyPlanSemester/studyPlan"/>
-      <genOperations ecoreOperation="Courses.ecore#//StudyPlanSemester/addCourseToSemester"/>
+      <genOperations ecoreOperation="Courses.ecore#//StudyPlanSemester/addCourseToSemester">
+        <genParameters ecoreParameter="Courses.ecore#//StudyPlanSemester/addCourseToSemester/course"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="Courses.ecore#//ProgramSemester">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Courses.ecore#//ProgramSemester/mandatoryCourses"/>

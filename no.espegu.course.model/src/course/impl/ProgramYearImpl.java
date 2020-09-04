@@ -48,7 +48,7 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer YEAR_EDEFAULT = null;
+	protected static final String YEAR_EDEFAULT = "2020";
 
 	/**
 	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
@@ -58,7 +58,7 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer year = YEAR_EDEFAULT;
+	protected String year = YEAR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSpecializations() <em>Specializations</em>}' containment reference list.
@@ -118,7 +118,7 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 */
 	@Override
-	public Integer getYear() {
+	public String getYear() {
 		return year;
 	}
 
@@ -128,8 +128,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 */
 	@Override
-	public void setYear(Integer newYear) {
-		Integer oldYear = year;
+	public void setYear(String newYear) {
+		String oldYear = year;
 		year = newYear;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM_YEAR__YEAR, oldYear, year));
@@ -326,7 +326,7 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CoursePackage.PROGRAM_YEAR__YEAR:
-				setYear((Integer)newValue);
+				setYear((String)newValue);
 				return;
 			case CoursePackage.PROGRAM_YEAR__SPECIALIZATIONS:
 				getSpecializations().clear();

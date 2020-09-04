@@ -42,15 +42,16 @@ public interface ProgramYear extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Year</b></em>' attribute.
+	 * The default value is <code>"2020"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(Integer)
+	 * @see #setYear(String)
 	 * @see course.CoursePackage#getProgramYear_Year()
-	 * @model dataType="course.Year"
+	 * @model default="2020" dataType="course.Year"
 	 * @generated
 	 */
-	Integer getYear();
+	String getYear();
 
 	/**
 	 * Sets the value of the '{@link course.ProgramYear#getYear <em>Year</em>}' attribute.
@@ -60,7 +61,7 @@ public interface ProgramYear extends EObject {
 	 * @see #getYear()
 	 * @generated
 	 */
-	void setYear(Integer value);
+	void setYear(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Program</b></em>' container reference.

@@ -111,7 +111,7 @@ public class CourseValidator extends EObjectValidator {
 		case CoursePackage.COURSE_LEVEL:
 			return validateCourseLevel((CourseLevel) value, diagnostics, context);
 		case CoursePackage.YEAR:
-			return validateYear((Integer) value, diagnostics, context);
+			return validateYear((String) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -143,11 +143,11 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNonSpecializedProgram(NonSpecializedProgram nonSpecializedProgram, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateNonSpecializedProgram(NonSpecializedProgram nonSpecializedProgram,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(nonSpecializedProgram, diagnostics, context);
 	}
 
@@ -187,11 +187,11 @@ public class CourseValidator extends EObjectValidator {
 
 	/**
 	 * Validates the hasRequiredCreditsForProgram constraint of '<em>Study Plan</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
@@ -207,53 +207,6 @@ public class CourseValidator extends EObjectValidator {
 						 new Object[] { "hasRequiredCreditsForProgram", getObjectLabel(studyPlan, context) },
 						 new Object[] { studyPlan },
 						 context));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Validates the hasRequiredCreditsForSpecialization constraint of '<em>Study
-	 * Plan</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean validateStudyPlan_hasRequiredCreditsForSpecialization(StudyPlan studyPlan,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-
-		// If a student has not specified a specialization,
-		// e.g. the student is taking "single courses" (enkeltemner),
-		// then specialization should not be validated.
-		if (studyPlan.getSpecialization() == null) {
-			return true;
-		}
-
-		int requiredCredits = studyPlan.getSpecialization().getProgramYear().getProgram().getRequiredCredits();
-
-		int totalCredits = 0;
-
-		for (StudyPlanSemester semester : studyPlan.getSemesters()) {
-			totalCredits += semester.getTotalCredits();
-		}
-
-		if (requiredCredits < totalCredits) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] { "hasRequiredCreditsForSpecialization", getObjectLabel(studyPlan, context) },
-						new Object[] { studyPlan }, context));
-			}
-			return false;
-		}
-		
-		// 
-		if (requiredCredits > totalCredits) {
-			if (diagnostics != null) {
-				diagnostics.add(createDiagnostic(Diagnostic.WARNING, DIAGNOSTIC_SOURCE, 0,
-						"_UI_GenericConstraint_diagnostic",
-						new Object[] { "hasRequiredCreditsForSpecialization", getObjectLabel(studyPlan, context) },
-						new Object[] { studyPlan }, context));
 			}
 			return false;
 		}
@@ -292,44 +245,74 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(studyPlanSemester, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlanSemester, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlanSemester, diagnostics, context);
-		if (result || diagnostics != null) result &= validateStudyPlanSemester_isAllCoursesTaughtInSemester(studyPlanSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStudyPlanSemester_isAllCoursesTaughtThisSemester(studyPlanSemester, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the isAllCoursesTaughtInSemester constraint of '<em>Study Plan Semester</em>'.
+	 * The cached validation expression for the isAllCoursesTaughtThisSemester constraint of '<em>Study Plan Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStudyPlanSemester_isAllCoursesTaughtInSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "isAllCoursesTaughtInSemester", getObjectLabel(studyPlanSemester, context) },
-						 new Object[] { studyPlanSemester },
-						 context));
+	protected static final String STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION = "aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester = self.semesterType)";
+
+	/**
+	 * Validates the isAllCoursesTaughtThisSemester constraint of '<em>Study Plan Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStudyPlanSemester_isAllCoursesTaughtThisSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CoursePackage.Literals.STUDY_PLAN_SEMESTER,
+				 studyPlanSemester,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "isAllCoursesTaughtThisSemester",
+				 STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * Validates the isAllCoursesTaughtInSemester constraint of '<em>Study Plan
+	 * Semester</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean validateStudyPlanSemester_isAllCoursesTaughtInSemester(StudyPlanSemester studyPlanSemester,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {		
+		
+		SemesterType currentTeachingSemester = studyPlanSemester.getSemesterType();
+		
+		// Validate that each course is taught in the current semester
+		for(Course selectedCourse : studyPlanSemester.getSelectedCourses()) {
+			if(currentTeachingSemester != selectedCourse.getTaughtInSemester()) {
+				if (diagnostics != null) {
+					diagnostics.add(createDiagnostic(
+							Diagnostic.ERROR, 
+							DIAGNOSTIC_SOURCE, 
+							0,
+							"_UI_GenericConstraint_diagnostic",
+							new Object[] { "isAllCoursesTaughtInSemester", getObjectLabel(studyPlanSemester, context) },
+							new Object[] { studyPlanSemester }, context));
+				}
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProgramSemester(ProgramSemester programSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateProgramSemester(ProgramSemester programSemester, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(programSemester, diagnostics, context);
 	}
 
@@ -337,7 +320,8 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSemesterType(SemesterType semesterType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateSemesterType(SemesterType semesterType, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		return true;
 	}
 
@@ -351,11 +335,42 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateYear(Integer year, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
+	public boolean validateYear(String year, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validateYear_hasCorrectYearLength(year, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the hasCorrectYearLength constraint of '<em>Year</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String YEAR__HAS_CORRECT_YEAR_LENGTH__EEXPRESSION = "aql:self.length() = 4";
+
+	/**
+	 * Validates the hasCorrectYearLength constraint of '<em>Year</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateYear_hasCorrectYearLength(String year, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CoursePackage.Literals.YEAR,
+				 year,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "hasCorrectYearLength",
+				 YEAR__HAS_CORRECT_YEAR_LENGTH__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

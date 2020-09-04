@@ -29,12 +29,12 @@ public interface Semester extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(Integer)
+	 * @see #setYear(String)
 	 * @see course.CoursePackage#getSemester_Year()
 	 * @model default="2020" dataType="course.Year"
 	 * @generated
 	 */
-	Integer getYear();
+	String getYear();
 
 	/**
 	 * Sets the value of the '{@link course.Semester#getYear <em>Year</em>}' attribute.
@@ -44,7 +44,7 @@ public interface Semester extends EObject {
 	 * @see #getYear()
 	 * @generated
 	 */
-	void setYear(Integer value);
+	void setYear(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Semester Type</b></em>' attribute.
