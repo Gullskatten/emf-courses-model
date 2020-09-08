@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link course.impl.CourseImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link course.impl.CourseImpl#getTaughtInSemester <em>Taught In Semester</em>}</li>
+ *   <li>{@link course.impl.CourseImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,6 +122,26 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @ordered
 	 */
 	protected SemesterType taughtInSemester;
+
+	/**
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String code = CODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,6 +283,29 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
+	public String getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCode(String newCode) {
+		String oldCode = code;
+		code = newCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__CODE, oldCode, code));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CoursePackage.COURSE__NAME:
@@ -274,6 +318,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getDescription();
 			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
 				return getTaughtInSemester();
+			case CoursePackage.COURSE__CODE:
+				return getCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +374,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
 				setTaughtInSemester((SemesterType)null);
 				return;
+			case CoursePackage.COURSE__CODE:
+				setCode(CODE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +399,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
 				return taughtInSemester != null;
+			case CoursePackage.COURSE__CODE:
+				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -374,6 +425,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		result.append(description);
 		result.append(", taughtInSemester: ");
 		result.append(taughtInSemester);
+		result.append(", code: ");
+		result.append(code);
 		result.append(')');
 		return result.toString();
 	}

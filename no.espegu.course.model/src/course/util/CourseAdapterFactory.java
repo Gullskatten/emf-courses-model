@@ -88,10 +88,6 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createStudyPlanAdapter();
 			}
 			@Override
-			public Adapter caseSpecialization(Specialization object) {
-				return createSpecializationAdapter();
-			}
-			@Override
 			public Adapter caseSemester(Semester object) {
 				return createSemesterAdapter();
 			}
@@ -108,8 +104,8 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createProgramYearAdapter();
 			}
 			@Override
-			public Adapter caseNonSpecializedProgram(NonSpecializedProgram object) {
-				return createNonSpecializedProgramAdapter();
+			public Adapter caseSelectableProgramSpecialization(SelectableProgramSpecialization object) {
+				return createSelectableProgramSpecializationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -174,16 +170,16 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link course.NonSpecializedProgram <em>Non Specialized Program</em>}'.
+	 * Creates a new adapter for an object of class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see course.NonSpecializedProgram
+	 * @see course.SelectableProgramSpecialization
 	 * @generated
 	 */
-	public Adapter createNonSpecializedProgramAdapter() {
+	public Adapter createSelectableProgramSpecializationAdapter() {
 		return null;
 	}
 
@@ -226,20 +222,6 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStudyPlanAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link course.Specialization <em>Specialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see course.Specialization
-	 * @generated
-	 */
-	public Adapter createSpecializationAdapter() {
 		return null;
 	}
 

@@ -3,8 +3,7 @@
 package course.impl;
 
 import course.CoursePackage;
-import course.NonSpecializedProgram;
-import course.Specialization;
+import course.SelectableProgramSpecialization;
 import course.Student;
 import course.StudyPlan;
 import course.StudyPlanSemester;
@@ -34,8 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link course.impl.StudyPlanImpl#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.impl.StudyPlanImpl#getStudent <em>Student</em>}</li>
- *   <li>{@link course.impl.StudyPlanImpl#getSpecialization <em>Specialization</em>}</li>
- *   <li>{@link course.impl.StudyPlanImpl#getNonSpecializedProgram <em>Non Specialized Program</em>}</li>
+ *   <li>{@link course.impl.StudyPlanImpl#getSelectedProgram <em>Selected Program</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,24 +60,14 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	protected Student student;
 
 	/**
-	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' reference.
+	 * The cached value of the '{@link #getSelectedProgram() <em>Selected Program</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecialization()
+	 * @see #getSelectedProgram()
 	 * @generated
 	 * @ordered
 	 */
-	protected Specialization specialization;
-
-	/**
-	 * The cached value of the '{@link #getNonSpecializedProgram() <em>Non Specialized Program</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNonSpecializedProgram()
-	 * @generated
-	 * @ordered
-	 */
-	protected NonSpecializedProgram nonSpecializedProgram;
+	protected SelectableProgramSpecialization selectedProgram;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,86 +99,6 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			semesters = new EObjectContainmentWithInverseEList<StudyPlanSemester>(StudyPlanSemester.class, this, CoursePackage.STUDY_PLAN__SEMESTERS, CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN);
 		}
 		return semesters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Specialization getSpecialization() {
-		if (specialization != null && specialization.eIsProxy()) {
-			InternalEObject oldSpecialization = (InternalEObject)specialization;
-			specialization = (Specialization)eResolveProxy(oldSpecialization);
-			if (specialization != oldSpecialization) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__SPECIALIZATION, oldSpecialization, specialization));
-			}
-		}
-		return specialization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Specialization basicGetSpecialization() {
-		return specialization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSpecialization(Specialization newSpecialization) {
-		Specialization oldSpecialization = specialization;
-		specialization = newSpecialization;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__SPECIALIZATION, oldSpecialization, specialization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NonSpecializedProgram getNonSpecializedProgram() {
-		if (nonSpecializedProgram != null && nonSpecializedProgram.eIsProxy()) {
-			InternalEObject oldNonSpecializedProgram = (InternalEObject)nonSpecializedProgram;
-			nonSpecializedProgram = (NonSpecializedProgram)eResolveProxy(oldNonSpecializedProgram);
-			if (nonSpecializedProgram != oldNonSpecializedProgram) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM, oldNonSpecializedProgram, nonSpecializedProgram));
-			}
-		}
-		return nonSpecializedProgram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NonSpecializedProgram basicGetNonSpecializedProgram() {
-		return nonSpecializedProgram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNonSpecializedProgram(NonSpecializedProgram newNonSpecializedProgram) {
-		NonSpecializedProgram oldNonSpecializedProgram = nonSpecializedProgram;
-		nonSpecializedProgram = newNonSpecializedProgram;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM, oldNonSpecializedProgram, nonSpecializedProgram));
 	}
 
 	/**
@@ -260,6 +168,46 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public SelectableProgramSpecialization getSelectedProgram() {
+		if (selectedProgram != null && selectedProgram.eIsProxy()) {
+			InternalEObject oldSelectedProgram = (InternalEObject)selectedProgram;
+			selectedProgram = (SelectableProgramSpecialization)eResolveProxy(oldSelectedProgram);
+			if (selectedProgram != oldSelectedProgram) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__SELECTED_PROGRAM, oldSelectedProgram, selectedProgram));
+			}
+		}
+		return selectedProgram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelectableProgramSpecialization basicGetSelectedProgram() {
+		return selectedProgram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSelectedProgram(SelectableProgramSpecialization newSelectedProgram) {
+		SelectableProgramSpecialization oldSelectedProgram = selectedProgram;
+		selectedProgram = newSelectedProgram;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__SELECTED_PROGRAM, oldSelectedProgram, selectedProgram));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -303,12 +251,9 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				if (resolve) return getStudent();
 				return basicGetStudent();
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				if (resolve) return getSpecialization();
-				return basicGetSpecialization();
-			case CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM:
-				if (resolve) return getNonSpecializedProgram();
-				return basicGetNonSpecializedProgram();
+			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
+				if (resolve) return getSelectedProgram();
+				return basicGetSelectedProgram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,11 +274,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)newValue);
 				return;
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)newValue);
-				return;
-			case CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM:
-				setNonSpecializedProgram((NonSpecializedProgram)newValue);
+			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
+				setSelectedProgram((SelectableProgramSpecialization)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,11 +295,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)null);
 				return;
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)null);
-				return;
-			case CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM:
-				setNonSpecializedProgram((NonSpecializedProgram)null);
+			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
+				setSelectedProgram((SelectableProgramSpecialization)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -375,10 +314,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 				return semesters != null && !semesters.isEmpty();
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				return student != null;
-			case CoursePackage.STUDY_PLAN__SPECIALIZATION:
-				return specialization != null;
-			case CoursePackage.STUDY_PLAN__NON_SPECIALIZED_PROGRAM:
-				return nonSpecializedProgram != null;
+			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
+				return selectedProgram != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,12 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link course.StudyPlan#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.StudyPlan#getStudent <em>Student</em>}</li>
- *   <li>{@link course.StudyPlan#getSpecialization <em>Specialization</em>}</li>
- *   <li>{@link course.StudyPlan#getNonSpecializedProgram <em>Non Specialized Program</em>}</li>
+ *   <li>{@link course.StudyPlan#getSelectedProgram <em>Selected Program</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlan()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForProgram'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForProgram hasAllMandatoryCourses'"
  * @generated
  */
 public interface StudyPlan extends EObject {
@@ -39,50 +38,6 @@ public interface StudyPlan extends EObject {
 	 * @generated
 	 */
 	EList<StudyPlanSemester> getSemesters();
-
-	/**
-	 * Returns the value of the '<em><b>Specialization</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialization</em>' reference.
-	 * @see #setSpecialization(Specialization)
-	 * @see course.CoursePackage#getStudyPlan_Specialization()
-	 * @model
-	 * @generated
-	 */
-	Specialization getSpecialization();
-
-	/**
-	 * Sets the value of the '{@link course.StudyPlan#getSpecialization <em>Specialization</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specialization</em>' reference.
-	 * @see #getSpecialization()
-	 * @generated
-	 */
-	void setSpecialization(Specialization value);
-
-	/**
-	 * Returns the value of the '<em><b>Non Specialized Program</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Non Specialized Program</em>' reference.
-	 * @see #setNonSpecializedProgram(NonSpecializedProgram)
-	 * @see course.CoursePackage#getStudyPlan_NonSpecializedProgram()
-	 * @model
-	 * @generated
-	 */
-	NonSpecializedProgram getNonSpecializedProgram();
-
-	/**
-	 * Sets the value of the '{@link course.StudyPlan#getNonSpecializedProgram <em>Non Specialized Program</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Non Specialized Program</em>' reference.
-	 * @see #getNonSpecializedProgram()
-	 * @generated
-	 */
-	void setNonSpecializedProgram(NonSpecializedProgram value);
 
 	/**
 	 * Returns the value of the '<em><b>Student</b></em>' reference.
@@ -107,5 +62,27 @@ public interface StudyPlan extends EObject {
 	 * @generated
 	 */
 	void setStudent(Student value);
+
+	/**
+	 * Returns the value of the '<em><b>Selected Program</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Program</em>' reference.
+	 * @see #setSelectedProgram(SelectableProgramSpecialization)
+	 * @see course.CoursePackage#getStudyPlan_SelectedProgram()
+	 * @model
+	 * @generated
+	 */
+	SelectableProgramSpecialization getSelectedProgram();
+
+	/**
+	 * Sets the value of the '{@link course.StudyPlan#getSelectedProgram <em>Selected Program</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selected Program</em>' reference.
+	 * @see #getSelectedProgram()
+	 * @generated
+	 */
+	void setSelectedProgram(SelectableProgramSpecialization value);
 
 } // StudyPlan

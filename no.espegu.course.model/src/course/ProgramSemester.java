@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link course.ProgramSemester#getMandatoryCourses <em>Mandatory Courses</em>}</li>
- *   <li>{@link course.ProgramSemester#getOptionalCourses <em>Optional Courses</em>}</li>
+ *   <li>{@link course.ProgramSemester#getElectiveCourses <em>Elective Courses</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getProgramSemester()
@@ -35,15 +35,15 @@ public interface ProgramSemester extends Semester {
 	EList<Course> getMandatoryCourses();
 
 	/**
-	 * Returns the value of the '<em><b>Optional Courses</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elective Courses</b></em>' containment reference list.
 	 * The list contents are of type {@link course.Course}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Optional Courses</em>' containment reference list.
-	 * @see course.CoursePackage#getProgramSemester_OptionalCourses()
+	 * @return the value of the '<em>Elective Courses</em>' containment reference list.
+	 * @see course.CoursePackage#getProgramSemester_ElectiveCourses()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Course> getOptionalCourses();
+	EList<Course> getElectiveCourses();
 
 } // ProgramSemester

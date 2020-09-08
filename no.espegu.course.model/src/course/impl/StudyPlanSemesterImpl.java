@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSemester {
+public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyPlanSemester {
 	/**
 	 * The cached value of the '{@link #getSelectedCourses() <em>Selected Courses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -59,16 +59,6 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @ordered
 	 */
 	protected static final int TOTAL_CREDITS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getTotalCredits() <em>Total Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTotalCredits()
-	 * @generated
-	 * @ordered
-	 */
-	protected int totalCredits = TOTAL_CREDITS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +99,9 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 */
 	@Override
 	public int getTotalCredits() {
-		return totalCredits;
+		// TODO: implement this method to return the 'Total Credits' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -119,10 +111,33 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 */
 	@Override
 	public void setTotalCredits(int newTotalCredits) {
-		int oldTotalCredits = totalCredits;
-		totalCredits = newTotalCredits;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS, oldTotalCredits, totalCredits));
+		// TODO: implement this method to set the 'Total Credits' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetTotalCredits() {
+		// TODO: implement this method to unset the 'Total Credits' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetTotalCredits() {
+		// TODO: implement this method to return whether the 'Total Credits' attribute is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -279,7 +294,7 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 				getSelectedCourses().clear();
 				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
-				setTotalCredits(TOTAL_CREDITS_EDEFAULT);
+				unsetTotalCredits();
 				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				setStudyPlan((StudyPlan)null);
@@ -299,7 +314,7 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				return selectedCourses != null && !selectedCourses.isEmpty();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
-				return totalCredits != TOTAL_CREDITS_EDEFAULT;
+				return isSetTotalCredits();
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				return getStudyPlan() != null;
 		}
@@ -318,22 +333,6 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 				return addCourseToSemester((Course)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (totalCredits: ");
-		result.append(totalCredits);
-		result.append(')');
-		return result.toString();
 	}
 
 } //StudyPlanSemesterImpl

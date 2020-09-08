@@ -49,13 +49,13 @@ public interface CourseFactory extends EFactory {
 	ProgramYear createProgramYear();
 
 	/**
-	 * Returns a new object of class '<em>Non Specialized Program</em>'.
+	 * Returns a new object of class '<em>Selectable Program Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Non Specialized Program</em>'.
+	 * @return a new object of class '<em>Selectable Program Specialization</em>'.
 	 * @generated
 	 */
-	NonSpecializedProgram createNonSpecializedProgram();
+	SelectableProgramSpecialization createSelectableProgramSpecialization();
 
 	/**
 	 * Returns a new object of class '<em>Course</em>'.
@@ -83,15 +83,6 @@ public interface CourseFactory extends EFactory {
 	 * @generated
 	 */
 	StudyPlan createStudyPlan();
-
-	/**
-	 * Returns a new object of class '<em>Specialization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specialization</em>'.
-	 * @generated
-	 */
-	Specialization createSpecialization();
 
 	/**
 	 * Returns a new object of class '<em>Semester</em>'.

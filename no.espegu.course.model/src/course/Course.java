@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link course.Course#getLevel <em>Level</em>}</li>
  *   <li>{@link course.Course#getDescription <em>Description</em>}</li>
  *   <li>{@link course.Course#getTaughtInSemester <em>Taught In Semester</em>}</li>
+ *   <li>{@link course.Course#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getCourse()
@@ -142,5 +143,27 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	void setTaughtInSemester(SemesterType value);
+
+	/**
+	 * Returns the value of the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Code</em>' attribute.
+	 * @see #setCode(String)
+	 * @see course.CoursePackage#getCourse_Code()
+	 * @model
+	 * @generated
+	 */
+	String getCode();
+
+	/**
+	 * Sets the value of the '{@link course.Course#getCode <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' attribute.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(String value);
 
 } // Course

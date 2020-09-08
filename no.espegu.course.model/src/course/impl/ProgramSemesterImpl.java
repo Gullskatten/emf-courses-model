@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link course.impl.ProgramSemesterImpl#getMandatoryCourses <em>Mandatory Courses</em>}</li>
- *   <li>{@link course.impl.ProgramSemesterImpl#getOptionalCourses <em>Optional Courses</em>}</li>
+ *   <li>{@link course.impl.ProgramSemesterImpl#getElectiveCourses <em>Elective Courses</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,14 +44,14 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	protected EList<Course> mandatoryCourses;
 
 	/**
-	 * The cached value of the '{@link #getOptionalCourses() <em>Optional Courses</em>}' containment reference list.
+	 * The cached value of the '{@link #getElectiveCourses() <em>Elective Courses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOptionalCourses()
+	 * @see #getElectiveCourses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Course> optionalCourses;
+	protected EList<Course> electiveCourses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,11 +91,11 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	 * @generated
 	 */
 	@Override
-	public EList<Course> getOptionalCourses() {
-		if (optionalCourses == null) {
-			optionalCourses = new EObjectContainmentEList<Course>(Course.class, this, CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES);
+	public EList<Course> getElectiveCourses() {
+		if (electiveCourses == null) {
+			electiveCourses = new EObjectContainmentEList<Course>(Course.class, this, CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES);
 		}
-		return optionalCourses;
+		return electiveCourses;
 	}
 
 	/**
@@ -108,8 +108,8 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 		switch (featureID) {
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				return ((InternalEList<?>)getMandatoryCourses()).basicRemove(otherEnd, msgs);
-			case CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES:
-				return ((InternalEList<?>)getOptionalCourses()).basicRemove(otherEnd, msgs);
+			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
+				return ((InternalEList<?>)getElectiveCourses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -124,8 +124,8 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 		switch (featureID) {
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				return getMandatoryCourses();
-			case CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES:
-				return getOptionalCourses();
+			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
+				return getElectiveCourses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,9 +143,9 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 				getMandatoryCourses().clear();
 				getMandatoryCourses().addAll((Collection<? extends Course>)newValue);
 				return;
-			case CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES:
-				getOptionalCourses().clear();
-				getOptionalCourses().addAll((Collection<? extends Course>)newValue);
+			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
+				getElectiveCourses().clear();
+				getElectiveCourses().addAll((Collection<? extends Course>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,8 +162,8 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				getMandatoryCourses().clear();
 				return;
-			case CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES:
-				getOptionalCourses().clear();
+			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
+				getElectiveCourses().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,8 +179,8 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 		switch (featureID) {
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				return mandatoryCourses != null && !mandatoryCourses.isEmpty();
-			case CoursePackage.PROGRAM_SEMESTER__OPTIONAL_COURSES:
-				return optionalCourses != null && !optionalCourses.isEmpty();
+			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
+				return electiveCourses != null && !electiveCourses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

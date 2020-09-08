@@ -62,12 +62,11 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.COURSE: return createCourse();
 			case CoursePackage.STUDENT: return createStudent();
 			case CoursePackage.STUDY_PLAN: return createStudyPlan();
-			case CoursePackage.SPECIALIZATION: return createSpecialization();
 			case CoursePackage.SEMESTER: return createSemester();
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
 			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
 			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
-			case CoursePackage.NON_SPECIALIZED_PROGRAM: return createNonSpecializedProgram();
+			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION: return createSelectableProgramSpecialization();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -150,9 +149,9 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	@Override
-	public NonSpecializedProgram createNonSpecializedProgram() {
-		NonSpecializedProgramImpl nonSpecializedProgram = new NonSpecializedProgramImpl();
-		return nonSpecializedProgram;
+	public SelectableProgramSpecialization createSelectableProgramSpecialization() {
+		SelectableProgramSpecializationImpl selectableProgramSpecialization = new SelectableProgramSpecializationImpl();
+		return selectableProgramSpecialization;
 	}
 
 	/**
@@ -186,17 +185,6 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public StudyPlan createStudyPlan() {
 		StudyPlanImpl studyPlan = new StudyPlanImpl();
 		return studyPlan;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Specialization createSpecialization() {
-		SpecializationImpl specialization = new SpecializationImpl();
-		return specialization;
 	}
 
 	/**

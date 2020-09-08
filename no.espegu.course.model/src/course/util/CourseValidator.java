@@ -143,12 +143,12 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNonSpecializedProgram(NonSpecializedProgram nonSpecializedProgram,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(nonSpecializedProgram, diagnostics, context);
+	public boolean validateSelectableProgramSpecialization(SelectableProgramSpecialization selectableProgramSpecialization, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(selectableProgramSpecialization, diagnostics, context);
 	}
 
 	/**
@@ -182,13 +182,14 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlan, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlan, diagnostics, context);
 		if (result || diagnostics != null) result &= validateStudyPlan_hasRequiredCreditsForProgram(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStudyPlan_hasAllMandatoryCourses(studyPlan, diagnostics, context);
 		return result;
 	}
 
 	/**
 	 * Validates the hasRequiredCreditsForProgram constraint of '<em>Study Plan</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
@@ -196,6 +197,7 @@ public class CourseValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
+		
 		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -214,12 +216,31 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Validates the hasAllMandatoryCourses constraint of '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSpecialization(Specialization specialization, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(specialization, diagnostics, context);
+	public boolean validateStudyPlan_hasAllMandatoryCourses(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasAllMandatoryCourses", getObjectLabel(studyPlan, context) },
+						 new Object[] { studyPlan },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -255,7 +276,7 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION = "aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester = self.semesterType)";
+	protected static final String STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION = "aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester == self.semesterType)";
 
 	/**
 	 * Validates the isAllCoursesTaughtThisSemester constraint of '<em>Study Plan Semester</em>'.
@@ -350,7 +371,7 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String YEAR__HAS_CORRECT_YEAR_LENGTH__EEXPRESSION = "aql:self.length() = 4";
+	protected static final String YEAR__HAS_CORRECT_YEAR_LENGTH__EEXPRESSION = "aql:self.year.toLower() == 'default' or self.year.size() == 4";
 
 	/**
 	 * Validates the hasCorrectYearLength constraint of '<em>Year</em>'.
