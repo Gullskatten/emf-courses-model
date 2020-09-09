@@ -86,6 +86,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return createCourseLevelFromString(eDataType, initialValue);
 			case CoursePackage.YEAR:
 				return createYearFromString(eDataType, initialValue);
+			case CoursePackage.COURSE_CREDIT:
+				return createCourseCreditFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +107,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return convertCourseLevelToString(eDataType, instanceValue);
 			case CoursePackage.YEAR:
 				return convertYearToString(eDataType, instanceValue);
+			case CoursePackage.COURSE_CREDIT:
+				return convertCourseCreditToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -283,6 +287,24 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	public String convertYearToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Float createCourseCreditFromString(EDataType eDataType, String initialValue) {
+		return (Float)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCourseCreditToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

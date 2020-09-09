@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:School
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore"
+    name="NTNU">
+  <programs
+      name="Master of Science in Informatics"
+      requiredCredits="120">
+    <programYears>
+      <selectablePrograms
+          name="Software Engineering">
+        <semesters>
+          <mandatoryCourses
+              name="Information Systems"
+              credits="7.5"
+              level="Higher Degree Subject"
+              description="This course is about information systems."
+              code="TDT4175"/>
+          <mandatoryCourses
+              name="Advanced Software Design"
+              credits="7.5"
+              level="Higher Degree Subject"
+              description="This course is about advanced software design."
+              code="TDT4250"/>
+          <mandatoryCourses
+              name="Enterprise Architecture for Enterprise Innovation"
+              credits="7.5"
+              level="Higher Degree Subject"
+              description="This course is about enterprise architecture."
+              code="TDT4252"/>
+          <mandatoryCourses
+              name="Applied Data Science"
+              credits="7.5"
+              description="This course is about applied data science."
+              code="TDT4259"/>
+          <electiveCourses
+              name="Introduction to Artificial Intelligence"
+              credits="7.5"
+              level="Third Degree Subject"
+              code="TDT4136"/>
+          <electiveCourses
+              name="Information Retrieval"
+              credits="7.5"
+              level="Third Degree Subject"
+              description="This course is about information retrieval."
+              code="TDT4117"/>
+          <electiveCourses
+              name="User Interface Design"
+              credits="7.5"
+              level="Third Degree Subject"
+              description="This course is about user interface design."
+              code="IT3402"/>
+        </semesters>
+        <semesters
+            year="2021"
+            semesterType="Spring"/>
+        <semesters
+            year="2021"/>
+        <semesters
+            year="2022"
+            semesterType="Spring"/>
+      </selectablePrograms>
+      <selectablePrograms
+          name="Artificial Intelligence"/>
+      <selectablePrograms
+          name="Interaction Design, Game and Learning Technology"/>
+      <selectablePrograms
+          name="Databases and Search"/>
+    </programYears>
+  </programs>
+  <students
+      href="Student.xmi#/"/>
+</no.espegu:School>

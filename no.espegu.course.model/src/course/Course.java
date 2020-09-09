@@ -53,12 +53,12 @@ public interface Course extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Credits</em>' attribute.
-	 * @see #setCredits(float)
+	 * @see #setCredits(Float)
 	 * @see course.CoursePackage#getCourse_Credits()
-	 * @model
+	 * @model dataType="course.CourseCredit"
 	 * @generated
 	 */
-	float getCredits();
+	Float getCredits();
 
 	/**
 	 * Sets the value of the '{@link course.Course#getCredits <em>Credits</em>}' attribute.
@@ -68,7 +68,7 @@ public interface Course extends EObject {
 	 * @see #getCredits()
 	 * @generated
 	 */
-	void setCredits(float value);
+	void setCredits(Float value);
 
 	/**
 	 * Returns the value of the '<em><b>Level</b></em>' attribute.

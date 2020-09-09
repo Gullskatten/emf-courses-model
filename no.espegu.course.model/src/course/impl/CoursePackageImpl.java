@@ -128,6 +128,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	private EDataType yearEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType courseCreditEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -684,6 +691,16 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
+	public EDataType getCourseCredit() {
+		return courseCreditEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public CourseFactory getCourseFactory() {
 		return (CourseFactory)getEFactoryInstance();
 	}
@@ -768,6 +785,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		// Create data types
 		yearEDataType = createEDataType(YEAR);
+		courseCreditEDataType = createEDataType(COURSE_CREDIT);
 	}
 
 	/**
@@ -815,7 +833,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourse_Name(), ecorePackage.getEString(), "name", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_Credits(), this.getCourseCredit(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Level(), this.getCourseLevel(), "level", "First Degree Subject", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Description(), ecorePackage.getEString(), "description", "Add a description to this course.", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_TaughtInSemester(), this.getSemesterType(), "taughtInSemester", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -872,6 +890,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		// Initialize data types
 		initEDataType(yearEDataType, String.class, "Year", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(courseCreditEDataType, Float.class, "CourseCredit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -915,6 +934,12 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		   new String[] {
 			   "constraints", "hasCorrectYearLength"
 		   });
+		addAnnotation
+		  (courseCreditEDataType,
+		   source,
+		   new String[] {
+			   "constraints", "isGreaterOrEqualToZero"
+		   });
 	}
 
 	/**
@@ -936,6 +961,12 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		   source,
 		   new String[] {
 			   "hasCorrectYearLength", "aql:self.year.toLower() == \'default\' or self.year.size() == 4"
+		   });
+		addAnnotation
+		  (courseCreditEDataType,
+		   source,
+		   new String[] {
+			   "isGreaterOrEqualToZero", "aql:self >= 0"
 		   });
 	}
 

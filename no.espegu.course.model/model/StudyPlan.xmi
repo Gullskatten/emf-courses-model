@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:StudyPlan xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore" xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore">
+  <semesters>
+    <relatedProgramSemester href="School.xmi#//@programs.0/@programYears.0/@selectablePrograms.0/@semesters.0"/>
+  </semesters>
+  <semesters year="2021" semesterType="Spring">
+    <relatedProgramSemester href="School.xmi#//@programs.0/@programYears.0/@selectablePrograms.0/@semesters.1"/>
+  </semesters>
+  <semesters year="2021">
+    <relatedProgramSemester href="School.xmi#//@programs.0/@programYears.0/@selectablePrograms.0/@semesters.2"/>
+  </semesters>
+  <semesters year="2022" semesterType="Spring">
+    <relatedProgramSemester href="School.xmi#//@programs.0/@programYears.0/@selectablePrograms.0/@semesters.3"/>
+  </semesters>
+  <student href="Student.xmi#/"/>
+  <selectedProgram href="School.xmi#//@programs.0/@programYears.0/@selectablePrograms.0"/>
+</no.espegu:StudyPlan>

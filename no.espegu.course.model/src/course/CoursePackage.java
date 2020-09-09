@@ -760,6 +760,17 @@ public interface CoursePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Credit</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Float
+	 * @see course.impl.CoursePackageImpl#getCourseCredit()
+	 * @generated
+	 */
+	int COURSE_CREDIT = 13;
+
+
+	/**
 	 * Returns the meta object for class '{@link course.School <em>School</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1288,19 @@ public interface CoursePackage extends EPackage {
 	EDataType getYear();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.Float <em>Credit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Credit</em>'.
+	 * @see java.lang.Float
+	 * @model instanceClass="java.lang.Float"
+	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 isGreaterOrEqualToZero='aql:self &gt;= 0'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isGreaterOrEqualToZero'"
+	 * @generated
+	 */
+	EDataType getCourseCredit();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1708,6 +1732,16 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType YEAR = eINSTANCE.getYear();
+
+		/**
+		 * The meta object literal for the '<em>Credit</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Float
+		 * @see course.impl.CoursePackageImpl#getCourseCredit()
+		 * @generated
+		 */
+		EDataType COURSE_CREDIT = eINSTANCE.getCourseCredit();
 
 	}
 

@@ -395,6 +395,45 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCourseCredit(Float courseCredit, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validateCourseCredit_isGreaterOrEqualToZero(courseCredit, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the isGreaterOrEqualToZero constraint of '<em>Credit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String COURSE_CREDIT__IS_GREATER_OR_EQUAL_TO_ZERO__EEXPRESSION = "aql:self >= 0";
+
+	/**
+	 * Validates the isGreaterOrEqualToZero constraint of '<em>Credit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCourseCredit_isGreaterOrEqualToZero(Float courseCredit, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(CoursePackage.Literals.COURSE_CREDIT,
+				 courseCredit,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "isGreaterOrEqualToZero",
+				 COURSE_CREDIT__IS_GREATER_OR_EQUAL_TO_ZERO__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

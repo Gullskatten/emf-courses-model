@@ -61,7 +61,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CREDITS_EDEFAULT = 0.0F;
+	protected static final Float CREDITS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCredits() <em>Credits</em>}' attribute.
@@ -71,7 +71,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 * @ordered
 	 */
-	protected float credits = CREDITS_EDEFAULT;
+	protected Float credits = CREDITS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
@@ -191,7 +191,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
-	public float getCredits() {
+	public Float getCredits() {
 		return credits;
 	}
 
@@ -201,8 +201,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @generated
 	 */
 	@Override
-	public void setCredits(float newCredits) {
-		float oldCredits = credits;
+	public void setCredits(Float newCredits) {
+		Float oldCredits = credits;
 		credits = newCredits;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.COURSE__CREDITS, oldCredits, credits));
@@ -392,7 +392,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case CoursePackage.COURSE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoursePackage.COURSE__CREDITS:
-				return credits != CREDITS_EDEFAULT;
+				return CREDITS_EDEFAULT == null ? credits != null : !CREDITS_EDEFAULT.equals(credits);
 			case CoursePackage.COURSE__LEVEL:
 				return level != LEVEL_EDEFAULT;
 			case CoursePackage.COURSE__DESCRIPTION:

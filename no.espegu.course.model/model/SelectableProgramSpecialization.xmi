@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:SelectableProgramSpecialization
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore"
+    name="Software Engineering">
+  <programYear
+      href="ProgramYear.xmi#/"/>
+</no.espegu:SelectableProgramSpecialization>
