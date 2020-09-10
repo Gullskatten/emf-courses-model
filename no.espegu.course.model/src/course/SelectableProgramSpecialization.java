@@ -31,22 +31,22 @@ public interface SelectableProgramSpecialization extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #isSetName()
+	 * @see #setName(String)
 	 * @see course.CoursePackage#getSelectableProgramSpecialization_Name()
-	 * @model unsettable="true" changeable="false" volatile="true" derived="true"
+	 * @model derived="true"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Returns whether the value of the '{@link course.SelectableProgramSpecialization#getName <em>Name</em>}' attribute is set.
+	 * Sets the value of the '{@link course.SelectableProgramSpecialization#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Name</em>' attribute is set.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
-	boolean isSetName();
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.

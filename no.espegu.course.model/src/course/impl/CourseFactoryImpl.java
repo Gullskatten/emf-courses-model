@@ -63,10 +63,10 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.STUDENT: return createStudent();
 			case CoursePackage.STUDY_PLAN: return createStudyPlan();
 			case CoursePackage.SEMESTER: return createSemester();
+			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION: return createSelectableProgramSpecialization();
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
 			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
 			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
-			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION: return createSelectableProgramSpecialization();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +88,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return createYearFromString(eDataType, initialValue);
 			case CoursePackage.COURSE_CREDIT:
 				return createCourseCreditFromString(eDataType, initialValue);
+			case CoursePackage.COURSE_ALREADY_EXISTS_EXCEPTION:
+				return createCourseAlreadyExistsExceptionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -109,6 +111,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return convertYearToString(eDataType, instanceValue);
 			case CoursePackage.COURSE_CREDIT:
 				return convertCourseCreditToString(eDataType, instanceValue);
+			case CoursePackage.COURSE_ALREADY_EXISTS_EXCEPTION:
+				return convertCourseAlreadyExistsExceptionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -134,28 +138,6 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public Program createProgram() {
 		ProgramImpl program = new ProgramImpl();
 		return program;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ProgramYear createProgramYear() {
-		ProgramYearImpl programYear = new ProgramYearImpl();
-		return programYear;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SelectableProgramSpecialization createSelectableProgramSpecialization() {
-		SelectableProgramSpecializationImpl selectableProgramSpecialization = new SelectableProgramSpecializationImpl();
-		return selectableProgramSpecialization;
 	}
 
 	/**
@@ -208,6 +190,17 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	@Override
+	public SelectableProgramSpecialization createSelectableProgramSpecialization() {
+		SelectableProgramSpecializationImpl selectableProgramSpecialization = new SelectableProgramSpecializationImpl();
+		return selectableProgramSpecialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public StudyPlanSemester createStudyPlanSemester() {
 		StudyPlanSemesterImpl studyPlanSemester = new StudyPlanSemesterImpl();
 		return studyPlanSemester;
@@ -222,6 +215,17 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public ProgramSemester createProgramSemester() {
 		ProgramSemesterImpl programSemester = new ProgramSemesterImpl();
 		return programSemester;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProgramYear createProgramYear() {
+		ProgramYearImpl programYear = new ProgramYearImpl();
+		return programYear;
 	}
 
 	/**
@@ -267,18 +271,10 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public Integer createYearFromString(EDataType eDataType, String initialValue) {
-		if(initialValue.length() >= 4) {
-			throw new IllegalArgumentException("Year must have at least 4 characters.");
-		}
-		
-		if(!initialValue.matches("\\d{4}")) {
-			throw new IllegalArgumentException("Year must be 4 digits (example: 2020).");
-		}
-		
-		return (Integer)super.createFromString(eDataType, initialValue);
+	public String createYearFromString(EDataType eDataType, String initialValue) {
+		return (String)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -305,6 +301,24 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	public String convertCourseCreditToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuntimeException createCourseAlreadyExistsExceptionFromString(EDataType eDataType, String initialValue) {
+		return (RuntimeException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCourseAlreadyExistsExceptionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

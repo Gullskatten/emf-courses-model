@@ -16,14 +16,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link course.StudyPlanSemester#getSelectedCourses <em>Selected Courses</em>}</li>
  *   <li>{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}</li>
  *   <li>{@link course.StudyPlanSemester#getStudyPlan <em>Study Plan</em>}</li>
+ *   <li>{@link course.StudyPlanSemester#getRelatedProgramSemester <em>Related Program Semester</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlanSemester()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtThisSemester'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 isAllCoursesTaughtThisSemester='aql:self.selectedCourses -&gt; collect(selectedCourse | selectedCourse.taughtInSemester) -&gt; forAll(semester | semester == self.semesterType)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtThisSemester isValidRelatedProgramSemester'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 isAllCoursesTaughtThisSemester='self.selectedCourses -&gt; collect(selectedCourse | selectedCourse.taughtInSemester) -&gt; forAll(semester | semester == self.semesterType)'"
  * @generated
  */
-public interface StudyPlanSemester extends ProgramSemester {
+public interface StudyPlanSemester extends Semester {
 	/**
 	 * Returns the value of the '<em><b>Selected Courses</b></em>' containment reference list.
 	 * The list contents are of type {@link course.Course}.
@@ -42,45 +43,18 @@ public interface StudyPlanSemester extends ProgramSemester {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Total Credits</em>' attribute.
 	 * @see #isSetTotalCredits()
-	 * @see #unsetTotalCredits()
-	 * @see #setTotalCredits(int)
 	 * @see course.CoursePackage#getStudyPlanSemester_TotalCredits()
-	 * @model unsettable="true" transient="true" volatile="true" derived="true"
+	 * @model unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	int getTotalCredits();
-
-	/**
-	 * Sets the value of the '{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Total Credits</em>' attribute.
-	 * @see #isSetTotalCredits()
-	 * @see #unsetTotalCredits()
-	 * @see #getTotalCredits()
-	 * @generated
-	 */
-	void setTotalCredits(int value);
-
-	/**
-	 * Unsets the value of the '{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetTotalCredits()
-	 * @see #getTotalCredits()
-	 * @see #setTotalCredits(int)
-	 * @generated
-	 */
-	void unsetTotalCredits();
+	float getTotalCredits();
 
 	/**
 	 * Returns whether the value of the '{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Total Credits</em>' attribute is set.
-	 * @see #unsetTotalCredits()
 	 * @see #getTotalCredits()
-	 * @see #setTotalCredits(int)
 	 * @generated
 	 */
 	boolean isSetTotalCredits();
@@ -94,7 +68,7 @@ public interface StudyPlanSemester extends ProgramSemester {
 	 * @see #setStudyPlan(StudyPlan)
 	 * @see course.CoursePackage#getStudyPlanSemester_StudyPlan()
 	 * @see course.StudyPlan#getSemesters
-	 * @model opposite="semesters" transient="false"
+	 * @model opposite="semesters" required="true" transient="false"
 	 * @generated
 	 */
 	StudyPlan getStudyPlan();
@@ -110,11 +84,41 @@ public interface StudyPlanSemester extends ProgramSemester {
 	void setStudyPlan(StudyPlan value);
 
 	/**
+	 * Returns the value of the '<em><b>Related Program Semester</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @return the value of the '<em>Related Program Semester</em>' reference.
+	 * @see #setRelatedProgramSemester(ProgramSemester)
+	 * @see course.CoursePackage#getStudyPlanSemester_RelatedProgramSemester()
+	 * @model required="true"
 	 * @generated
 	 */
-	StudyPlanSemester addCourseToSemester(Course course);
+	ProgramSemester getRelatedProgramSemester();
+
+	/**
+	 * Sets the value of the '{@link course.StudyPlanSemester#getRelatedProgramSemester <em>Related Program Semester</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Related Program Semester</em>' reference.
+	 * @see #getRelatedProgramSemester()
+	 * @generated
+	 */
+	void setRelatedProgramSemester(ProgramSemester value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="course.CourseAlreadyExistsException"
+	 * @generated
+	 */
+	StudyPlanSemester addCourseToSemester(Course course) throws RuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated
+	 */
+	EList<?> getAllCoursesInSemester();
 
 } // StudyPlanSemester

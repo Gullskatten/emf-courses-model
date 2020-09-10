@@ -92,6 +92,10 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createSemesterAdapter();
 			}
 			@Override
+			public Adapter caseSelectableProgramSpecialization(SelectableProgramSpecialization object) {
+				return createSelectableProgramSpecializationAdapter();
+			}
+			@Override
 			public Adapter caseStudyPlanSemester(StudyPlanSemester object) {
 				return createStudyPlanSemesterAdapter();
 			}
@@ -102,10 +106,6 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProgramYear(ProgramYear object) {
 				return createProgramYearAdapter();
-			}
-			@Override
-			public Adapter caseSelectableProgramSpecialization(SelectableProgramSpecialization object) {
-				return createSelectableProgramSpecializationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -152,34 +152,6 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link course.ProgramYear <em>Program Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see course.ProgramYear
-	 * @generated
-	 */
-	public Adapter createProgramYearAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see course.SelectableProgramSpecialization
-	 * @generated
-	 */
-	public Adapter createSelectableProgramSpecializationAdapter() {
 		return null;
 	}
 
@@ -240,6 +212,20 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see course.SelectableProgramSpecialization
+	 * @generated
+	 */
+	public Adapter createSelectableProgramSpecializationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link course.StudyPlanSemester <em>Study Plan Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -264,6 +250,20 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramSemesterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link course.ProgramYear <em>Program Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see course.ProgramYear
+	 * @generated
+	 */
+	public Adapter createProgramYearAdapter() {
 		return null;
 	}
 

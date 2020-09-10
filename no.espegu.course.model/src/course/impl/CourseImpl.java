@@ -5,10 +5,12 @@ package course.impl;
 import course.Course;
 import course.CourseLevel;
 import course.CoursePackage;
-
 import course.SemesterType;
+
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -303,6 +305,28 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isSameCourse(Course otherCourse) {
+		
+		if(otherCourse == null) {
+			return false;
+		}
+		
+		if(getCode().equals(otherCourse.getCode()) 
+				&& getName().equals(otherCourse.getName())
+				&& getTaughtInSemester().equals(otherCourse.getTaughtInSemester())
+				&& getLevel() == otherCourse.getLevel()) {
+			return true;
+		}
+		
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -346,6 +370,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return;
 			case CoursePackage.COURSE__TAUGHT_IN_SEMESTER:
 				setTaughtInSemester((SemesterType) newValue);
+				return;
+			case CoursePackage.COURSE__CODE:
+				setCode((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,6 +430,20 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CoursePackage.COURSE___IS_SAME_COURSE__COURSE:
+				return isSameCourse((Course)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

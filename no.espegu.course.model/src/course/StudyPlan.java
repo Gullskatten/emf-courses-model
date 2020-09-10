@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlan()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForProgram hasAllMandatoryCourses'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasRequiredCreditsForProgram'"
  * @generated
  */
 public interface StudyPlan extends EObject {

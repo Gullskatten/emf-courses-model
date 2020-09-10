@@ -40,24 +40,6 @@ public interface CourseFactory extends EFactory {
 	Program createProgram();
 
 	/**
-	 * Returns a new object of class '<em>Program Year</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Program Year</em>'.
-	 * @generated
-	 */
-	ProgramYear createProgramYear();
-
-	/**
-	 * Returns a new object of class '<em>Selectable Program Specialization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Selectable Program Specialization</em>'.
-	 * @generated
-	 */
-	SelectableProgramSpecialization createSelectableProgramSpecialization();
-
-	/**
 	 * Returns a new object of class '<em>Course</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,6 +76,15 @@ public interface CourseFactory extends EFactory {
 	Semester createSemester();
 
 	/**
+	 * Returns a new object of class '<em>Selectable Program Specialization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Selectable Program Specialization</em>'.
+	 * @generated
+	 */
+	SelectableProgramSpecialization createSelectableProgramSpecialization();
+
+	/**
 	 * Returns a new object of class '<em>Study Plan Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +101,15 @@ public interface CourseFactory extends EFactory {
 	 * @generated
 	 */
 	ProgramSemester createProgramSemester();
+
+	/**
+	 * Returns a new object of class '<em>Program Year</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Program Year</em>'.
+	 * @generated
+	 */
+	ProgramYear createProgramYear();
 
 	/**
 	 * Returns the package supported by this factory.

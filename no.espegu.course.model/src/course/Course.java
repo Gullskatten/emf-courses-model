@@ -166,4 +166,12 @@ public interface Course extends EObject {
 	 */
 	void setCode(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model otherCourseRequired="true"
+	 * @generated
+	 */
+	boolean isSameCourse(Course otherCourse);
+
 } // Course

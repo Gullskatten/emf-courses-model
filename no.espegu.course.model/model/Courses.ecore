@@ -21,6 +21,9 @@
         eType="#//ProgramYear" containment="true" eOpposite="#//ProgramYear/program"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Course">
+    <eOperations name="isSameCourse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="otherCourse" lowerBound="1" eType="#//Course"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" eType="#//CourseCredit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="#//CourseLevel"
@@ -40,7 +43,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlan">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="hasRequiredCreditsForProgram hasAllMandatoryCourses"/>
+      <details key="constraints" value="hasRequiredCreditsForProgram"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//StudyPlanSemester" containment="true" eOpposite="#//StudyPlanSemester/studyPlan"/>
@@ -67,22 +70,27 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlanSemester" eSuperTypes="#//Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isAllCoursesTaughtThisSemester"/>
+      <details key="constraints" value="isAllCoursesTaughtThisSemester isValidRelatedProgramSemester"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
       <details key="isAllCoursesTaughtThisSemester" value="self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester == self.semesterType)"/>
     </eAnnotations>
-    <eOperations name="addCourseToSemester" eType="#//StudyPlanSemester">
+    <eOperations name="addCourseToSemester" eType="#//StudyPlanSemester" eExceptions="#//CourseAlreadyExistsException">
       <eParameters name="course" eType="#//Course"/>
+    </eOperations>
+    <eOperations name="getAllCoursesInSemester">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedCourses" upperBound="-1"
         eType="#//Course" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="studyPlan" eType="#//StudyPlan"
-        eOpposite="#//StudyPlan/semesters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="studyPlan" lowerBound="1"
+        eType="#//StudyPlan" eOpposite="#//StudyPlan/semesters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relatedProgramSemester"
-        eType="#//ProgramSemester"/>
+        lowerBound="1" eType="#//ProgramSemester"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramSemester" eSuperTypes="#//Semester">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryCourses" upperBound="-1"
@@ -121,4 +129,5 @@
       <details key="constraints" value="isGreaterOrEqualToZero"/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CourseAlreadyExistsException" instanceClassName="java.lang.RuntimeException"/>
 </ecore:EPackage>

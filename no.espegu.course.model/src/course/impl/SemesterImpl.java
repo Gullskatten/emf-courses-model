@@ -54,7 +54,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSemesterType()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected SemesterType semesterType;
@@ -64,10 +64,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTeachedInSemester()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
+	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = SemesterType.AUTUMN.getLiteral();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,26 +141,17 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 */
 	@Override
 	public String getTeachedInSemester() {
-		switch(this.semesterType) {
-		case AUTUMN:
-			return "Autumn";
-		case SPRING:
-			return "Spring";
-		default:
-			return "Unset";
-		}
+		return getSemesterType().getLiteral();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isSetTeachedInSemester() {
-		// TODO: implement this method to return whether the 'Teached In Semester' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getSemesterType() != null;
 	}
 
 	/**
@@ -189,11 +180,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CoursePackage.SEMESTER_TYPE:
-				setSemesterType((SemesterType) newValue);
-				return;
 			case CoursePackage.SEMESTER__YEAR:
-				setYear((String) newValue);
+				setYear((String)newValue);
+				return;
+			case CoursePackage.SEMESTER__SEMESTER_TYPE:
+				setSemesterType((SemesterType) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

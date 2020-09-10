@@ -52,6 +52,16 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,9 +107,7 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public String getName() {
-		// TODO: implement this method to return the 'Name' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return name;
 	}
 
 	/**
@@ -108,10 +116,11 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 */
 	@Override
-	public boolean isSetName() {
-		// TODO: implement this method to return whether the 'Name' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__NAME, oldName, name));
 	}
 
 	/**
@@ -260,6 +269,9 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__NAME:
+				setName((String)newValue);
+				return;
 			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS:
 				getSemesters().clear();
 				getSemesters().addAll((Collection<? extends ProgramSemester>)newValue);
@@ -283,6 +295,9 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS:
 				getSemesters().clear();
 				return;
@@ -305,7 +320,7 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__NAME:
-				return isSetName();
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
 			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR:
@@ -314,6 +329,22 @@ public class SelectableProgramSpecializationImpl extends MinimalEObjectImpl.Cont
 				return subSpecializations != null && !subSpecializations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SelectableProgramSpecializationImpl

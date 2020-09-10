@@ -4,12 +4,12 @@ package course.impl;
 
 import course.Course;
 import course.CoursePackage;
+import course.ProgramSemester;
 import course.StudyPlan;
 import course.StudyPlanSemester;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,11 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getSelectedCourses <em>Selected Courses</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getTotalCredits <em>Total Credits</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getStudyPlan <em>Study Plan</em>}</li>
+ *   <li>{@link course.impl.StudyPlanSemesterImpl#getRelatedProgramSemester <em>Related Program Semester</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyPlanSemester {
+public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSemester {
 	/**
 	 * The cached value of the '{@link #getSelectedCourses() <em>Selected Courses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -58,7 +59,17 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int TOTAL_CREDITS_EDEFAULT = 0;
+	protected static final float TOTAL_CREDITS_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getRelatedProgramSemester() <em>Related Program Semester</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedProgramSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProgramSemester relatedProgramSemester;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,49 +106,27 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public int getTotalCredits() {
-		// TODO: implement this method to return the 'Total Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public float getTotalCredits() {
+		float totalCredits = 0;
+		
+		for(Course course : getAllCoursesInSemester()) {
+			totalCredits += course.getCredits();
+		}
+		
+		return totalCredits;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTotalCredits(int newTotalCredits) {
-		// TODO: implement this method to set the 'Total Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetTotalCredits() {
-		// TODO: implement this method to unset the 'Total Credits' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isSetTotalCredits() {
-		// TODO: implement this method to return whether the 'Total Credits' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getTotalCredits() != 0;
 	}
 
 	/**
@@ -189,10 +178,73 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 	 * @generated
 	 */
 	@Override
-	public StudyPlanSemester addCourseToSemester(Course course) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public ProgramSemester getRelatedProgramSemester() {
+		if (relatedProgramSemester != null && relatedProgramSemester.eIsProxy()) {
+			InternalEObject oldRelatedProgramSemester = (InternalEObject)relatedProgramSemester;
+			relatedProgramSemester = (ProgramSemester)eResolveProxy(oldRelatedProgramSemester);
+			if (relatedProgramSemester != oldRelatedProgramSemester) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER, oldRelatedProgramSemester, relatedProgramSemester));
+			}
+		}
+		return relatedProgramSemester;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProgramSemester basicGetRelatedProgramSemester() {
+		return relatedProgramSemester;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRelatedProgramSemester(ProgramSemester newRelatedProgramSemester) {
+		ProgramSemester oldRelatedProgramSemester = relatedProgramSemester;
+		relatedProgramSemester = newRelatedProgramSemester;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER, oldRelatedProgramSemester, relatedProgramSemester));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public StudyPlanSemester addCourseToSemester(Course courseToAdd) throws RuntimeException {
+		if(courseToAdd == null) {
+			return this;
+		}
+		
+		for(Course existingCourse : getAllCoursesInSemester()) {
+			if(existingCourse.isSameCourse(courseToAdd)) {
+				throw new CourseAlreadyExistsException(courseToAdd);
+			}
+		}
+		
+		selectedCourses.add(courseToAdd);
+		
+		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Course> getAllCoursesInSemester() {
+		Collection<Course> allCourses = java.util.Collections.emptyList();
+		allCourses.addAll(getSelectedCourses());
+		allCourses.addAll(relatedProgramSemester.getMandatoryCourses());
+		return (EList<Course>) allCourses;
 	}
 
 	/**
@@ -255,6 +307,9 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 				return getTotalCredits();
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				return getStudyPlan();
+			case CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER:
+				if (resolve) return getRelatedProgramSemester();
+				return basicGetRelatedProgramSemester();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,11 +327,11 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 				getSelectedCourses().clear();
 				getSelectedCourses().addAll((Collection<? extends Course>)newValue);
 				return;
-			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
-				setTotalCredits((Integer)newValue);
-				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				setStudyPlan((StudyPlan)newValue);
+				return;
+			case CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER:
+				setRelatedProgramSemester((ProgramSemester)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,11 +348,11 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				getSelectedCourses().clear();
 				return;
-			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
-				unsetTotalCredits();
-				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				setStudyPlan((StudyPlan)null);
+				return;
+			case CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER:
+				setRelatedProgramSemester((ProgramSemester)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -317,6 +372,8 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 				return isSetTotalCredits();
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				return getStudyPlan() != null;
+			case CoursePackage.STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER:
+				return relatedProgramSemester != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,6 +388,8 @@ public class StudyPlanSemesterImpl extends ProgramSemesterImpl implements StudyP
 		switch (operationID) {
 			case CoursePackage.STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE:
 				return addCourseToSemester((Course)arguments.get(0));
+			case CoursePackage.STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER:
+				return getAllCoursesInSemester();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

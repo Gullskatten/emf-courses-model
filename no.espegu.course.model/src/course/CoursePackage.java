@@ -180,16 +180,6 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link course.impl.ProgramYearImpl <em>Program Year</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course.impl.ProgramYearImpl
-	 * @see course.impl.CoursePackageImpl#getProgramYear()
-	 * @generated
-	 */
-	int PROGRAM_YEAR = 8;
-
-	/**
 	 * The meta object id for the '{@link course.impl.CourseImpl <em>Course</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,13 +253,22 @@ public interface CoursePackage extends EPackage {
 	int COURSE_FEATURE_COUNT = 6;
 
 	/**
+	 * The operation id for the '<em>Is Same Course</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE___IS_SAME_COURSE__COURSE = 0;
+
+	/**
 	 * The number of operations of the '<em>Course</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_OPERATION_COUNT = 0;
+	int COURSE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link course.impl.StudentImpl <em>Student</em>}' class.
@@ -437,6 +436,70 @@ public interface CoursePackage extends EPackage {
 	int SEMESTER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link course.impl.SelectableProgramSpecializationImpl <em>Selectable Program Specialization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.impl.SelectableProgramSpecializationImpl
+	 * @see course.impl.CoursePackageImpl#getSelectableProgramSpecialization()
+	 * @generated
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Program Year</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Sub Specializations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION__SUB_SPECIALIZATIONS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Selectable Program Specialization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Selectable Program Specialization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTABLE_PROGRAM_SPECIALIZATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link course.impl.StudyPlanSemesterImpl <em>Study Plan Semester</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -444,7 +507,106 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getStudyPlanSemester()
 	 * @generated
 	 */
-	int STUDY_PLAN_SEMESTER = 6;
+	int STUDY_PLAN_SEMESTER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__YEAR = SEMESTER__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>Semester Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__SEMESTER_TYPE = SEMESTER__SEMESTER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Teached In Semester</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER = SEMESTER__TEACHED_IN_SEMESTER;
+
+	/**
+	 * The feature id for the '<em><b>Selected Courses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__SELECTED_COURSES = SEMESTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Total Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__TOTAL_CREDITS = SEMESTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Study Plan</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__STUDY_PLAN = SEMESTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Related Program Semester</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER = SEMESTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Study Plan Semester</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Add Course To Semester</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = SEMESTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Courses In Semester</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER = SEMESTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Study Plan Semester</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.
@@ -454,7 +616,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getProgramSemester()
 	 * @generated
 	 */
-	int PROGRAM_SEMESTER = 7;
+	int PROGRAM_SEMESTER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -520,103 +682,14 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * The meta object id for the '{@link course.impl.ProgramYearImpl <em>Program Year</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see course.impl.ProgramYearImpl
+	 * @see course.impl.CoursePackageImpl#getProgramYear()
 	 * @generated
-	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER__YEAR = PROGRAM_SEMESTER__YEAR;
-
-	/**
-	 * The feature id for the '<em><b>Semester Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__SEMESTER_TYPE = PROGRAM_SEMESTER__SEMESTER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Teached In Semester</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER = PROGRAM_SEMESTER__TEACHED_IN_SEMESTER;
-
-	/**
-	 * The feature id for the '<em><b>Mandatory Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__MANDATORY_COURSES = PROGRAM_SEMESTER__MANDATORY_COURSES;
-
-	/**
-	 * The feature id for the '<em><b>Elective Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__ELECTIVE_COURSES = PROGRAM_SEMESTER__ELECTIVE_COURSES;
-
-	/**
-	 * The feature id for the '<em><b>Selected Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__SELECTED_COURSES = PROGRAM_SEMESTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Total Credits</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__TOTAL_CREDITS = PROGRAM_SEMESTER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Study Plan</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__STUDY_PLAN = PROGRAM_SEMESTER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Study Plan Semester</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER_FEATURE_COUNT = PROGRAM_SEMESTER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Add Course To Semester</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = PROGRAM_SEMESTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Study Plan Semester</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = PROGRAM_SEMESTER_OPERATION_COUNT + 1;
+	int PROGRAM_YEAR = 9;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -664,70 +737,6 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_YEAR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link course.impl.SelectableProgramSpecializationImpl <em>Selectable Program Specialization</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see course.impl.SelectableProgramSpecializationImpl
-	 * @see course.impl.CoursePackageImpl#getSelectableProgramSpecialization()
-	 * @generated
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Program Year</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR = 2;
-
-	/**
-	 * The feature id for the '<em><b>Sub Specializations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION__SUB_SPECIALIZATIONS = 3;
-
-	/**
-	 * The number of structural features of the '<em>Selectable Program Specialization</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Selectable Program Specialization</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SELECTABLE_PROGRAM_SPECIALIZATION_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link course.SemesterType <em>Semester Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,7 +756,6 @@ public interface CoursePackage extends EPackage {
 	 */
 	int COURSE_LEVEL = 11;
 
-
 	/**
 	 * The meta object id for the '<em>Year</em>' data type.
 	 * <!-- begin-user-doc -->
@@ -758,7 +766,6 @@ public interface CoursePackage extends EPackage {
 	 */
 	int YEAR = 12;
 
-
 	/**
 	 * The meta object id for the '<em>Credit</em>' data type.
 	 * <!-- begin-user-doc -->
@@ -768,6 +775,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	int COURSE_CREDIT = 13;
+
+
+	/**
+	 * The meta object id for the '<em>Already Exists Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.RuntimeException
+	 * @see course.impl.CoursePackageImpl#getCourseAlreadyExistsException()
+	 * @generated
+	 */
+	int COURSE_ALREADY_EXISTS_EXCEPTION = 14;
 
 
 	/**
@@ -868,103 +886,6 @@ public interface CoursePackage extends EPackage {
 	EReference getProgram_ProgramYears();
 
 	/**
-	 * Returns the meta object for class '{@link course.ProgramYear <em>Program Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Program Year</em>'.
-	 * @see course.ProgramYear
-	 * @generated
-	 */
-	EClass getProgramYear();
-
-	/**
-	 * Returns the meta object for the attribute '{@link course.ProgramYear#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see course.ProgramYear#getYear()
-	 * @see #getProgramYear()
-	 * @generated
-	 */
-	EAttribute getProgramYear_Year();
-
-	/**
-	 * Returns the meta object for the container reference '{@link course.ProgramYear#getProgram <em>Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Program</em>'.
-	 * @see course.ProgramYear#getProgram()
-	 * @see #getProgramYear()
-	 * @generated
-	 */
-	EReference getProgramYear_Program();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.ProgramYear#getSelectablePrograms <em>Selectable Programs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Selectable Programs</em>'.
-	 * @see course.ProgramYear#getSelectablePrograms()
-	 * @see #getProgramYear()
-	 * @generated
-	 */
-	EReference getProgramYear_SelectablePrograms();
-
-	/**
-	 * Returns the meta object for class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Selectable Program Specialization</em>'.
-	 * @see course.SelectableProgramSpecialization
-	 * @generated
-	 */
-	EClass getSelectableProgramSpecialization();
-
-	/**
-	 * Returns the meta object for the attribute '{@link course.SelectableProgramSpecialization#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see course.SelectableProgramSpecialization#getName()
-	 * @see #getSelectableProgramSpecialization()
-	 * @generated
-	 */
-	EAttribute getSelectableProgramSpecialization_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.SelectableProgramSpecialization#getSemesters <em>Semesters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
-	 * @see course.SelectableProgramSpecialization#getSemesters()
-	 * @see #getSelectableProgramSpecialization()
-	 * @generated
-	 */
-	EReference getSelectableProgramSpecialization_Semesters();
-
-	/**
-	 * Returns the meta object for the container reference '{@link course.SelectableProgramSpecialization#getProgramYear <em>Program Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Program Year</em>'.
-	 * @see course.SelectableProgramSpecialization#getProgramYear()
-	 * @see #getSelectableProgramSpecialization()
-	 * @generated
-	 */
-	EReference getSelectableProgramSpecialization_ProgramYear();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.SelectableProgramSpecialization#getSubSpecializations <em>Sub Specializations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sub Specializations</em>'.
-	 * @see course.SelectableProgramSpecialization#getSubSpecializations()
-	 * @see #getSelectableProgramSpecialization()
-	 * @generated
-	 */
-	EReference getSelectableProgramSpecialization_SubSpecializations();
-
-	/**
 	 * Returns the meta object for class '{@link course.Course <em>Course</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,6 +960,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCourse_Code();
+
+	/**
+	 * Returns the meta object for the '{@link course.Course#isSameCourse(course.Course) <em>Is Same Course</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Same Course</em>' operation.
+	 * @see course.Course#isSameCourse(course.Course)
+	 * @generated
+	 */
+	EOperation getCourse__IsSameCourse__Course();
 
 	/**
 	 * Returns the meta object for class '{@link course.Student <em>Student</em>}'.
@@ -1170,6 +1101,60 @@ public interface CoursePackage extends EPackage {
 	EAttribute getSemester_TeachedInSemester();
 
 	/**
+	 * Returns the meta object for class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Selectable Program Specialization</em>'.
+	 * @see course.SelectableProgramSpecialization
+	 * @generated
+	 */
+	EClass getSelectableProgramSpecialization();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.SelectableProgramSpecialization#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see course.SelectableProgramSpecialization#getName()
+	 * @see #getSelectableProgramSpecialization()
+	 * @generated
+	 */
+	EAttribute getSelectableProgramSpecialization_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.SelectableProgramSpecialization#getSemesters <em>Semesters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
+	 * @see course.SelectableProgramSpecialization#getSemesters()
+	 * @see #getSelectableProgramSpecialization()
+	 * @generated
+	 */
+	EReference getSelectableProgramSpecialization_Semesters();
+
+	/**
+	 * Returns the meta object for the container reference '{@link course.SelectableProgramSpecialization#getProgramYear <em>Program Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Program Year</em>'.
+	 * @see course.SelectableProgramSpecialization#getProgramYear()
+	 * @see #getSelectableProgramSpecialization()
+	 * @generated
+	 */
+	EReference getSelectableProgramSpecialization_ProgramYear();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.SelectableProgramSpecialization#getSubSpecializations <em>Sub Specializations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Specializations</em>'.
+	 * @see course.SelectableProgramSpecialization#getSubSpecializations()
+	 * @see #getSelectableProgramSpecialization()
+	 * @generated
+	 */
+	EReference getSelectableProgramSpecialization_SubSpecializations();
+
+	/**
 	 * Returns the meta object for class '{@link course.StudyPlanSemester <em>Study Plan Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1213,6 +1198,17 @@ public interface CoursePackage extends EPackage {
 	EReference getStudyPlanSemester_StudyPlan();
 
 	/**
+	 * Returns the meta object for the reference '{@link course.StudyPlanSemester#getRelatedProgramSemester <em>Related Program Semester</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Related Program Semester</em>'.
+	 * @see course.StudyPlanSemester#getRelatedProgramSemester()
+	 * @see #getStudyPlanSemester()
+	 * @generated
+	 */
+	EReference getStudyPlanSemester_RelatedProgramSemester();
+
+	/**
 	 * Returns the meta object for the '{@link course.StudyPlanSemester#addCourseToSemester(course.Course) <em>Add Course To Semester</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1221,6 +1217,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getStudyPlanSemester__AddCourseToSemester__Course();
+
+	/**
+	 * Returns the meta object for the '{@link course.StudyPlanSemester#getAllCoursesInSemester() <em>Get All Courses In Semester</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Courses In Semester</em>' operation.
+	 * @see course.StudyPlanSemester#getAllCoursesInSemester()
+	 * @generated
+	 */
+	EOperation getStudyPlanSemester__GetAllCoursesInSemester();
 
 	/**
 	 * Returns the meta object for class '{@link course.ProgramSemester <em>Program Semester</em>}'.
@@ -1255,6 +1261,49 @@ public interface CoursePackage extends EPackage {
 	EReference getProgramSemester_ElectiveCourses();
 
 	/**
+	 * Returns the meta object for class '{@link course.ProgramYear <em>Program Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Program Year</em>'.
+	 * @see course.ProgramYear
+	 * @generated
+	 */
+	EClass getProgramYear();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.ProgramYear#getYear <em>Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Year</em>'.
+	 * @see course.ProgramYear#getYear()
+	 * @see #getProgramYear()
+	 * @generated
+	 */
+	EAttribute getProgramYear_Year();
+
+	/**
+	 * Returns the meta object for the container reference '{@link course.ProgramYear#getProgram <em>Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Program</em>'.
+	 * @see course.ProgramYear#getProgram()
+	 * @see #getProgramYear()
+	 * @generated
+	 */
+	EReference getProgramYear_Program();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.ProgramYear#getSelectablePrograms <em>Selectable Programs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Selectable Programs</em>'.
+	 * @see course.ProgramYear#getSelectablePrograms()
+	 * @see #getProgramYear()
+	 * @generated
+	 */
+	EReference getProgramYear_SelectablePrograms();
+
+	/**
 	 * Returns the meta object for enum '{@link course.SemesterType <em>Semester Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1281,8 +1330,8 @@ public interface CoursePackage extends EPackage {
 	 * @return the meta object for data type '<em>Year</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 hasCorrectYearLength='aql:self.year.toLower() == \'default\' or self.year.size() == 4'"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasCorrectYearLength'"
+	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 hasCorrectYearFormat='self.size() == 4 AND self.matches(\'[0-9]+\')'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasCorrectYearFormat'"
 	 * @generated
 	 */
 	EDataType getYear();
@@ -1294,11 +1343,21 @@ public interface CoursePackage extends EPackage {
 	 * @return the meta object for data type '<em>Credit</em>'.
 	 * @see java.lang.Float
 	 * @model instanceClass="java.lang.Float"
-	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 isGreaterOrEqualToZero='aql:self &gt;= 0'"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isGreaterOrEqualToZero'"
 	 * @generated
 	 */
 	EDataType getCourseCredit();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.RuntimeException <em>Already Exists Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Already Exists Exception</em>'.
+	 * @see java.lang.RuntimeException
+	 * @model instanceClass="java.lang.RuntimeException"
+	 * @generated
+	 */
+	EDataType getCourseAlreadyExistsException();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1400,82 +1459,6 @@ public interface CoursePackage extends EPackage {
 		EReference PROGRAM__PROGRAM_YEARS = eINSTANCE.getProgram_ProgramYears();
 
 		/**
-		 * The meta object literal for the '{@link course.impl.ProgramYearImpl <em>Program Year</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see course.impl.ProgramYearImpl
-		 * @see course.impl.CoursePackageImpl#getProgramYear()
-		 * @generated
-		 */
-		EClass PROGRAM_YEAR = eINSTANCE.getProgramYear();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROGRAM_YEAR__YEAR = eINSTANCE.getProgramYear_Year();
-
-		/**
-		 * The meta object literal for the '<em><b>Program</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM_YEAR__PROGRAM = eINSTANCE.getProgramYear_Program();
-
-		/**
-		 * The meta object literal for the '<em><b>Selectable Programs</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM_YEAR__SELECTABLE_PROGRAMS = eINSTANCE.getProgramYear_SelectablePrograms();
-
-		/**
-		 * The meta object literal for the '{@link course.impl.SelectableProgramSpecializationImpl <em>Selectable Program Specialization</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see course.impl.SelectableProgramSpecializationImpl
-		 * @see course.impl.CoursePackageImpl#getSelectableProgramSpecialization()
-		 * @generated
-		 */
-		EClass SELECTABLE_PROGRAM_SPECIALIZATION = eINSTANCE.getSelectableProgramSpecialization();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SELECTABLE_PROGRAM_SPECIALIZATION__NAME = eINSTANCE.getSelectableProgramSpecialization_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS = eINSTANCE.getSelectableProgramSpecialization_Semesters();
-
-		/**
-		 * The meta object literal for the '<em><b>Program Year</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR = eINSTANCE.getSelectableProgramSpecialization_ProgramYear();
-
-		/**
-		 * The meta object literal for the '<em><b>Sub Specializations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SELECTABLE_PROGRAM_SPECIALIZATION__SUB_SPECIALIZATIONS = eINSTANCE.getSelectableProgramSpecialization_SubSpecializations();
-
-		/**
 		 * The meta object literal for the '{@link course.impl.CourseImpl <em>Course</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1532,6 +1515,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COURSE__CODE = eINSTANCE.getCourse_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Same Course</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COURSE___IS_SAME_COURSE__COURSE = eINSTANCE.getCourse__IsSameCourse__Course();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.StudentImpl <em>Student</em>}' class.
@@ -1636,6 +1627,48 @@ public interface CoursePackage extends EPackage {
 		EAttribute SEMESTER__TEACHED_IN_SEMESTER = eINSTANCE.getSemester_TeachedInSemester();
 
 		/**
+		 * The meta object literal for the '{@link course.impl.SelectableProgramSpecializationImpl <em>Selectable Program Specialization</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.impl.SelectableProgramSpecializationImpl
+		 * @see course.impl.CoursePackageImpl#getSelectableProgramSpecialization()
+		 * @generated
+		 */
+		EClass SELECTABLE_PROGRAM_SPECIALIZATION = eINSTANCE.getSelectableProgramSpecialization();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SELECTABLE_PROGRAM_SPECIALIZATION__NAME = eINSTANCE.getSelectableProgramSpecialization_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECTABLE_PROGRAM_SPECIALIZATION__SEMESTERS = eINSTANCE.getSelectableProgramSpecialization_Semesters();
+
+		/**
+		 * The meta object literal for the '<em><b>Program Year</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR = eINSTANCE.getSelectableProgramSpecialization_ProgramYear();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Specializations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SELECTABLE_PROGRAM_SPECIALIZATION__SUB_SPECIALIZATIONS = eINSTANCE.getSelectableProgramSpecialization_SubSpecializations();
+
+		/**
 		 * The meta object literal for the '{@link course.impl.StudyPlanSemesterImpl <em>Study Plan Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1670,12 +1703,28 @@ public interface CoursePackage extends EPackage {
 		EReference STUDY_PLAN_SEMESTER__STUDY_PLAN = eINSTANCE.getStudyPlanSemester_StudyPlan();
 
 		/**
+		 * The meta object literal for the '<em><b>Related Program Semester</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER = eINSTANCE.getStudyPlanSemester_RelatedProgramSemester();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Course To Semester</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = eINSTANCE.getStudyPlanSemester__AddCourseToSemester__Course();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Courses In Semester</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER = eINSTANCE.getStudyPlanSemester__GetAllCoursesInSemester();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.
@@ -1702,6 +1751,40 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM_SEMESTER__ELECTIVE_COURSES = eINSTANCE.getProgramSemester_ElectiveCourses();
+
+		/**
+		 * The meta object literal for the '{@link course.impl.ProgramYearImpl <em>Program Year</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.impl.ProgramYearImpl
+		 * @see course.impl.CoursePackageImpl#getProgramYear()
+		 * @generated
+		 */
+		EClass PROGRAM_YEAR = eINSTANCE.getProgramYear();
+
+		/**
+		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROGRAM_YEAR__YEAR = eINSTANCE.getProgramYear_Year();
+
+		/**
+		 * The meta object literal for the '<em><b>Program</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM_YEAR__PROGRAM = eINSTANCE.getProgramYear_Program();
+
+		/**
+		 * The meta object literal for the '<em><b>Selectable Programs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM_YEAR__SELECTABLE_PROGRAMS = eINSTANCE.getProgramYear_SelectablePrograms();
 
 		/**
 		 * The meta object literal for the '{@link course.SemesterType <em>Semester Type</em>}' enum.
@@ -1742,6 +1825,16 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType COURSE_CREDIT = eINSTANCE.getCourseCredit();
+
+		/**
+		 * The meta object literal for the '<em>Already Exists Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.RuntimeException
+		 * @see course.impl.CoursePackageImpl#getCourseAlreadyExistsException()
+		 * @generated
+		 */
+		EDataType COURSE_ALREADY_EXISTS_EXCEPTION = eINSTANCE.getCourseAlreadyExistsException();
 
 	}
 
