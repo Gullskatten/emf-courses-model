@@ -55,7 +55,7 @@ public interface Course extends EObject {
 	 * @return the value of the '<em>Credits</em>' attribute.
 	 * @see #setCredits(Float)
 	 * @see course.CoursePackage#getCourse_Credits()
-	 * @model dataType="course.CourseCredit"
+	 * @model dataType="course.PositiveFloatNumber"
 	 * @generated
 	 */
 	Float getCredits();

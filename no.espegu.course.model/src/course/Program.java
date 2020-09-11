@@ -53,12 +53,12 @@ public interface Program extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Credits</em>' attribute.
-	 * @see #setRequiredCredits(int)
+	 * @see #setRequiredCredits(Float)
 	 * @see course.CoursePackage#getProgram_RequiredCredits()
-	 * @model
+	 * @model dataType="course.PositiveFloatNumber"
 	 * @generated
 	 */
-	int getRequiredCredits();
+	Float getRequiredCredits();
 
 	/**
 	 * Sets the value of the '{@link course.Program#getRequiredCredits <em>Required Credits</em>}' attribute.
@@ -68,7 +68,7 @@ public interface Program extends EObject {
 	 * @see #getRequiredCredits()
 	 * @generated
 	 */
-	void setRequiredCredits(int value);
+	void setRequiredCredits(Float value);
 
 	/**
 	 * Returns the value of the '<em><b>School</b></em>' container reference.

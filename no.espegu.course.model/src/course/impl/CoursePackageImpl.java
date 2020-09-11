@@ -134,7 +134,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType courseCreditEDataType = null;
+	private EDataType positiveFloatNumberEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -730,8 +730,8 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getCourseCredit() {
-		return courseCreditEDataType;
+	public EDataType getPositiveFloatNumber() {
+		return positiveFloatNumberEDataType;
 	}
 
 	/**
@@ -837,7 +837,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		// Create data types
 		yearEDataType = createEDataType(YEAR);
-		courseCreditEDataType = createEDataType(COURSE_CREDIT);
+		positiveFloatNumberEDataType = createEDataType(POSITIVE_FLOAT_NUMBER);
 		courseAlreadyExistsExceptionEDataType = createEDataType(COURSE_ALREADY_EXISTS_EXCEPTION);
 	}
 
@@ -880,13 +880,13 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgram_RequiredCredits(), ecorePackage.getEInt(), "requiredCredits", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgram_RequiredCredits(), this.getPositiveFloatNumber(), "requiredCredits", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_School(), this.getSchool(), this.getSchool_Programs(), "school", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_ProgramYears(), this.getProgramYear(), this.getProgramYear_Program(), "programYears", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourse_Name(), ecorePackage.getEString(), "name", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourse_Credits(), this.getCourseCredit(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourse_Credits(), this.getPositiveFloatNumber(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Level(), this.getCourseLevel(), "level", "First Degree Subject", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Description(), ecorePackage.getEString(), "description", "Add a description to this course.", 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_TaughtInSemester(), this.getSemesterType(), "taughtInSemester", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -918,7 +918,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		initEClass(studyPlanSemesterEClass, StudyPlanSemester.class, "StudyPlanSemester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudyPlanSemester_SelectedCourses(), this.getCourse(), null, "selectedCourses", null, 0, -1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStudyPlanSemester_TotalCredits(), ecorePackage.getEFloat(), "totalCredits", null, 0, 1, StudyPlanSemester.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudyPlanSemester_TotalCredits(), this.getPositiveFloatNumber(), "totalCredits", null, 0, 1, StudyPlanSemester.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlanSemester_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Semesters(), "studyPlan", null, 1, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlanSemester_RelatedProgramSemester(), this.getProgramSemester(), null, "relatedProgramSemester", null, 1, 1, StudyPlanSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -954,7 +954,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 
 		// Initialize data types
 		initEDataType(yearEDataType, String.class, "Year", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(courseCreditEDataType, Float.class, "CourseCredit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(positiveFloatNumberEDataType, Float.class, "PositiveFloatNumber", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(courseAlreadyExistsExceptionEDataType, RuntimeException.class, "CourseAlreadyExistsException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
@@ -1000,7 +1000,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 			   "constraints", "hasCorrectYearFormat"
 		   });
 		addAnnotation
-		  (courseCreditEDataType,
+		  (positiveFloatNumberEDataType,
 		   source,
 		   new String[] {
 			   "constraints", "isGreaterOrEqualToZero"

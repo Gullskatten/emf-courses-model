@@ -767,15 +767,14 @@ public interface CoursePackage extends EPackage {
 	int YEAR = 12;
 
 	/**
-	 * The meta object id for the '<em>Credit</em>' data type.
+	 * The meta object id for the '<em>Positive Float Number</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.lang.Float
-	 * @see course.impl.CoursePackageImpl#getCourseCredit()
+	 * @see course.impl.CoursePackageImpl#getPositiveFloatNumber()
 	 * @generated
 	 */
-	int COURSE_CREDIT = 13;
-
+	int POSITIVE_FLOAT_NUMBER = 13;
 
 	/**
 	 * The meta object id for the '<em>Already Exists Exception</em>' data type.
@@ -1337,16 +1336,16 @@ public interface CoursePackage extends EPackage {
 	EDataType getYear();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Float <em>Credit</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.Float <em>Positive Float Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Credit</em>'.
+	 * @return the meta object for data type '<em>Positive Float Number</em>'.
 	 * @see java.lang.Float
 	 * @model instanceClass="java.lang.Float"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isGreaterOrEqualToZero'"
 	 * @generated
 	 */
-	EDataType getCourseCredit();
+	EDataType getPositiveFloatNumber();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.RuntimeException <em>Already Exists Exception</em>}'.
@@ -1817,14 +1816,14 @@ public interface CoursePackage extends EPackage {
 		EDataType YEAR = eINSTANCE.getYear();
 
 		/**
-		 * The meta object literal for the '<em>Credit</em>' data type.
+		 * The meta object literal for the '<em>Positive Float Number</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.lang.Float
-		 * @see course.impl.CoursePackageImpl#getCourseCredit()
+		 * @see course.impl.CoursePackageImpl#getPositiveFloatNumber()
 		 * @generated
 		 */
-		EDataType COURSE_CREDIT = eINSTANCE.getCourseCredit();
+		EDataType POSITIVE_FLOAT_NUMBER = eINSTANCE.getPositiveFloatNumber();
 
 		/**
 		 * The meta object literal for the '<em>Already Exists Exception</em>' data type.

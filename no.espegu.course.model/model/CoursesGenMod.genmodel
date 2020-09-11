@@ -17,7 +17,7 @@
       <genEnumLiterals ecoreEnumLiteral="Courses.ecore#//CourseLevel/HIGHER_DEGREE"/>
     </genEnums>
     <genDataTypes ecoreDataType="Courses.ecore#//Year"/>
-    <genDataTypes ecoreDataType="Courses.ecore#//CourseCredit"/>
+    <genDataTypes ecoreDataType="Courses.ecore#//PositiveFloatNumber"/>
     <genDataTypes ecoreDataType="Courses.ecore#//CourseAlreadyExistsException"/>
     <genClasses ecoreClass="Courses.ecore#//School">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Courses.ecore#//School/programs"/>

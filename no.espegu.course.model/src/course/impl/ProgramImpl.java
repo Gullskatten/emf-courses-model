@@ -69,7 +69,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int REQUIRED_CREDITS_EDEFAULT = 0;
+	protected static final Float REQUIRED_CREDITS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRequiredCredits() <em>Required Credits</em>}' attribute.
@@ -79,7 +79,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 * @ordered
 	 */
-	protected int requiredCredits = REQUIRED_CREDITS_EDEFAULT;
+	protected Float requiredCredits = REQUIRED_CREDITS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProgramYears() <em>Program Years</em>}' containment reference list.
@@ -139,7 +139,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public int getRequiredCredits() {
+	public Float getRequiredCredits() {
 		return requiredCredits;
 	}
 
@@ -149,8 +149,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
-	public void setRequiredCredits(int newRequiredCredits) {
-		int oldRequiredCredits = requiredCredits;
+	public void setRequiredCredits(Float newRequiredCredits) {
+		Float oldRequiredCredits = requiredCredits;
 		requiredCredits = newRequiredCredits;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM__REQUIRED_CREDITS, oldRequiredCredits, requiredCredits));
@@ -294,7 +294,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				setName((String)newValue);
 				return;
 			case CoursePackage.PROGRAM__REQUIRED_CREDITS:
-				setRequiredCredits((Integer)newValue);
+				setRequiredCredits((Float)newValue);
 				return;
 			case CoursePackage.PROGRAM__SCHOOL:
 				setSchool((School)newValue);
@@ -342,7 +342,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case CoursePackage.PROGRAM__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoursePackage.PROGRAM__REQUIRED_CREDITS:
-				return requiredCredits != REQUIRED_CREDITS_EDEFAULT;
+				return REQUIRED_CREDITS_EDEFAULT == null ? requiredCredits != null : !REQUIRED_CREDITS_EDEFAULT.equals(requiredCredits);
 			case CoursePackage.PROGRAM__SCHOOL:
 				return getSchool() != null;
 			case CoursePackage.PROGRAM__PROGRAM_YEARS:

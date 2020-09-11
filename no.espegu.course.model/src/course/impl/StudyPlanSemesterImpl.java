@@ -59,7 +59,7 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float TOTAL_CREDITS_EDEFAULT = 0.0F;
+	protected static final Float TOTAL_CREDITS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRelatedProgramSemester() <em>Related Program Semester</em>}' reference.
@@ -109,7 +109,7 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @generated NOT
 	 */
 	@Override
-	public float getTotalCredits() {
+	public Float getTotalCredits() {
 		float totalCredits = 0;
 		
 		for(Course course : getAllCoursesInSemester()) {

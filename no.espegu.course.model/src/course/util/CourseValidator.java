@@ -112,8 +112,8 @@ public class CourseValidator extends EObjectValidator {
 				return validateCourseLevel((CourseLevel)value, diagnostics, context);
 			case CoursePackage.YEAR:
 				return validateYear((String)value, diagnostics, context);
-			case CoursePackage.COURSE_CREDIT:
-				return validateCourseCredit((Float)value, diagnostics, context);
+			case CoursePackage.POSITIVE_FLOAT_NUMBER:
+				return validatePositiveFloatNumber((Float)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -182,8 +182,8 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		
-		int requiredCredits = studyPlan.getSelectedProgram().getProgramYear().getProgram().getRequiredCredits();
-		int totalCredits = 0;
+		float requiredCredits = studyPlan.getSelectedProgram().getProgramYear().getProgram().getRequiredCredits();
+		float totalCredits = 0;
 		
 		for(StudyPlanSemester semester : studyPlan.getSemesters()) {
 			totalCredits += semester.getTotalCredits();
@@ -382,9 +382,37 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCourseCredit(Float courseCredit, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validateCourseCredit_isGreaterOrEqualToZero(courseCredit, diagnostics, context);
+	public boolean validatePositiveFloatNumber(Float positiveFloatNumber, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validatePositiveFloatNumber_isGreaterOrEqualToZero(positiveFloatNumber, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the isGreaterOrEqualToZero constraint of '<em>Positive Float Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePositiveFloatNumber_isGreaterOrEqualToZero(Float positiveFloatNumber, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isGreaterOrEqualToZero", getValueLabel(CoursePackage.Literals.POSITIVE_FLOAT_NUMBER, positiveFloatNumber, context) },
+						 new Object[] { positiveFloatNumber },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -402,7 +430,7 @@ public class CourseValidator extends EObjectValidator {
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "isGreaterOrEqualToZero", getValueLabel(CoursePackage.Literals.COURSE_CREDIT, courseCredit, context) },
+						 new Object[] { "isGreaterOrEqualToZero", getValueLabel(CoursePackage.Literals.POSITIVE_FLOAT_NUMBER, courseCredit, context) },
 						 new Object[] { courseCredit },
 						 context));
 			}

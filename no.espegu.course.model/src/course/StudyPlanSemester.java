@@ -44,10 +44,10 @@ public interface StudyPlanSemester extends Semester {
 	 * @return the value of the '<em>Total Credits</em>' attribute.
 	 * @see #isSetTotalCredits()
 	 * @see course.CoursePackage#getStudyPlanSemester_TotalCredits()
-	 * @model unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model unsettable="true" dataType="course.PositiveFloatNumber" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	float getTotalCredits();
+	Float getTotalCredits();
 
 	/**
 	 * Returns whether the value of the '{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}' attribute is set.

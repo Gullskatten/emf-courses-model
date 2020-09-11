@@ -86,8 +86,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return createCourseLevelFromString(eDataType, initialValue);
 			case CoursePackage.YEAR:
 				return createYearFromString(eDataType, initialValue);
-			case CoursePackage.COURSE_CREDIT:
-				return createCourseCreditFromString(eDataType, initialValue);
+			case CoursePackage.POSITIVE_FLOAT_NUMBER:
+				return createPositiveFloatNumberFromString(eDataType, initialValue);
 			case CoursePackage.COURSE_ALREADY_EXISTS_EXCEPTION:
 				return createCourseAlreadyExistsExceptionFromString(eDataType, initialValue);
 			default:
@@ -109,8 +109,8 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 				return convertCourseLevelToString(eDataType, instanceValue);
 			case CoursePackage.YEAR:
 				return convertYearToString(eDataType, instanceValue);
-			case CoursePackage.COURSE_CREDIT:
-				return convertCourseCreditToString(eDataType, instanceValue);
+			case CoursePackage.POSITIVE_FLOAT_NUMBER:
+				return convertPositiveFloatNumberToString(eDataType, instanceValue);
 			case CoursePackage.COURSE_ALREADY_EXISTS_EXCEPTION:
 				return convertCourseAlreadyExistsExceptionToString(eDataType, instanceValue);
 			default:
@@ -291,7 +291,7 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Float createCourseCreditFromString(EDataType eDataType, String initialValue) {
+	public Float createPositiveFloatNumberFromString(EDataType eDataType, String initialValue) {
 		return (Float)super.createFromString(eDataType, initialValue);
 	}
 
@@ -300,7 +300,7 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCourseCreditToString(EDataType eDataType, Object instanceValue) {
+	public String convertPositiveFloatNumberToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

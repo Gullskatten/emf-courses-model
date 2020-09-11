@@ -17,10 +17,13 @@ public class RunnableExample {
 		
 	}
 	
-	public EList<Program> generateProgram() {
+	public Program generateProgram(String name,
+			float credits) {
 		Program program = CourseFactory.eINSTANCE.createProgram();
-		
-		
+		program.setName(name);
+		program.setRequiredCredits(credits);
+		// School is automatically set by EOpposite-link
+		return program;
 	}
 	
 }
