@@ -49,7 +49,7 @@
         eType="#//StudyPlanSemester" containment="true" eOpposite="#//StudyPlanSemester/studyPlan"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="student" eType="#//Student"
         eOpposite="#//Student/studyPlan"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProgram" eType="#//SelectableProgramSpecialization"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedProgram" eType="#//ProgramDirection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
@@ -58,15 +58,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="teachedInSemester" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectableProgramSpecialization">
+  <eClassifiers xsi:type="ecore:EClass" name="ProgramDirection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//ProgramSemester" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programYear" eType="#//ProgramYear"
         eOpposite="#//ProgramYear/selectablePrograms"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subSpecializations" upperBound="-1"
-        eType="#//SelectableProgramSpecialization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chosenInSemester" eType="#//ProgramSemester"
+        eOpposite="#//ProgramSemester/specializations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlanSemester" eSuperTypes="#//Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -97,14 +97,15 @@
         eType="#//Course" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="electiveCourses" upperBound="-1"
         eType="#//Course" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
+        eType="#//ProgramDirection" containment="true" eOpposite="#//ProgramDirection/chosenInSemester"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramYear">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="program" eType="#//Program"
         eOpposite="#//Program/programYears"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectablePrograms" lowerBound="1"
-        upperBound="-1" eType="#//SelectableProgramSpecialization" containment="true"
-        eOpposite="#//SelectableProgramSpecialization/programYear"/>
+        upperBound="-1" eType="#//ProgramDirection" containment="true" eOpposite="#//ProgramDirection/programYear"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SemesterType" instanceTypeName="semesterType">
     <eLiterals name="AUTUMN" literal="Autumn"/>
