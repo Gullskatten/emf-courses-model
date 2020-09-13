@@ -1,0 +1,93 @@
+Student: Espen Gudmundsen
+_________________________________
+
+
+Semester: Autumn - 2020
+_________________________________
+
+
+Total courses: 3
+course.impl.CourseImpl@29ca901e (name: Information Systems, credits: 7.5, level: Higher Degree Subject, description: Add a description to this course., taughtInSemester: null, code: TDT4175)
+course.impl.CourseImpl@5649fd9b (name: Applied Data Science, credits: 7.5, level: Higher Degree Subject, description: Add a description to this course., taughtInSemester: null, code: TDT4259)
+course.impl.CourseImpl@6adede5 (name: Advanced Software Design, credits: 7.5, level: First Degree Subject, description: Add a description to this course., taughtInSemester: null, code: TDT4250)
+Mandatory courses: 3
+Selected courses: 0
+Total credits this semester: 22.5
+Choice of specialization: Software Engineering
+Part of program: Informatics - master 2 year
+_________________________________
+
+
+Semester: Spring - 2021
+_________________________________
+
+
+Total courses: 4
+course.impl.CourseImpl@72b6cbcc (name: Master in Informatics, Preparatory Project, credits: 15.0, level: Higher Degree Subject, description: Add a description to this course., taughtInSemester: Spring, code: IT3915)
+course.impl.CourseImpl@49993335 (name: Digital Service Innovation, credits: 7.5, level: Higher Degree Subject, description: Add a description to this course., taughtInSemester: Spring, code: TDT4257)
+course.impl.CourseImpl@20322d26 (name: Learning Technology and Analytics, credits: 7.5, level: Third Degree Subject, description: Add a description to this course., taughtInSemester: Spring, code: IT3023)
+course.impl.CourseImpl@192b07fd (name: Empirical research methodologies in IT and digitalization, credits: 7.5, level: Higher Degree Subject, description: Add a description to this course., taughtInSemester: null, code: IT3010)
+Mandatory courses: 3
+Selected courses: 1
+Total credits this semester: 37.5
+Choice of specialization: UX & Software Design
+Part of program: Informatics - master 2 year
+_________________________________
+
+
+Program: Informatics - master 2 year
+Required credits: 120.0
+_________________________________
+Program year: 2020
+_________________________________
+
+
+
+
+Semester: Autumn - 2020
+_________________________________
+
+
+Specializations: 1
+This semester only contains specializations - future semesters are defined by the choice of specialization.
+_________________________________
+
+
+Specialization name: Software Engineering
+_________________________________
+
+
+Semester: Autumn - 2020
+_________________________________
+
+
+Semester is contained in Software Engineering
+Specializations: 0
+Mandatory courses: 3
+Elective courses: 2
+_________________________________
+
+
+Semester: Spring - 2021
+_________________________________
+
+
+Semester is contained in Software Engineering
+Specializations: 1
+This semester only contains specializations - future semesters are defined by the choice of specialization.
+_________________________________
+
+
+Specialization name: UX & Software Design
+_________________________________
+
+
+Semester: Spring - 2021
+_________________________________
+
+
+Semester is contained in UX & Software Design
+Specializations: 0
+Mandatory courses: 3
+Elective courses: 2
+_________________________________

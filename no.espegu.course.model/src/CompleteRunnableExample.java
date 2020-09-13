@@ -106,16 +106,15 @@ public class CompleteRunnableExample {
         school.getStudents().add(aStudent);
         
         // Debug print
-        System.out.println(System.lineSeparator());
         System.out.println("Student: " + aStudent.getName());
         System.out.println(DELIMITER);
         studyPlan.getSemesters().forEach(semester -> {
             System.out.println(System.lineSeparator());
             System.out.println("Semester: " + semester.getTeachedInSemester() + " - " + semester.getYear());
             System.out.println(DELIMITER);
+            System.out.println(System.lineSeparator());
             System.out.println("Total courses: " + semester.getAllCoursesInSemester().size());
             semester.getAllCoursesInSemester().forEach(course -> System.out.println(course.toString()));
-            System.out.println(DELIMITER);
             System.out.println("Mandatory courses: " + semester.getRelatedProgramSemester().getMandatoryCourses().size());
             System.out.println("Selected courses: " + semester.getSelectedCourses().size());
             System.out.println("Total credits this semester: " + semester.getTotalCredits());
@@ -134,12 +133,16 @@ public class CompleteRunnableExample {
         aProgram.getProgramYears().forEach(programYear -> {
             System.out.println("Program year: " + programYear.getYear());
             System.out.println(DELIMITER);
+            System.out.println(System.lineSeparator());
             programYear.getSemesters().forEach(CompleteRunnableExample::printProgramSemester);
         });
     }
 
     private static void printProgramSemester(ProgramSemester programSemester) {
-        System.out.println("Semester: " + programSemester.getTeachedInSemester() + " - " + programSemester.getYear());
+    	System.out.println(System.lineSeparator());
+    	System.out.println("Semester: " + programSemester.getTeachedInSemester() + " - " + programSemester.getYear());
+        System.out.println(DELIMITER);
+        System.out.println(System.lineSeparator());
         if(programSemester.getParentProgramDirection() != null) {
             System.out.println("Semester is contained in " + programSemester.getParentProgramDirection().getName());
         }
@@ -167,7 +170,8 @@ public class CompleteRunnableExample {
 
     private static void printSpecializations(EList<ProgramDirection> specializations) {
         specializations.forEach(specialization -> {
-            System.out.println("Specialization name: " + specialization.getName());
+        	System.out.println(System.lineSeparator());
+        	System.out.println("Specialization name: " + specialization.getName());
             System.out.println(DELIMITER);
             specialization.getSemesters().forEach(CompleteRunnableExample::printProgramSemester);
         });
