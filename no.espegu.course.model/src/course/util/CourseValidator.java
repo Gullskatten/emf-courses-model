@@ -5,7 +5,9 @@ package course.util;
 import course.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -170,6 +172,7 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlan, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlan, diagnostics, context);
 		if (result || diagnostics != null) result &= validateStudyPlan_hasRequiredCreditsForProgram(studyPlan, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStudyPlan_hasExceededMaximumLowerDegreeCourses(studyPlan, diagnostics, context);
 		return result;
 	}
 
@@ -212,6 +215,57 @@ public class CourseValidator extends EObjectValidator {
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
 						 new Object[] { "hasRequiredCreditsForProgram", getObjectLabel(studyPlan, context) },
+						 new Object[] { studyPlan },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the hasExceededMaximumLowerDegreeCourses constraint of '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateStudyPlan_hasExceededMaximumLowerDegreeCourses(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		float requiredCredits = studyPlan.getProgramStartingYear().getProgram().getRequiredCredits();
+		
+		// Assumption that all master degree programs has 120 as required credits
+		// Not taking into consideration integrated master programs (where total is 300)
+		// If program does not have 120 as required credits, don't validate.
+		if(requiredCredits != 120f) {
+			return true;
+		}
+		// Maximum allowed credits for lower level subjects in a masters degree
+		float maximumAllowedCredits = 22.5f;
+		
+		// Find all courses of any lower degree
+		List<Course> lowerDegreeCourses = studyPlan.getSemesters()
+		.stream()
+		.map(StudyPlanSemester::getSelectedCourses)
+		.map(selectedCoursesList -> 
+				selectedCoursesList.stream()
+					.filter(course -> course.getLevel() == CourseLevel.HIGHER_DEGREE).collect(Collectors.toList()))
+		.flatMap(List::stream)
+        .collect(Collectors.toList());
+		
+		float totalCreditsFromLowerDegreeCourses = 0;
+		
+		for(Course lowerDegreeCourse : lowerDegreeCourses) {
+			totalCreditsFromLowerDegreeCourses += lowerDegreeCourse.getCredits();
+		}
+		
+		if (totalCreditsFromLowerDegreeCourses > maximumAllowedCredits) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasExceededMaximumLowerDegreeCourses", getObjectLabel(studyPlan, context) },
 						 new Object[] { studyPlan },
 						 context));
 			}
@@ -437,9 +491,9 @@ public class CourseValidator extends EObjectValidator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean validateAllCoursesList(ArrayList allCoursesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateAllCoursesList(ArrayList<Course> allCoursesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

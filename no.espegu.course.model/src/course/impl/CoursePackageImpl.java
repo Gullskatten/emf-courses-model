@@ -1048,7 +1048,7 @@ public class CoursePackageImpl extends EPackageImpl implements CoursePackage {
 		  (studyPlanEClass,
 		   source,
 		   new String[] {
-			   "constraints", "hasRequiredCreditsForProgram"
+			   "constraints", "hasRequiredCreditsForProgram hasExceededMaximumLowerDegreeCourses"
 		   });
 		addAnnotation
 		  (studyPlanSemesterEClass,

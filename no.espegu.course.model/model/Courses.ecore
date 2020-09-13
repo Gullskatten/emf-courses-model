@@ -43,7 +43,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlan">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="hasRequiredCreditsForProgram"/>
+      <details key="constraints" value="hasRequiredCreditsForProgram hasExceededMaximumLowerDegreeCourses"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" upperBound="-1"
         eType="#//StudyPlanSemester" containment="true" eOpposite="#//StudyPlanSemester/studyPlan"/>
