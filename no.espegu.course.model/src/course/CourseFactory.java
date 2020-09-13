@@ -76,13 +76,13 @@ public interface CourseFactory extends EFactory {
 	Semester createSemester();
 
 	/**
-	 * Returns a new object of class '<em>Selectable Program Specialization</em>'.
+	 * Returns a new object of class '<em>Program Direction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Selectable Program Specialization</em>'.
+	 * @return a new object of class '<em>Program Direction</em>'.
 	 * @generated
 	 */
-	SelectableProgramSpecialization createSelectableProgramSpecialization();
+	ProgramDirection createProgramDirection();
 
 	/**
 	 * Returns a new object of class '<em>Study Plan Semester</em>'.

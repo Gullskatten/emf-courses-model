@@ -17,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link course.StudyPlan#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.StudyPlan#getStudent <em>Student</em>}</li>
- *   <li>{@link course.StudyPlan#getSelectedProgram <em>Selected Program</em>}</li>
+ *   <li>{@link course.StudyPlan#getTotalCredits <em>Total Credits</em>}</li>
+ *   <li>{@link course.StudyPlan#getProgramStartingYear <em>Program Starting Year</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlan()
@@ -64,25 +65,47 @@ public interface StudyPlan extends EObject {
 	void setStudent(Student value);
 
 	/**
-	 * Returns the value of the '<em><b>Selected Program</b></em>' reference.
+	 * Returns the value of the '<em><b>Total Credits</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Program</em>' reference.
-	 * @see #setSelectedProgram(SelectableProgramSpecialization)
-	 * @see course.CoursePackage#getStudyPlan_SelectedProgram()
+	 * @return the value of the '<em>Total Credits</em>' attribute.
+	 * @see #isSetTotalCredits()
+	 * @see course.CoursePackage#getStudyPlan_TotalCredits()
+	 * @model unsettable="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getTotalCredits();
+
+	/**
+	 * Returns whether the value of the '{@link course.StudyPlan#getTotalCredits <em>Total Credits</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Total Credits</em>' attribute is set.
+	 * @see #getTotalCredits()
+	 * @generated
+	 */
+	boolean isSetTotalCredits();
+
+	/**
+	 * Returns the value of the '<em><b>Program Starting Year</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Program Starting Year</em>' reference.
+	 * @see #setProgramStartingYear(ProgramYear)
+	 * @see course.CoursePackage#getStudyPlan_ProgramStartingYear()
 	 * @model
 	 * @generated
 	 */
-	SelectableProgramSpecialization getSelectedProgram();
+	ProgramYear getProgramStartingYear();
 
 	/**
-	 * Sets the value of the '{@link course.StudyPlan#getSelectedProgram <em>Selected Program</em>}' reference.
+	 * Sets the value of the '{@link course.StudyPlan#getProgramStartingYear <em>Program Starting Year</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selected Program</em>' reference.
-	 * @see #getSelectedProgram()
+	 * @param value the new value of the '<em>Program Starting Year</em>' reference.
+	 * @see #getProgramStartingYear()
 	 * @generated
 	 */
-	void setSelectedProgram(SelectableProgramSpecialization value);
+	void setProgramStartingYear(ProgramYear value);
 
 } // StudyPlan

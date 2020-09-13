@@ -4,9 +4,8 @@ package course.impl;
 
 import course.CoursePackage;
 import course.Program;
+import course.ProgramSemester;
 import course.ProgramYear;
-import course.SelectableProgramSpecialization;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link course.impl.ProgramYearImpl#getYear <em>Year</em>}</li>
  *   <li>{@link course.impl.ProgramYearImpl#getProgram <em>Program</em>}</li>
- *   <li>{@link course.impl.ProgramYearImpl#getSelectablePrograms <em>Selectable Programs</em>}</li>
+ *   <li>{@link course.impl.ProgramYearImpl#getSemesters <em>Semesters</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +59,14 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	protected String year = YEAR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSelectablePrograms() <em>Selectable Programs</em>}' containment reference list.
+	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectablePrograms()
+	 * @see #getSemesters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SelectableProgramSpecialization> selectablePrograms;
+	protected EList<ProgramSemester> semesters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,11 +159,11 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 	 * @generated
 	 */
 	@Override
-	public EList<SelectableProgramSpecialization> getSelectablePrograms() {
-		if (selectablePrograms == null) {
-			selectablePrograms = new EObjectContainmentWithInverseEList<SelectableProgramSpecialization>(SelectableProgramSpecialization.class, this, CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS, CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION__PROGRAM_YEAR);
+	public EList<ProgramSemester> getSemesters() {
+		if (semesters == null) {
+			semesters = new EObjectContainmentWithInverseEList<ProgramSemester>(ProgramSemester.class, this, CoursePackage.PROGRAM_YEAR__SEMESTERS, CoursePackage.PROGRAM_SEMESTER__PROGRAM_YEAR);
 		}
-		return selectablePrograms;
+		return semesters;
 	}
 
 	/**
@@ -181,8 +179,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProgram((Program)otherEnd, msgs);
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSelectablePrograms()).basicAdd(otherEnd, msgs);
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemesters()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -197,8 +195,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 		switch (featureID) {
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return basicSetProgram(null, msgs);
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				return ((InternalEList<?>)getSelectablePrograms()).basicRemove(otherEnd, msgs);
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,8 +227,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				return getYear();
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return getProgram();
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				return getSelectablePrograms();
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				return getSemesters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,9 +248,9 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				setProgram((Program)newValue);
 				return;
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				getSelectablePrograms().clear();
-				getSelectablePrograms().addAll((Collection<? extends SelectableProgramSpecialization>)newValue);
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				getSemesters().clear();
+				getSemesters().addAll((Collection<? extends ProgramSemester>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,8 +270,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				setProgram((Program)null);
 				return;
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				getSelectablePrograms().clear();
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				getSemesters().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -291,8 +289,8 @@ public class ProgramYearImpl extends MinimalEObjectImpl.Container implements Pro
 				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
 			case CoursePackage.PROGRAM_YEAR__PROGRAM:
 				return getProgram() != null;
-			case CoursePackage.PROGRAM_YEAR__SELECTABLE_PROGRAMS:
-				return selectablePrograms != null && !selectablePrograms.isEmpty();
+			case CoursePackage.PROGRAM_YEAR__SEMESTERS:
+				return semesters != null && !semesters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

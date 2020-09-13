@@ -4,6 +4,7 @@ package course.util;
 
 import course.*;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -98,8 +99,6 @@ public class CourseValidator extends EObjectValidator {
 				return validateStudyPlan((StudyPlan)value, diagnostics, context);
 			case CoursePackage.SEMESTER:
 				return validateSemester((Semester)value, diagnostics, context);
-			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION:
-				return validateSelectableProgramSpecialization((SelectableProgramSpecialization)value, diagnostics, context);
 			case CoursePackage.STUDY_PLAN_SEMESTER:
 				return validateStudyPlanSemester((StudyPlanSemester)value, diagnostics, context);
 			case CoursePackage.PROGRAM_SEMESTER:
@@ -182,7 +181,22 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudyPlan_hasRequiredCreditsForProgram(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		
-		float requiredCredits = studyPlan.getSelectedProgram().getProgramYear().getProgram().getRequiredCredits();
+		if(studyPlan.getProgramStartingYear() == null) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasRequiredCreditsForProgram", getObjectLabel(studyPlan, context) },
+						 new Object[] { studyPlan },
+						 context));
+			}
+			return false;
+		}
+		
+		float requiredCredits = studyPlan.getProgramStartingYear().getProgram().getRequiredCredits();
 		float totalCredits = 0;
 		
 		for(StudyPlanSemester semester : studyPlan.getSemesters()) {
@@ -220,8 +234,8 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSelectableProgramSpecialization(SelectableProgramSpecialization selectableProgramSpecialization, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(selectableProgramSpecialization, diagnostics, context);
+	public boolean validateProgramDirection(ProgramDirection programDirection, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(programDirection, diagnostics, context);
 	}
 
 	/**
@@ -391,14 +405,10 @@ public class CourseValidator extends EObjectValidator {
 	 * Validates the isGreaterOrEqualToZero constraint of '<em>Positive Float Number</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validatePositiveFloatNumber_isGreaterOrEqualToZero(Float positiveFloatNumber, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (positiveFloatNumber < 0) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -416,26 +426,11 @@ public class CourseValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the isGreaterOrEqualToZero constraint of '<em>Credit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public boolean validateCourseCredit_isGreaterOrEqualToZero(Float courseCredit, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (courseCredit < 0f) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "isGreaterOrEqualToZero", getValueLabel(CoursePackage.Literals.POSITIVE_FLOAT_NUMBER, courseCredit, context) },
-						 new Object[] { courseCredit },
-						 context));
-			}
-			return false;
-		}
+	public boolean validateCourseAlreadyExistsException(RuntimeException courseAlreadyExistsException, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -444,7 +439,7 @@ public class CourseValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCourseAlreadyExistsException(RuntimeException courseAlreadyExistsException, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateAllCoursesList(ArrayList allCoursesList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

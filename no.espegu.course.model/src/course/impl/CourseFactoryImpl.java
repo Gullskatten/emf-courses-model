@@ -63,7 +63,7 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.STUDENT: return createStudent();
 			case CoursePackage.STUDY_PLAN: return createStudyPlan();
 			case CoursePackage.SEMESTER: return createSemester();
-			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION: return createSelectableProgramSpecialization();
+			case CoursePackage.PROGRAM_DIRECTION: return createProgramDirection();
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
 			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
 			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
@@ -190,9 +190,9 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	 * @generated
 	 */
 	@Override
-	public SelectableProgramSpecialization createSelectableProgramSpecialization() {
-		SelectableProgramSpecializationImpl selectableProgramSpecialization = new SelectableProgramSpecializationImpl();
-		return selectableProgramSpecialization;
+	public ProgramDirection createProgramDirection() {
+		ProgramDirectionImpl programDirection = new ProgramDirectionImpl();
+		return programDirection;
 	}
 
 	/**

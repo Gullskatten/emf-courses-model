@@ -2,6 +2,7 @@
  */
 package course;
 
+import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -116,9 +117,9 @@ public interface StudyPlanSemester extends Semester {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" many="false"
-	 * @generated
+	 * @model kind="operation" dataType="course.AllCoursesList"
+	 * @generated NOT
 	 */
-	EList<?> getAllCoursesInSemester();
+	ArrayList<Course> getAllCoursesInSemester();
 
 } // StudyPlanSemester

@@ -92,8 +92,8 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 				return createSemesterAdapter();
 			}
 			@Override
-			public Adapter caseSelectableProgramSpecialization(SelectableProgramSpecialization object) {
-				return createSelectableProgramSpecializationAdapter();
+			public Adapter caseProgramDirection(ProgramDirection object) {
+				return createProgramDirectionAdapter();
 			}
 			@Override
 			public Adapter caseStudyPlanSemester(StudyPlanSemester object) {
@@ -212,16 +212,16 @@ public class CourseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link course.SelectableProgramSpecialization <em>Selectable Program Specialization</em>}'.
+	 * Creates a new adapter for an object of class '{@link course.ProgramDirection <em>Program Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see course.SelectableProgramSpecialization
+	 * @see course.ProgramDirection
 	 * @generated
 	 */
-	public Adapter createSelectableProgramSpecializationAdapter() {
+	public Adapter createProgramDirectionAdapter() {
 		return null;
 	}
 

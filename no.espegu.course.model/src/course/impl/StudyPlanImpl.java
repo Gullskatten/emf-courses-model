@@ -3,7 +3,7 @@
 package course.impl;
 
 import course.CoursePackage;
-import course.SelectableProgramSpecialization;
+import course.ProgramYear;
 import course.Student;
 import course.StudyPlan;
 import course.StudyPlanSemester;
@@ -34,7 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link course.impl.StudyPlanImpl#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link course.impl.StudyPlanImpl#getStudent <em>Student</em>}</li>
- *   <li>{@link course.impl.StudyPlanImpl#getSelectedProgram <em>Selected Program</em>}</li>
+ *   <li>{@link course.impl.StudyPlanImpl#getTotalCredits <em>Total Credits</em>}</li>
+ *   <li>{@link course.impl.StudyPlanImpl#getProgramStartingYear <em>Program Starting Year</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +62,24 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	protected Student student;
 
 	/**
-	 * The cached value of the '{@link #getSelectedProgram() <em>Selected Program</em>}' reference.
+	 * The default value of the '{@link #getTotalCredits() <em>Total Credits</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectedProgram()
+	 * @see #getTotalCredits()
 	 * @generated
 	 * @ordered
 	 */
-	protected SelectableProgramSpecialization selectedProgram;
+	protected static final float TOTAL_CREDITS_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getProgramStartingYear() <em>Program Starting Year</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProgramStartingYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProgramYear programStartingYear;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,19 +178,47 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public float getTotalCredits() {
+		float totalCredits = 0f;
+		
+		for(StudyPlanSemester semester : semesters) {
+			totalCredits += semester.getTotalCredits();
+		}
+		
+		return totalCredits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public SelectableProgramSpecialization getSelectedProgram() {
-		if (selectedProgram != null && selectedProgram.eIsProxy()) {
-			InternalEObject oldSelectedProgram = (InternalEObject)selectedProgram;
-			selectedProgram = (SelectableProgramSpecialization)eResolveProxy(oldSelectedProgram);
-			if (selectedProgram != oldSelectedProgram) {
+	public boolean isSetTotalCredits() {
+		// TODO: implement this method to return whether the 'Total Credits' attribute is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProgramYear getProgramStartingYear() {
+		if (programStartingYear != null && programStartingYear.eIsProxy()) {
+			InternalEObject oldProgramStartingYear = (InternalEObject)programStartingYear;
+			programStartingYear = (ProgramYear)eResolveProxy(oldProgramStartingYear);
+			if (programStartingYear != oldProgramStartingYear) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__SELECTED_PROGRAM, oldSelectedProgram, selectedProgram));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR, oldProgramStartingYear, programStartingYear));
 			}
 		}
-		return selectedProgram;
+		return programStartingYear;
 	}
 
 	/**
@@ -187,8 +226,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SelectableProgramSpecialization basicGetSelectedProgram() {
-		return selectedProgram;
+	public ProgramYear basicGetProgramStartingYear() {
+		return programStartingYear;
 	}
 
 	/**
@@ -197,11 +236,11 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * @generated
 	 */
 	@Override
-	public void setSelectedProgram(SelectableProgramSpecialization newSelectedProgram) {
-		SelectableProgramSpecialization oldSelectedProgram = selectedProgram;
-		selectedProgram = newSelectedProgram;
+	public void setProgramStartingYear(ProgramYear newProgramStartingYear) {
+		ProgramYear oldProgramStartingYear = programStartingYear;
+		programStartingYear = newProgramStartingYear;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__SELECTED_PROGRAM, oldSelectedProgram, selectedProgram));
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR, oldProgramStartingYear, programStartingYear));
 	}
 
 	/**
@@ -252,9 +291,11 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				if (resolve) return getStudent();
 				return basicGetStudent();
-			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
-				if (resolve) return getSelectedProgram();
-				return basicGetSelectedProgram();
+			case CoursePackage.STUDY_PLAN__TOTAL_CREDITS:
+				return getTotalCredits();
+			case CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR:
+				if (resolve) return getProgramStartingYear();
+				return basicGetProgramStartingYear();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -275,8 +316,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)newValue);
 				return;
-			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
-				setSelectedProgram((SelectableProgramSpecialization)newValue);
+			case CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR:
+				setProgramStartingYear((ProgramYear)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,8 +337,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				setStudent((Student)null);
 				return;
-			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
-				setSelectedProgram((SelectableProgramSpecialization)null);
+			case CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR:
+				setProgramStartingYear((ProgramYear)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -315,8 +356,10 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 				return semesters != null && !semesters.isEmpty();
 			case CoursePackage.STUDY_PLAN__STUDENT:
 				return student != null;
-			case CoursePackage.STUDY_PLAN__SELECTED_PROGRAM:
-				return selectedProgram != null;
+			case CoursePackage.STUDY_PLAN__TOTAL_CREDITS:
+				return isSetTotalCredits();
+			case CoursePackage.STUDY_PLAN__PROGRAM_STARTING_YEAR:
+				return programStartingYear != null;
 		}
 		return super.eIsSet(featureID);
 	}

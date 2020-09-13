@@ -9,6 +9,7 @@ import course.StudyPlan;
 import course.StudyPlanSemester;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -240,11 +241,11 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Course> getAllCoursesInSemester() {
-		Collection<Course> allCourses = java.util.Collections.emptyList();
+	public ArrayList<Course> getAllCoursesInSemester() {
+		ArrayList<Course> allCourses = new ArrayList<>();
 		allCourses.addAll(getSelectedCourses());
 		allCourses.addAll(relatedProgramSemester.getMandatoryCourses());
-		return (EList<Course>) allCourses;
+		return allCourses;
 	}
 
 	/**

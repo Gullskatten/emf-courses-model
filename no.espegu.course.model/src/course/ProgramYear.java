@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link course.ProgramYear#getYear <em>Year</em>}</li>
  *   <li>{@link course.ProgramYear#getProgram <em>Program</em>}</li>
- *   <li>{@link course.ProgramYear#getSelectablePrograms <em>Selectable Programs</em>}</li>
+ *   <li>{@link course.ProgramYear#getSemesters <em>Semesters</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getProgramYear()
@@ -73,17 +73,17 @@ public interface ProgramYear extends EObject {
 	void setProgram(Program value);
 
 	/**
-	 * Returns the value of the '<em><b>Selectable Programs</b></em>' containment reference list.
-	 * The list contents are of type {@link course.SelectableProgramSpecialization}.
-	 * It is bidirectional and its opposite is '{@link course.SelectableProgramSpecialization#getProgramYear <em>Program Year</em>}'.
+	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
+	 * The list contents are of type {@link course.ProgramSemester}.
+	 * It is bidirectional and its opposite is '{@link course.ProgramSemester#getProgramYear <em>Program Year</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selectable Programs</em>' containment reference list.
-	 * @see course.CoursePackage#getProgramYear_SelectablePrograms()
-	 * @see course.SelectableProgramSpecialization#getProgramYear
-	 * @model opposite="programYear" containment="true" required="true"
+	 * @return the value of the '<em>Semesters</em>' containment reference list.
+	 * @see course.CoursePackage#getProgramYear_Semesters()
+	 * @see course.ProgramSemester#getProgramYear
+	 * @model opposite="programYear" containment="true"
 	 * @generated
 	 */
-	EList<SelectableProgramSpecialization> getSelectablePrograms();
+	EList<ProgramSemester> getSemesters();
 
 } // ProgramYear

@@ -102,9 +102,9 @@ public class CourseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoursePackage.SELECTABLE_PROGRAM_SPECIALIZATION: {
-				SelectableProgramSpecialization selectableProgramSpecialization = (SelectableProgramSpecialization)theEObject;
-				T result = caseSelectableProgramSpecialization(selectableProgramSpecialization);
+			case CoursePackage.PROGRAM_DIRECTION: {
+				ProgramDirection programDirection = (ProgramDirection)theEObject;
+				T result = caseProgramDirection(programDirection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -223,17 +223,17 @@ public class CourseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Selectable Program Specialization</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Program Direction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Selectable Program Specialization</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Program Direction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSelectableProgramSpecialization(SelectableProgramSpecialization object) {
+	public T caseProgramDirection(ProgramDirection object) {
 		return null;
 	}
 
