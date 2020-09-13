@@ -247,7 +247,7 @@ public class CourseValidator extends EObjectValidator {
 		.map(StudyPlanSemester::getSelectedCourses)
 		.map(selectedCoursesList -> 
 				selectedCoursesList.stream()
-					.filter(course -> course.getLevel() == CourseLevel.HIGHER_DEGREE).collect(Collectors.toList()))
+					.filter(course -> course.getLevel() != CourseLevel.HIGHER_DEGREE).collect(Collectors.toList()))
 		.flatMap(List::stream)
         .collect(Collectors.toList());
 		
