@@ -1,7 +1,7 @@
 # School Programs and Courses
 
 ## Background
-This project is a proposed solution for the first assignment in the course "TDT4250 - Avansert programvaredesign".
+This project is a solution to the first assignment in the course "TDT4250 - Avansert programvaredesign".
 
 
 ### Case
@@ -21,8 +21,3 @@ A program may have multiple starting years, or e.g. a program may change dependi
 
 
 ### Model Hierarchy
-
-
-
-
-Value	aql:self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester == self.semesterType)
