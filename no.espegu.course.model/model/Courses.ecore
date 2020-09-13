@@ -53,7 +53,7 @@
         changeable="false" volatile="true" unsettable="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programStartingYear" eType="#//ProgramYear"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Semester">
+  <eClassifiers xsi:type="ecore:EClass" name="Semester" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semesterType" eType="#//SemesterType"
         defaultValueLiteral="Autumn"/>

@@ -390,10 +390,10 @@ public interface CoursePackage extends EPackage {
 	int STUDY_PLAN_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link course.impl.SemesterImpl <em>Semester</em>}' class.
+	 * The meta object id for the '{@link course.Semester <em>Semester</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see course.impl.SemesterImpl
+	 * @see course.Semester
 	 * @see course.impl.CoursePackageImpl#getSemester()
 	 * @generated
 	 */
@@ -1702,10 +1702,10 @@ public interface CoursePackage extends EPackage {
 		EReference STUDY_PLAN__PROGRAM_STARTING_YEAR = eINSTANCE.getStudyPlan_ProgramStartingYear();
 
 		/**
-		 * The meta object literal for the '{@link course.impl.SemesterImpl <em>Semester</em>}' class.
+		 * The meta object literal for the '{@link course.Semester <em>Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see course.impl.SemesterImpl
+		 * @see course.Semester
 		 * @see course.impl.CoursePackageImpl#getSemester()
 		 * @generated
 		 */

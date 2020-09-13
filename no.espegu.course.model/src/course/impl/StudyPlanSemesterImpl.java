@@ -5,6 +5,7 @@ package course.impl;
 import course.Course;
 import course.CoursePackage;
 import course.ProgramSemester;
+import course.SemesterType;
 import course.StudyPlan;
 import course.StudyPlanSemester;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,6 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link course.impl.StudyPlanSemesterImpl#getYear <em>Year</em>}</li>
+ *   <li>{@link course.impl.StudyPlanSemesterImpl#getSemesterType <em>Semester Type</em>}</li>
+ *   <li>{@link course.impl.StudyPlanSemesterImpl#getTeachedInSemester <em>Teached In Semester</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getSelectedCourses <em>Selected Courses</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getTotalCredits <em>Total Credits</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getStudyPlan <em>Study Plan</em>}</li>
@@ -41,7 +46,47 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSemester {
+public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implements StudyPlanSemester {
+	/**
+	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String YEAR_EDEFAULT = "2020";
+
+	/**
+	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected String year = YEAR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSemesterType() <em>Semester Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSemesterType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemesterType semesterType;
+
+	/**
+	 * The default value of the '{@link #getTeachedInSemester() <em>Teached In Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTeachedInSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getSelectedCourses() <em>Selected Courses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -89,6 +134,83 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	@Override
 	protected EClass eStaticClass() {
 		return CoursePackage.Literals.STUDY_PLAN_SEMESTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getYear() {
+		return year;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setYear(String newYear) {
+		String oldYear = year;
+		year = newYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN_SEMESTER__YEAR, oldYear, year));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SemesterType getSemesterType() {
+		return semesterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSemesterType(SemesterType newSemesterType) {
+		SemesterType oldSemesterType = semesterType;
+		semesterType = newSemesterType == null ? null : newSemesterType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE, oldSemesterType, semesterType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getTeachedInSemester() {
+		if(semesterType == null) {
+			return "";
+		}
+		
+		switch(semesterType.getValue()) {
+		case SemesterType.AUTUMN_VALUE: 
+			return "Autumn";
+		case SemesterType.SPRING_VALUE:
+			return "Spring";
+		default:
+			return "Unknown";
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	@Override
+	public boolean isSetTeachedInSemester() {
+		return semesterType != null;
 	}
 
 	/**
@@ -302,6 +424,12 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CoursePackage.STUDY_PLAN_SEMESTER__YEAR:
+				return getYear();
+			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
+				return getSemesterType();
+			case CoursePackage.STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER:
+				return getTeachedInSemester();
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				return getSelectedCourses();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
@@ -318,12 +446,18 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CoursePackage.STUDY_PLAN_SEMESTER__YEAR:
+				setYear((String)newValue);
+				return;
+			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
+				setSemesterType((SemesterType) newValue);
+				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				getSelectedCourses().clear();
 				getSelectedCourses().addAll((Collection<? extends Course>)newValue);
@@ -346,6 +480,12 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CoursePackage.STUDY_PLAN_SEMESTER__YEAR:
+				setYear(YEAR_EDEFAULT);
+				return;
+			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
+				setSemesterType((SemesterType)null);
+				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				getSelectedCourses().clear();
 				return;
@@ -367,6 +507,12 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CoursePackage.STUDY_PLAN_SEMESTER__YEAR:
+				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
+			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
+				return semesterType != null;
+			case CoursePackage.STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER:
+				return isSetTeachedInSemester();
 			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
 				return selectedCourses != null && !selectedCourses.isEmpty();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
@@ -393,6 +539,24 @@ public class StudyPlanSemesterImpl extends SemesterImpl implements StudyPlanSeme
 				return getAllCoursesInSemester();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (year: ");
+		result.append(year);
+		result.append(", semesterType: ");
+		result.append(semesterType);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StudyPlanSemesterImpl

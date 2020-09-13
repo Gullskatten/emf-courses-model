@@ -8,6 +8,7 @@ import course.ProgramDirection;
 import course.ProgramSemester;
 
 import course.ProgramYear;
+import course.SemesterType;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -32,6 +34,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link course.impl.ProgramSemesterImpl#getYear <em>Year</em>}</li>
+ *   <li>{@link course.impl.ProgramSemesterImpl#getSemesterType <em>Semester Type</em>}</li>
+ *   <li>{@link course.impl.ProgramSemesterImpl#getTeachedInSemester <em>Teached In Semester</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getMandatoryCourses <em>Mandatory Courses</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getElectiveCourses <em>Elective Courses</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getSpecializations <em>Specializations</em>}</li>
@@ -41,7 +46,47 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester {
+public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements ProgramSemester {
+	/**
+	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String YEAR_EDEFAULT = "2020";
+
+	/**
+	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected String year = YEAR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSemesterType() <em>Semester Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSemesterType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemesterType semesterType;
+
+	/**
+	 * The default value of the '{@link #getTeachedInSemester() <em>Teached In Semester</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTeachedInSemester()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getMandatoryCourses() <em>Mandatory Courses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -89,6 +134,83 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	@Override
 	protected EClass eStaticClass() {
 		return CoursePackage.Literals.PROGRAM_SEMESTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getYear() {
+		return year;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setYear(String newYear) {
+		String oldYear = year;
+		year = newYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM_SEMESTER__YEAR, oldYear, year));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SemesterType getSemesterType() {
+		return semesterType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSemesterType(SemesterType newSemesterType) {
+		SemesterType oldSemesterType = semesterType;
+		semesterType = newSemesterType == null ? null : newSemesterType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE, oldSemesterType, semesterType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getTeachedInSemester() {
+		if(semesterType == null) {
+			return "";
+		}
+		
+		switch(semesterType.getValue()) {
+		case SemesterType.AUTUMN_VALUE: 
+			return "Autumn";
+		case SemesterType.SPRING_VALUE:
+			return "Spring";
+		default:
+			return "Unknown";
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	@Override
+	public boolean isSetTeachedInSemester() {
+		return semesterType != null;
 	}
 
 	/**
@@ -285,6 +407,12 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CoursePackage.PROGRAM_SEMESTER__YEAR:
+				return getYear();
+			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
+				return getSemesterType();
+			case CoursePackage.PROGRAM_SEMESTER__TEACHED_IN_SEMESTER:
+				return getTeachedInSemester();
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				return getMandatoryCourses();
 			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
@@ -302,12 +430,18 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CoursePackage.PROGRAM_SEMESTER__YEAR:
+				setYear((String)newValue);
+				return;
+			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
+				setSemesterType((SemesterType) newValue);
+				return;
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				getMandatoryCourses().clear();
 				getMandatoryCourses().addAll((Collection<? extends Course>)newValue);
@@ -338,6 +472,12 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CoursePackage.PROGRAM_SEMESTER__YEAR:
+				setYear(YEAR_EDEFAULT);
+				return;
+			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
+				setSemesterType((SemesterType)null);
+				return;
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				getMandatoryCourses().clear();
 				return;
@@ -365,6 +505,12 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CoursePackage.PROGRAM_SEMESTER__YEAR:
+				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
+			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
+				return semesterType != null;
+			case CoursePackage.PROGRAM_SEMESTER__TEACHED_IN_SEMESTER:
+				return isSetTeachedInSemester();
 			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
 				return mandatoryCourses != null && !mandatoryCourses.isEmpty();
 			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
@@ -377,6 +523,24 @@ public class ProgramSemesterImpl extends SemesterImpl implements ProgramSemester
 				return getParentProgramDirection() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (year: ");
+		result.append(year);
+		result.append(", semesterType: ");
+		result.append(semesterType);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ProgramSemesterImpl

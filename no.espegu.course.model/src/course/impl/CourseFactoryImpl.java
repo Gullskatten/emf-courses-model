@@ -62,7 +62,6 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.COURSE: return createCourse();
 			case CoursePackage.STUDENT: return createStudent();
 			case CoursePackage.STUDY_PLAN: return createStudyPlan();
-			case CoursePackage.SEMESTER: return createSemester();
 			case CoursePackage.PROGRAM_DIRECTION: return createProgramDirection();
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
 			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
@@ -171,17 +170,6 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public StudyPlan createStudyPlan() {
 		StudyPlanImpl studyPlan = new StudyPlanImpl();
 		return studyPlan;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Semester createSemester() {
-		SemesterImpl semester = new SemesterImpl();
-		return semester;
 	}
 
 	/**

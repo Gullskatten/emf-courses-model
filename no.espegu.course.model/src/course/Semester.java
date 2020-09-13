@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see course.CoursePackage#getSemester()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface Semester extends EObject {

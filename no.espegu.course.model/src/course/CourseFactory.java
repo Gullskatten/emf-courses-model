@@ -67,15 +67,6 @@ public interface CourseFactory extends EFactory {
 	StudyPlan createStudyPlan();
 
 	/**
-	 * Returns a new object of class '<em>Semester</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Semester</em>'.
-	 * @generated
-	 */
-	Semester createSemester();
-
-	/**
 	 * Returns a new object of class '<em>Program Direction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
