@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:School
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore"
+    name="NTNU">
+  <programs
+      name="Informatics - master 2 year"
+      requiredCredits="120.0">
+    <programYears>
+      <semesters>
+        <specializations
+            name="Software Engineering">
+          <semesters>
+            <mandatoryCourses
+                name="Information Systems"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4175"/>
+            <mandatoryCourses
+                name="Applied Data Science"
+                credits="7.5"
+                code="TDT4259"/>
+            <mandatoryCourses
+                name="Advanced Software Design"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4250"/>
+            <electiveCourses
+                name="Enterprise Architecture for Enterprise Innovation"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4252"/>
+            <electiveCourses
+                name="User Interface Design"
+                credits="7.5"
+                level="Third Degree Subject"
+                code="IT3402"/>
+          </semesters>
+          <semesters
+              year="2021"
+              semesterType="Spring">
+            <specializations
+                name="UX Design">
+              <semesters
+                  year="2021"
+                  semesterType="Spring">
+                <mandatoryCourses
+                    name="Metoder for empirisk forskning innen IT og digitalisering"
+                    credits="7.5"
+                    level="Third Degree Subject"
+                    taughtInSemester="Spring"
+                    code="IT3010"/>
+                <electiveCourses
+                    name="Programvarearkitektur"
+                    credits="7.5"
+                    level="Third Degree Subject"
+                    taughtInSemester="Spring"
+                    code="TDT4240"/>
+                <electiveCourses
+                    name="Digital tjenesteinnovasjon"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    taughtInSemester="Spring"
+                    code="TDT4257"/>
+              </semesters>
+              <semesters
+                  year="2021">
+                <mandatoryCourses
+                    name="Aktuelle emner i informatikk"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    code="IT3020"/>
+                <mandatoryCourses
+                    name="Design av grafiske brukergrensesnitt"
+                    credits="7.5"
+                    level="Third Degree Subject"
+                    code="IT3402"/>
+                <electiveCourses
+                    name="Master i informatikk, forberedende prosjekt"
+                    credits="15.0"
+                    level="Higher Degree Subject"
+                    code="IT3915"/>
+              </semesters>
+              <semesters
+                  year="2022"
+                  semesterType="Spring">
+                <mandatoryCourses
+                    name="Masteroppgave for MSIT"
+                    credits="30.0"
+                    level="Higher Degree Subject"
+                    description="Write your master thesis."
+                    taughtInSemester="Spring"
+                    code="IT3920"/>
+              </semesters>
+            </specializations>
+            <specializations
+                name="Intelligent Systems">
+              <semesters
+                  year="2021"
+                  semesterType="Spring">
+                <mandatoryCourses
+                    name="Avansert programvareutvikling"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    taughtInSemester="Spring"
+                    code="TDT4242"/>
+                <mandatoryCourses
+                    name="Programvaresikkerhet og personvern"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    code="TDT4237"/>
+                <electiveCourses
+                    name="Metoder for empirisk forskning innen IT og digitalisering"
+                    credits="7.5"
+                    level="Third Degree Subject"
+                    taughtInSemester="Spring"
+                    code="IT3010"/>
+                <electiveCourses
+                    name="Programmeringsspråk"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    taughtInSemester="Spring"
+                    code="TDT4165"/>
+              </semesters>
+              <semesters
+                  year="2021">
+                <mandatoryCourses
+                    name="Læringsteknologi og analyse"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    code="IT3023"/>
+                <mandatoryCourses
+                    name="Master i informatikk, forberedende prosjekt"
+                    credits="15.0"
+                    level="Higher Degree Subject"
+                    description="Prepare your master thesis project."
+                    code="IT3915"/>
+                <electiveCourses
+                    name="Spill+"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    code="IT3021"/>
+                <electiveCourses
+                    name="Aktuelle emner i informatikk"
+                    credits="7.5"
+                    level="Higher Degree Subject"
+                    code="IT3020"/>
+              </semesters>
+              <semesters
+                  year="2022"
+                  semesterType="Spring">
+                <mandatoryCourses
+                    name="Masteroppgave for MSIT"
+                    credits="30.0"
+                    level="Higher Degree Subject"
+                    description="Write your master thesis."
+                    taughtInSemester="Spring"
+                    code="IT3920"/>
+              </semesters>
+            </specializations>
+          </semesters>
+        </specializations>
+        <specializations
+            name="Artificial Intelligence">
+          <semesters>
+            <mandatoryCourses
+                name="Cognitive Architectures"
+                credits="7.5"
+                code="TDT4137"/>
+            <mandatoryCourses
+                name="Machine Learning"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4173"/>
+            <mandatoryCourses
+                name="Introduction to Artificial Intelligence"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4136"/>
+            <electiveCourses
+                name="Information Retrieval"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4117"/>
+          </semesters>
+          <semesters
+              year="2021"
+              semesterType="Spring">
+            <mandatoryCourses
+                name="Metoder for empirisk forskning innen IT og digitalisering"
+                credits="7.5"
+                level="Third Degree Subject"
+                taughtInSemester="Spring"
+                code="IT3010"/>
+            <mandatoryCourses
+                name="Artificial Intelligence Methods"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="TDT4171"/>
+            <mandatoryCourses
+                name="Artificial Intelligence Programming"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="IT3105"/>
+            <electiveCourses
+                name="Bio-Inspired Artificial Intelligence"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="IT3708"/>
+          </semesters>
+          <semesters
+              year="2021">
+            <mandatoryCourses
+                name="Machine Learning"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4173"/>
+            <mandatoryCourses
+                name="Master in Informatics, Preparatory Project"
+                credits="15.0"
+                level="Higher Degree Subject"
+                code="IT3915"/>
+          </semesters>
+          <semesters
+              year="2022"
+              semesterType="Spring">
+            <mandatoryCourses
+                name="Masteroppgave for MSIT"
+                credits="30.0"
+                level="Higher Degree Subject"
+                description="Write your master thesis."
+                taughtInSemester="Spring"
+                code="IT3920"/>
+          </semesters>
+        </specializations>
+        <specializations
+            name="Databases">
+          <semesters>
+            <mandatoryCourses
+                name="Information Retrieval"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4117"/>
+            <mandatoryCourses
+                name="Very Large, Distributed Data Volumes"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4225"/>
+            <electiveCourses
+                name="Parallel Computing"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="TDT4200"/>
+            <electiveCourses
+                name="Introduction to Artificial Intelligence"
+                credits="7.5"
+                code="TDT4136"/>
+          </semesters>
+          <semesters
+              year="2021"
+              semesterType="Spring">
+            <mandatoryCourses
+                name="Metoder for empirisk forskning innen IT og digitalisering"
+                credits="7.5"
+                level="Third Degree Subject"
+                taughtInSemester="Spring"
+                code="IT3010"/>
+            <mandatoryCourses
+                name="Data Warehousing and Data Mining"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="TDT4300"/>
+            <mandatoryCourses
+                name="Advanced Database Management Systems"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="TDT4150"/>
+            <electiveCourses
+                name="Big Data Architecture"
+                credits="7.5"
+                level="Higher Degree Subject"
+                taughtInSemester="Spring"
+                code="TDT4305"/>
+          </semesters>
+          <semesters
+              year="2021">
+            <mandatoryCourses
+                name="Aktuelle emner i informatikk"
+                credits="7.5"
+                level="Higher Degree Subject"
+                code="IT3020"/>
+            <mandatoryCourses
+                name="Master i informatikk, forberedende prosjekt"
+                credits="15.0"
+                level="Higher Degree Subject"
+                description="Prepare your master thesis project."
+                code="IT3915"/>
+            <electiveCourses
+                name="Very Large, Distributed Data Volumes"
+                credits="7.5"
+                code="TDT4225"/>
+          </semesters>
+          <semesters
+              year="2022">
+            <mandatoryCourses
+                name="Masteroppgave for MSIT"
+                credits="30.0"
+                level="Higher Degree Subject"
+                description="Write your master thesis."
+                taughtInSemester="Spring"
+                code="IT3920"/>
+          </semesters>
+        </specializations>
+      </semesters>
+    </programYears>
+  </programs>
+</no.espegu:School>

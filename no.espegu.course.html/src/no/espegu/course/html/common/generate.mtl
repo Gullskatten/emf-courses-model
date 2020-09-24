@@ -1,0 +1,240 @@
+[comment encoding = UTF-8 /]
+[module generate('platform:/plugin/no.espegu.course.model/model/Courses.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[template public generate(school : School)]
+	[comment @main /]
+
+	[file (school.name.concat('.html'), false, 'UTF-8')]
+		<html>
+			<head>
+				<title>[school.name/]</title>
+				<meta charset="utf-8"/>
+	 			<link
+      				href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+      				rel="stylesheet"
+    			/>
+    			<link rel="stylesheet" type="text/css" href="index.css" />
+			</head>
+			<body>
+				<div class="nav">
+				<h1 class="bold contrast-color">
+				 [school.name /] <span class="secondary-color">List of available programs and courses</span>
+				</h1>
+				</div>
+				<div class="margin-medium">
+				  <h2>Available programs</h2>
+				  [for (program : Program | school.programs)]
+				    [generate(program)/]
+				  [/for]
+			    </div>
+			</body>
+		</html>
+	[/file]
+	[comment This section generates CSS class rules. /]
+	[file ('index.css', false, 'UTF-8')]
+* {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.nav {
+	padding: 1rem;
+	border-bottom: 2px solid #DDDDDD;
+}
+
+.margin-medium {
+    margin: 1rem;
+}
+
+.margin-small {
+    margin: 0.5rem;
+}
+
+.margin-medium-tb {
+    margin: 1rem 0;
+}
+
+.margin-small-tb {
+    margin: 0.5rem 0;
+}
+
+.card {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;   
+}
+
+.shadow {
+    box-shadow: 1px 3px 9px 0px rgba(0,0,0,0.2);
+}
+
+.bordered {
+    border: 1px solid #DDDDDD;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.inner-list {
+    padding: 0.5rem;
+}
+
+.inner-list:not(:first-child) {
+    
+    border-top: 1px solid #DDDDDD;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.primary-color {
+    color: #222222;
+}
+
+.secondary-color {
+    color: #999999;
+}
+
+.contrast-color {
+    color: #4A148C;
+}
+  [/file]
+[/template]
+
+[template public generate(program : Program)]
+	[let availableStudyYears : Integer = program.programYears.oclAsSet()->size()]
+	<div class="margin-medium-tb">
+        <div class="margin-small card shadow">
+			[if (availableStudyYears > 0)]
+				<div class="flex space-between align-center margin-small-tb">
+                <h3 class="contrast-color bold">[program.name/]
+					<span class="secondary-color">
+						([program.requiredCredits.toString().substring(1, program.requiredCredits.toString().size()-2) /] credits)
+					</span>
+				</h3>
+				<span class="secondary-color">[availableStudyYears /] available study year(s)</span>
+			</div>
+			<ul>
+          	  [for (programYear : ProgramYear | program.programYears)] 
+				[generate(programYear)/]
+			  [/for]
+			</ul>
+			[else]
+			 <h3 class="primary-color">No starting years have been specified for this program!</3>
+			[/if]
+		</div>
+	</div>
+[/let]
+[/template]
+
+[template public generate(programYear : ProgramYear)]
+	<li class="inner-list">
+	  <div class="flex space-between align-center margin-small-tb">
+        <p class="primary-color bold">Starting year [programYear.year/]</p>
+      </div>
+	  [for (programSemester : ProgramSemester | programYear.semesters)] 
+				[generate(programSemester)/]
+	  [/for]
+	</li>
+[/template]
+
+[template public generate(programSemester : ProgramSemester)]
+[let hasSpecializations : Boolean = programSemester.specializations.oclAsSet()->size() > 0]
+[let hasElectiveCourses : Boolean = programSemester.electiveCourses.oclAsSet()->size() > 0]
+[let hasMandatoryCourses : Boolean = programSemester.mandatoryCourses.oclAsSet()->size() > 0]
+	<div class="card bordered margin-small-tb">
+      <div class="flex space-between align-center">
+        <p class="primary-color bold">[programSemester.semesterType/] [programSemester.year/]</p>
+		[if (hasSpecializations)] 
+		<p class="secondary-color">[programSemester.specializations.oclAsSet()->size() /] specialization(s)</p>
+		[elseif (hasElectiveCourses or hasMandatoryCourses)]
+		<div>
+		<p class="secondary-color">[programSemester.electiveCourses.oclAsSet()->size() /] elective course(s)</p>
+		<p class="secondary-color">[programSemester.mandatoryCourses.oclAsSet()->size() /] mandatory course(s)</p>
+		</div>
+		[else]
+		<p class="contrast-color bold">This semester is empty</p>
+		[/if]
+      </div>
+	  [if (hasSpecializations)] 
+	  <div class="margin-small-tb">
+        <span class="secondary-color">Available specializations this semester</span>
+	    <div>
+          <ul>
+		    [for (programDirection : ProgramDirection | programSemester.specializations)] 
+			  [generate(programDirection)/]
+	  	    [/for]
+          </ul>
+        </div>
+      </div>
+	  [/if]
+	  [if (hasElectiveCourses)]
+      <div class="margin-small-tb">
+        <span class="secondary-color">Elective courses this semester</span>
+      </div>
+      <div>
+        <ul>
+         [for (course : Course | programSemester.electiveCourses)] 
+			  [generate(course)/]
+	  	 [/for]
+        </ul>
+      </div>
+      [/if]
+	  [if (hasMandatoryCourses)]
+      <div class="margin-small-tb">
+        <span class="secondary-color">Mandatory courses this semester</span>
+      </div>
+      <div>
+        <ul>
+         [for (course : Course | programSemester.mandatoryCourses)] 
+			  [generate(course)/]
+	  	 [/for]
+        </ul>
+      </div>
+      [/if]
+    </div>
+[/let]
+[/let]
+[/let]
+[/template]
+
+[template public generate(programDirection : ProgramDirection)]
+<li class="inner-list">
+  <p class="contrast-color bold">[programDirection.name /]</p>
+   [for (programSemester : ProgramSemester | programDirection.semesters)] 
+			  [generate(programSemester)/]
+   [/for]
+</li>
+[/template]
+
+
+[template public generate(course : Course)]
+<li class="inner-list flex space-between align-center">
+  <p class="primary-color bold"><span class="secondary-color">[course.code/]</span> [course.name/]</p>
+  <p class="secondary-color">[course.credits/] credits</p>
+</li>
+[/template]
+
+
+
+
+
