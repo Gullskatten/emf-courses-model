@@ -1,10 +1,18 @@
 # School Programs and Courses
 
 ## Background
-This project is a solution to the first assignment in the course "TDT4250 - Avansert programvaredesign".
+This project is a solution to the first and second assignment in the course "TDT4250 - Avansert programvaredesign".
 
 ## Case
-In short, the case is to model a school institution, with courses, study programs and individual study plans using [Eclipse Modelling Framework (EMF)](https://www.eclipse.org/modeling/emf/) with Eclipse.
+In short, the first assignment is to model a school institution, with courses, study programs and individual study plans using [Eclipse Modelling Framework (EMF)](https://www.eclipse.org/modeling/emf/) with Eclipse. Solution to this assignment is found under [no.espegu.course.model/](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.model/). 
+
+The second assignment is to use an instance of the model to generate a html-webpage using a model-to-text (M2T) framework (Acceleo). Solution to the second assignment is found under [no.espegu.course.html/](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.html/) (but is dependant on the model-folder in order to generate the output). 
+
+## Assignment 2
+A separate guide for running assignment 2 can _soon_ be found here (in progress!).
+
+### Assignment 2: Sample output
+A sample output of the transformation can be found and opened directly in your browser [here](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.html/sample-html-files/).
 
 ## Project Structure
 Most of the Java code in this project was generated using models made with the [Eclipse Modelling Framework (EMF)](https://www.eclipse.org/modeling/emf/) in Eclipse. 
@@ -33,7 +41,7 @@ Concrete implementation classes of the generated interfaces. These classes also 
 **[CourseValidator.java](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.model/src/course/util/CourseValidator.java)**
  May be used to run runtime validations of any instantiated entity, using constraints described in code (Ecore) or in the model itself (OCL-constraints). 
 
-#### Example usage
+#### Assignment 1: Example usage
 An example where the generated java classes in this project have been used can be found here
 **[CompleteRunnableExample.java](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.model/src/CompleteRunnableExample.java)**
 
