@@ -9,10 +9,19 @@ In short, the first assignment is to model a school institution, with courses, s
 The second assignment is to use an instance of the model to generate a html-webpage using a model-to-text (M2T) framework (Acceleo). Solution to the second assignment is found under [no.espegu.course.html/](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.html/) (but is dependant on the model-folder in order to generate the output). 
 
 ## Assignment 2
-A separate guide for running assignment 2 can _soon_ be found here (in progress!).
+
+### Running the transformation
+A separate guide for running assignment 2 can be found [here](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.html/).
 
 ### Assignment 2: Sample output
 A sample output of the transformation can be found and opened directly in your browser [here](https://github.com/Gullskatten/emf-courses-model/blob/master/no.espegu.course.html/sample-html-files/).
+
+### Assigment 2: Modeling changes
+The model from assignment 1 has been slightly improved with a new entity "Slot". 
+
+A list of `Slot` is now what makes up mandatory and elective courses in a `ProgramSemester`. This enables more fine grained control of which courses that can be selected in a semester. A slot may include multiple courses `availableCourses`, but if only one is present the course is considered mandatory. The field `requiredCredits` is used to determine how many subjects one may choose from the list of `availableCourses`.  
+
+A `StudyPlanSemester` no longer has a list `selectedCourse`, but selected courses are derived from the selected courses of each `Slot` in the related `ProgramSemester`.
 
 ## Project Structure
 Most of the Java code in this project was generated using models made with the [Eclipse Modelling Framework (EMF)](https://www.eclipse.org/modeling/emf/) in Eclipse. 
