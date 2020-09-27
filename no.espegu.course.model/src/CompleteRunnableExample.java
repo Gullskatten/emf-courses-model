@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.common.util.EList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CompleteRunnableExample {
 	
@@ -34,14 +35,8 @@ public class CompleteRunnableExample {
         ProgramDirection softwareEngineeringSpecialization = generateProgramDirection("Software Engineering");
 
         // Creating a few semesters for the specialization Software Engineering
-        ProgramSemester firstSoftwareEngineeringSemester = generateProgramSemester("2020", SemesterType.AUTUMN);
-        ProgramSemester secondSoftwareEngineeringSemester = generateProgramSemester("2021", SemesterType.SPRING);
-
-        // Import courses from an xmi resource and add them to the Software Engineering first semester course lists (mandatory and elective courses)
-        firstSoftwareEngineeringSemester.getMandatoryCourses().addAll(
-                generateListOfCoursesFromProgramSemesterXmi("man-courses-software-engi-autumn2020.xmi", true));
-        firstSoftwareEngineeringSemester.getElectiveCourses().addAll(
-                generateListOfCoursesFromProgramSemesterXmi("elective-courses-software-engi-autumn2020.xmi", false));
+        ProgramSemester firstSoftwareEngineeringSemester =  generateProgramSemesterFromXmi("software-engineering-autumn2020.xmi");
+        ProgramSemester secondSoftwareEngineeringSemester = generateProgramSemester("20201", SemesterType.AUTUMN);
 
         // Add the complete first semester with courses to the specialization
         softwareEngineeringSpecialization.getSemesters().add(firstSoftwareEngineeringSemester);
@@ -50,11 +45,7 @@ public class CompleteRunnableExample {
         ProgramDirection uxDesignSpecialization = generateProgramDirection("UX & Software Design");
 
         // The first semester of UX design is SPRING 2021, equal to the second semester of Software Engineering (when this specialization becomes available)
-        ProgramSemester firstUxDesignSemester = generateProgramSemester("2021", SemesterType.SPRING);
-
-        // Import courses for UX design from an xmi resource, and add them to the UX design first semester (mandatory and elective courses)
-        firstUxDesignSemester.getMandatoryCourses().addAll(generateListOfCoursesFromProgramSemesterXmi("man-courses-ux-spec-spring2021.xmi", true));
-        firstUxDesignSemester.getElectiveCourses().addAll(generateListOfCoursesFromProgramSemesterXmi("elective-courses-ux-spec-spring2021.xmi", false));
+        ProgramSemester firstUxDesignSemester = generateProgramSemesterFromXmi("ux-specialization-spring2021.xmi");
 
         // Add the first semester to the UX Design specialization
         uxDesignSpecialization.getSemesters().add(firstUxDesignSemester);
@@ -92,10 +83,7 @@ public class CompleteRunnableExample {
         StudyPlanSemester firstStudyPlanSemester = generateStudyPlanSemester("2020", SemesterType.AUTUMN, firstSoftwareEngineeringSemester);
         // Creates the second study plan semester, where UX Design is selected as a specialization
         StudyPlanSemester secondStudyPlanSemester = generateStudyPlanSemester("2021", SemesterType.SPRING, firstUxDesignSemester);
-
-        // Add a course to the study plan semester (list of selected courses), operation also validates that course is not already selected
-        secondStudyPlanSemester.addCourseToSemester(generateCourse("Master in Informatics, Preparatory Project", "IT3915", 15, CourseLevel.HIGHER_DEGREE, SemesterType.SPRING));
-
+     
         // Add the two semesters to the study plan
         studyPlan.getSemesters().add(firstStudyPlanSemester);
         studyPlan.getSemesters().add(secondStudyPlanSemester);
@@ -115,9 +103,7 @@ public class CompleteRunnableExample {
             System.out.println(System.lineSeparator());
             System.out.println("Total courses: " + semester.getAllCoursesInSemester().size());
             semester.getAllCoursesInSemester().forEach(course -> System.out.println(course.toString()));
-            System.out.println("Mandatory courses: " + semester.getRelatedProgramSemester().getMandatoryCourses().size());
-            System.out.println("Selected courses: " + semester.getSelectedCourses().size());
-            System.out.println("Total credits this semester: " + semester.getTotalCredits());
+              System.out.println("Total credits this semester: " + semester.getTotalCredits());
             if(semester.getRelatedProgramSemester().getParentProgramDirection() != null) {
                 System.out.println("Choice of specialization: " + semester.getRelatedProgramSemester().getParentProgramDirection().getName());
                 System.out.println("Part of program: " + semester.getRelatedProgramSemester().getParentProgramDirection().getProgram().getName());
@@ -148,16 +134,19 @@ public class CompleteRunnableExample {
         }
         System.out.println("Specializations: " + programSemester.getSpecializations().size());
 
-        boolean hasMandatoryCourses = programSemester.getMandatoryCourses() != null && !programSemester.getMandatoryCourses().isEmpty();
-        if(hasMandatoryCourses) {
-            System.out.println("Mandatory courses: " + programSemester.getMandatoryCourses().size());
+        int amountMandatoryCourses = programSemester.getSlots().stream().filter(slot -> slot.isMandatory()).collect(Collectors.toList()).size();
+        
+        if(amountMandatoryCourses > 0) {
+            System.out.println("Mandatory courses: " + amountMandatoryCourses);
         }
-        boolean hasElectiveCourses = programSemester.getElectiveCourses() != null && !programSemester.getElectiveCourses().isEmpty();
-        if(hasElectiveCourses) {
-            System.out.println("Elective courses: " + programSemester.getElectiveCourses().size());
+        
+        int amountElectiveCourseSlots = programSemester.getSlots().stream().filter(slot -> !slot.isMandatory()).collect(Collectors.toList()).size();
+          
+        if(amountElectiveCourseSlots > 0) {
+            System.out.println("Elective course slots: " + amountElectiveCourseSlots);
         }
 
-        if(!hasMandatoryCourses && !hasElectiveCourses) {
+        if(programSemester.getSlots().isEmpty()) {
             if(programSemester.getSpecializations() != null && !programSemester.getSpecializations().isEmpty()) {
                 System.out.println("This semester only contains specializations - future semesters are defined by the choice of specialization.");
             } else {
@@ -177,16 +166,6 @@ public class CompleteRunnableExample {
         });
     }
 
-    private static Course generateCourse(String name, String code, float credits, CourseLevel courseLevel, SemesterType taughtIn) {
-        Course course = CourseFactory.eINSTANCE.createCourse();
-        course.setName(name);
-        course.setCode(code);
-        course.setCredits(credits);
-        course.setLevel(courseLevel);
-        course.setTaughtInSemester(taughtIn);
-        return course;
-    }
-
     private static StudyPlanSemester generateStudyPlanSemester(String literalYear, SemesterType type, ProgramSemester relatedProgramSemester) {
         StudyPlanSemester semester = CourseFactory.eINSTANCE.createStudyPlanSemester();
         semester.setYear(literalYear);
@@ -203,15 +182,8 @@ public class CompleteRunnableExample {
         return resSet.getResource(URI.createURI(CompleteRunnableExample.class.getResource(fileName).toString()), true);
     }
 
-    private static List<Course> generateListOfCoursesFromProgramSemesterXmi(String fileName, boolean isMandatoryCourses) {
-        Resource resource = loadXmiResource(fileName);
-        ProgramSemester programSemester = (ProgramSemester) resource.getContents().get(0);
-
-        if (isMandatoryCourses) {
-            return programSemester.getMandatoryCourses();
-        } else {
-            return programSemester.getElectiveCourses();
-        }
+    private static ProgramSemester generateProgramSemesterFromXmi(String fileName) {
+        return (ProgramSemester) loadXmiResource(fileName).getContents().get(0);
     }
 
     private static ProgramSemester generateProgramSemester(String literalYear, SemesterType semester) {

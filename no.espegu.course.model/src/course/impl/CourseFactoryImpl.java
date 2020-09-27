@@ -66,6 +66,7 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 			case CoursePackage.STUDY_PLAN_SEMESTER: return createStudyPlanSemester();
 			case CoursePackage.PROGRAM_SEMESTER: return createProgramSemester();
 			case CoursePackage.PROGRAM_YEAR: return createProgramYear();
+			case CoursePackage.SLOT: return createSlot();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -214,6 +215,17 @@ public class CourseFactoryImpl extends EFactoryImpl implements CourseFactory {
 	public ProgramYear createProgramYear() {
 		ProgramYearImpl programYear = new ProgramYearImpl();
 		return programYear;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Slot createSlot() {
+		SlotImpl slot = new SlotImpl();
+		return slot;
 	}
 
 	/**

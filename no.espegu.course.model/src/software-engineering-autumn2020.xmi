@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:ProgramSemester
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore ../model/Courses.ecore">
+  <slots requiredCredits="7.5">
+    <availableCourses
+        name="Avansert Programvaredesign"
+        credits="7.5"
+        level="Higher Degree Subject"
+        code="TDT4250"/>
+  </slots>
+  <slots requiredCredits="15.0">
+    <availableCourses
+        name="Enterprise Architecture for Enterprise Innovation"
+        credits="7.5"
+        level="Higher Degree Subject"
+        code="TDT4252"/>
+    <availableCourses
+        name="Applied Data Science"
+        credits="7.5"
+        level="Higher Degree Subject"
+        code="TDT4259"/>
+    <availableCourses
+        name="User Interface Design"
+        credits="7.5"
+        level="Higher Degree Subject"
+        code="IT3402"/>
+    <availableCourses
+        name="Programming Languages"
+        credits="7.5"
+        code="TDT4165"/>
+  </slots>
+  <slots requiredCredits="7.5">
+    <availableCourses
+        name="Information Systems"
+        credits="7.5"
+        level="Higher Degree Subject"
+        code="TDT4175"/>
+  </slots>
+</no.espegu:ProgramSemester>

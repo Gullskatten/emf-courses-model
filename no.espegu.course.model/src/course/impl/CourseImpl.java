@@ -314,9 +314,14 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return false;
 		}
 		
-		if(getCode().equals(otherCourse.getCode()) 
-				&& getName().equals(otherCourse.getName())
-				&& getTaughtInSemester().equals(otherCourse.getTaughtInSemester())
+		if((
+				(getCode() == null  && otherCourse.getCode() == null) 
+				|| getCode().equals(otherCourse.getCode())
+		   ) 
+				&& (
+						(getName() == null  && otherCourse.getName() == null) 
+						|| getName().equals(otherCourse.getName())
+				   )
 				&& getLevel() == otherCourse.getLevel()) {
 			return true;
 		}

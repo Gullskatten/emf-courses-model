@@ -546,22 +546,13 @@ public interface CoursePackage extends EPackage {
 	int STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER = SEMESTER__TEACHED_IN_SEMESTER;
 
 	/**
-	 * The feature id for the '<em><b>Selected Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER__SELECTED_COURSES = SEMESTER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Total Credits</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER__TOTAL_CREDITS = SEMESTER_FEATURE_COUNT + 1;
+	int STUDY_PLAN_SEMESTER__TOTAL_CREDITS = SEMESTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Study Plan</b></em>' container reference.
@@ -570,7 +561,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER__STUDY_PLAN = SEMESTER_FEATURE_COUNT + 2;
+	int STUDY_PLAN_SEMESTER__STUDY_PLAN = SEMESTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Related Program Semester</b></em>' reference.
@@ -579,7 +570,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER = SEMESTER_FEATURE_COUNT + 3;
+	int STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER = SEMESTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Study Plan Semester</em>' class.
@@ -588,16 +579,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Add Course To Semester</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = SEMESTER_OPERATION_COUNT + 0;
+	int STUDY_PLAN_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Courses In Semester</em>' operation.
@@ -606,7 +588,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER = SEMESTER_OPERATION_COUNT + 1;
+	int STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER = SEMESTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Study Plan Semester</em>' class.
@@ -615,7 +597,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 2;
+	int STUDY_PLAN_SEMESTER_OPERATION_COUNT = SEMESTER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link course.impl.ProgramSemesterImpl <em>Program Semester</em>}' class.
@@ -655,31 +637,13 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_SEMESTER__TEACHED_IN_SEMESTER = SEMESTER__TEACHED_IN_SEMESTER;
 
 	/**
-	 * The feature id for the '<em><b>Mandatory Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_SEMESTER__MANDATORY_COURSES = SEMESTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Elective Courses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_SEMESTER__ELECTIVE_COURSES = SEMESTER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Specializations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_SEMESTER__SPECIALIZATIONS = SEMESTER_FEATURE_COUNT + 2;
+	int PROGRAM_SEMESTER__SPECIALIZATIONS = SEMESTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Program Year</b></em>' container reference.
@@ -688,7 +652,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_SEMESTER__PROGRAM_YEAR = SEMESTER_FEATURE_COUNT + 3;
+	int PROGRAM_SEMESTER__PROGRAM_YEAR = SEMESTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parent Program Direction</b></em>' container reference.
@@ -697,7 +661,16 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION = SEMESTER_FEATURE_COUNT + 4;
+	int PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION = SEMESTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Slots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM_SEMESTER__SLOTS = SEMESTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Program Semester</em>' class.
@@ -706,7 +679,7 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 5;
+	int PROGRAM_SEMESTER_FEATURE_COUNT = SEMESTER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Program Semester</em>' class.
@@ -773,6 +746,79 @@ public interface CoursePackage extends EPackage {
 	int PROGRAM_YEAR_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link course.impl.SlotImpl <em>Slot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see course.impl.SlotImpl
+	 * @see course.impl.CoursePackageImpl#getSlot()
+	 * @generated
+	 */
+	int SLOT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Available Courses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__AVAILABLE_COURSES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__MANDATORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Required Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__REQUIRED_CREDITS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Selected Courses In Slot</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__SELECTED_COURSES_IN_SLOT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Add Course To Slot</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT___ADD_COURSE_TO_SLOT__COURSE = 0;
+
+	/**
+	 * The number of operations of the '<em>Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link course.SemesterType <em>Semester Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -780,7 +826,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getSemesterType()
 	 * @generated
 	 */
-	int SEMESTER_TYPE = 10;
+	int SEMESTER_TYPE = 11;
 
 	/**
 	 * The meta object id for the '{@link course.CourseLevel <em>Level</em>}' enum.
@@ -790,7 +836,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getCourseLevel()
 	 * @generated
 	 */
-	int COURSE_LEVEL = 11;
+	int COURSE_LEVEL = 12;
 
 	/**
 	 * The meta object id for the '<em>Year</em>' data type.
@@ -800,7 +846,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getYear()
 	 * @generated
 	 */
-	int YEAR = 12;
+	int YEAR = 13;
 
 	/**
 	 * The meta object id for the '<em>Positive Float Number</em>' data type.
@@ -810,7 +856,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getPositiveFloatNumber()
 	 * @generated
 	 */
-	int POSITIVE_FLOAT_NUMBER = 13;
+	int POSITIVE_FLOAT_NUMBER = 14;
 
 	/**
 	 * The meta object id for the '<em>Already Exists Exception</em>' data type.
@@ -820,7 +866,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getCourseAlreadyExistsException()
 	 * @generated
 	 */
-	int COURSE_ALREADY_EXISTS_EXCEPTION = 14;
+	int COURSE_ALREADY_EXISTS_EXCEPTION = 15;
 
 
 	/**
@@ -831,7 +877,7 @@ public interface CoursePackage extends EPackage {
 	 * @see course.impl.CoursePackageImpl#getAllCoursesList()
 	 * @generated
 	 */
-	int ALL_COURSES_LIST = 15;
+	int ALL_COURSES_LIST = 16;
 
 
 	/**
@@ -1222,17 +1268,6 @@ public interface CoursePackage extends EPackage {
 	EClass getStudyPlanSemester();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link course.StudyPlanSemester#getSelectedCourses <em>Selected Courses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Selected Courses</em>'.
-	 * @see course.StudyPlanSemester#getSelectedCourses()
-	 * @see #getStudyPlanSemester()
-	 * @generated
-	 */
-	EReference getStudyPlanSemester_SelectedCourses();
-
-	/**
 	 * Returns the meta object for the attribute '{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1266,16 +1301,6 @@ public interface CoursePackage extends EPackage {
 	EReference getStudyPlanSemester_RelatedProgramSemester();
 
 	/**
-	 * Returns the meta object for the '{@link course.StudyPlanSemester#addCourseToSemester(course.Course) <em>Add Course To Semester</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Course To Semester</em>' operation.
-	 * @see course.StudyPlanSemester#addCourseToSemester(course.Course)
-	 * @generated
-	 */
-	EOperation getStudyPlanSemester__AddCourseToSemester__Course();
-
-	/**
 	 * Returns the meta object for the '{@link course.StudyPlanSemester#getAllCoursesInSemester() <em>Get All Courses In Semester</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1294,28 +1319,6 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProgramSemester();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.ProgramSemester#getMandatoryCourses <em>Mandatory Courses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mandatory Courses</em>'.
-	 * @see course.ProgramSemester#getMandatoryCourses()
-	 * @see #getProgramSemester()
-	 * @generated
-	 */
-	EReference getProgramSemester_MandatoryCourses();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link course.ProgramSemester#getElectiveCourses <em>Elective Courses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elective Courses</em>'.
-	 * @see course.ProgramSemester#getElectiveCourses()
-	 * @see #getProgramSemester()
-	 * @generated
-	 */
-	EReference getProgramSemester_ElectiveCourses();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link course.ProgramSemester#getSpecializations <em>Specializations</em>}'.
@@ -1349,6 +1352,17 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProgramSemester_ParentProgramDirection();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.ProgramSemester#getSlots <em>Slots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Slots</em>'.
+	 * @see course.ProgramSemester#getSlots()
+	 * @see #getProgramSemester()
+	 * @generated
+	 */
+	EReference getProgramSemester_Slots();
 
 	/**
 	 * Returns the meta object for class '{@link course.ProgramYear <em>Program Year</em>}'.
@@ -1392,6 +1406,70 @@ public interface CoursePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProgramYear_Semesters();
+
+	/**
+	 * Returns the meta object for class '{@link course.Slot <em>Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slot</em>'.
+	 * @see course.Slot
+	 * @generated
+	 */
+	EClass getSlot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.Slot#getAvailableCourses <em>Available Courses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Available Courses</em>'.
+	 * @see course.Slot#getAvailableCourses()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EReference getSlot_AvailableCourses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.Slot#isMandatory <em>Mandatory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mandatory</em>'.
+	 * @see course.Slot#isMandatory()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EAttribute getSlot_Mandatory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link course.Slot#getRequiredCredits <em>Required Credits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required Credits</em>'.
+	 * @see course.Slot#getRequiredCredits()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EAttribute getSlot_RequiredCredits();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link course.Slot#getSelectedCoursesInSlot <em>Selected Courses In Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Selected Courses In Slot</em>'.
+	 * @see course.Slot#getSelectedCoursesInSlot()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EReference getSlot_SelectedCoursesInSlot();
+
+	/**
+	 * Returns the meta object for the '{@link course.Slot#addCourseToSlot(course.Course) <em>Add Course To Slot</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Course To Slot</em>' operation.
+	 * @see course.Slot#addCourseToSlot(course.Course)
+	 * @generated
+	 */
+	EOperation getSlot__AddCourseToSlot__Course();
 
 	/**
 	 * Returns the meta object for enum '{@link course.SemesterType <em>Semester Type</em>}'.
@@ -1788,14 +1866,6 @@ public interface CoursePackage extends EPackage {
 		EClass STUDY_PLAN_SEMESTER = eINSTANCE.getStudyPlanSemester();
 
 		/**
-		 * The meta object literal for the '<em><b>Selected Courses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDY_PLAN_SEMESTER__SELECTED_COURSES = eINSTANCE.getStudyPlanSemester_SelectedCourses();
-
-		/**
 		 * The meta object literal for the '<em><b>Total Credits</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1820,14 +1890,6 @@ public interface CoursePackage extends EPackage {
 		EReference STUDY_PLAN_SEMESTER__RELATED_PROGRAM_SEMESTER = eINSTANCE.getStudyPlanSemester_RelatedProgramSemester();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Course To Semester</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE = eINSTANCE.getStudyPlanSemester__AddCourseToSemester__Course();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Courses In Semester</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1844,22 +1906,6 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROGRAM_SEMESTER = eINSTANCE.getProgramSemester();
-
-		/**
-		 * The meta object literal for the '<em><b>Mandatory Courses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM_SEMESTER__MANDATORY_COURSES = eINSTANCE.getProgramSemester_MandatoryCourses();
-
-		/**
-		 * The meta object literal for the '<em><b>Elective Courses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM_SEMESTER__ELECTIVE_COURSES = eINSTANCE.getProgramSemester_ElectiveCourses();
 
 		/**
 		 * The meta object literal for the '<em><b>Specializations</b></em>' containment reference list feature.
@@ -1884,6 +1930,14 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION = eINSTANCE.getProgramSemester_ParentProgramDirection();
+
+		/**
+		 * The meta object literal for the '<em><b>Slots</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAM_SEMESTER__SLOTS = eINSTANCE.getProgramSemester_Slots();
 
 		/**
 		 * The meta object literal for the '{@link course.impl.ProgramYearImpl <em>Program Year</em>}' class.
@@ -1918,6 +1972,56 @@ public interface CoursePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM_YEAR__SEMESTERS = eINSTANCE.getProgramYear_Semesters();
+
+		/**
+		 * The meta object literal for the '{@link course.impl.SlotImpl <em>Slot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see course.impl.SlotImpl
+		 * @see course.impl.CoursePackageImpl#getSlot()
+		 * @generated
+		 */
+		EClass SLOT = eINSTANCE.getSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Courses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOT__AVAILABLE_COURSES = eINSTANCE.getSlot_AvailableCourses();
+
+		/**
+		 * The meta object literal for the '<em><b>Mandatory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLOT__MANDATORY = eINSTANCE.getSlot_Mandatory();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Credits</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLOT__REQUIRED_CREDITS = eINSTANCE.getSlot_RequiredCredits();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected Courses In Slot</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOT__SELECTED_COURSES_IN_SLOT = eINSTANCE.getSlot_SelectedCoursesInSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Course To Slot</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SLOT___ADD_COURSE_TO_SLOT__COURSE = eINSTANCE.getSlot__AddCourseToSlot__Course();
 
 		/**
 		 * The meta object literal for the '{@link course.SemesterType <em>Semester Type</em>}' enum.

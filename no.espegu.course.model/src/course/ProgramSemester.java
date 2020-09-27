@@ -13,11 +13,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link course.ProgramSemester#getMandatoryCourses <em>Mandatory Courses</em>}</li>
- *   <li>{@link course.ProgramSemester#getElectiveCourses <em>Elective Courses</em>}</li>
  *   <li>{@link course.ProgramSemester#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link course.ProgramSemester#getProgramYear <em>Program Year</em>}</li>
  *   <li>{@link course.ProgramSemester#getParentProgramDirection <em>Parent Program Direction</em>}</li>
+ *   <li>{@link course.ProgramSemester#getSlots <em>Slots</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getProgramSemester()
@@ -25,30 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ProgramSemester extends Semester {
-	/**
-	 * Returns the value of the '<em><b>Mandatory Courses</b></em>' containment reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mandatory Courses</em>' containment reference list.
-	 * @see course.CoursePackage#getProgramSemester_MandatoryCourses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Course> getMandatoryCourses();
-
-	/**
-	 * Returns the value of the '<em><b>Elective Courses</b></em>' containment reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elective Courses</em>' containment reference list.
-	 * @see course.CoursePackage#getProgramSemester_ElectiveCourses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Course> getElectiveCourses();
-
 	/**
 	 * Returns the value of the '<em><b>Specializations</b></em>' containment reference list.
 	 * The list contents are of type {@link course.ProgramDirection}.
@@ -110,5 +85,17 @@ public interface ProgramSemester extends Semester {
 	 * @generated
 	 */
 	void setParentProgramDirection(ProgramDirection value);
+
+	/**
+	 * Returns the value of the '<em><b>Slots</b></em>' containment reference list.
+	 * The list contents are of type {@link course.Slot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Slots</em>' containment reference list.
+	 * @see course.CoursePackage#getProgramSemester_Slots()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Slot> getSlots();
 
 } // ProgramSemester

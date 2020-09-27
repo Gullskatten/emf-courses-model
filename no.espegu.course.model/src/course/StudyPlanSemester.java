@@ -3,7 +3,6 @@
 package course;
 
 import java.util.ArrayList;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,30 +13,16 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link course.StudyPlanSemester#getSelectedCourses <em>Selected Courses</em>}</li>
  *   <li>{@link course.StudyPlanSemester#getTotalCredits <em>Total Credits</em>}</li>
  *   <li>{@link course.StudyPlanSemester#getStudyPlan <em>Study Plan</em>}</li>
  *   <li>{@link course.StudyPlanSemester#getRelatedProgramSemester <em>Related Program Semester</em>}</li>
  * </ul>
  *
  * @see course.CoursePackage#getStudyPlanSemester()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isAllCoursesTaughtThisSemester isValidRelatedProgramSemester'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 isAllCoursesTaughtThisSemester='self.selectedCourses -&gt; collect(selectedCourse | selectedCourse.taughtInSemester) -&gt; forAll(semester | semester == self.semesterType)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isValidRelatedProgramSemester'"
  * @generated
  */
 public interface StudyPlanSemester extends Semester {
-	/**
-	 * Returns the value of the '<em><b>Selected Courses</b></em>' containment reference list.
-	 * The list contents are of type {@link course.Course}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Courses</em>' containment reference list.
-	 * @see course.CoursePackage#getStudyPlanSemester_SelectedCourses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Course> getSelectedCourses();
-
 	/**
 	 * Returns the value of the '<em><b>Total Credits</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,14 +90,6 @@ public interface StudyPlanSemester extends Semester {
 	 * @generated
 	 */
 	void setRelatedProgramSemester(ProgramSemester value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="course.CourseAlreadyExistsException"
-	 * @generated
-	 */
-	StudyPlanSemester addCourseToSemester(Course course) throws RuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->

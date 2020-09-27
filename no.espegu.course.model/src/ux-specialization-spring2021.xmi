@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:ProgramSemester
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore ../model/Courses.ecore"
+    year="2021"
+    semesterType="Spring">
+  <slots requiredCredits="7.5">
+    <availableCourses
+        name="Software Architecture"
+        credits="7.5"
+        taughtInSemester="Spring"
+        code="TDT4240"/>
+  </slots>
+  <slots>
+    <availableCourses
+        name="Software Security and Data Privacy"
+        credits="7.5"
+        level="Higher Degree Subject"
+        taughtInSemester="Spring"
+        code="TDT4237"/>
+  </slots>
+  <slots>
+    <availableCourses
+        name="Empirical research methodologies in IT and digitalization"
+        credits="7.5"
+        level="Higher Degree Subject"
+        taughtInSemester="Spring"
+        code="IT3010"/>
+    <availableCourses
+        name="Digital Service Innovation"
+        credits="7.5"
+        level="Higher Degree Subject"
+        taughtInSemester="Spring"
+        code="TDT4257"/>
+    <availableCourses
+        name="Advanced Software Engineering"
+        credits="7.5"
+        taughtInSemester="Spring"
+        code="TDT4242"/>
+  </slots>
+</no.espegu:ProgramSemester>

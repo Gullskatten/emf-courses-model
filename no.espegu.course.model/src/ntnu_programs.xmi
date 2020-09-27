@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<no.espegu:School
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:no.espegu="platform:/plugin/no.espegu.course.model/model/Courses.ecore"
+    xsi:schemaLocation="platform:/plugin/no.espegu.course.model/model/Courses.ecore Courses.ecore"
+    name="NTNU">
+  <programs
+      name="Master of Science in Informatics"
+      requiredCredits="120.0">
+    <programYears>
+      <semesters>
+        <specializations
+            name="Software Engineering">
+          <semesters>
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Information Systems"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4175"/>
+            </slots>
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Advanced Software Design"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4250"/>
+              <availableCourses
+                  name="Enterprise Architecture for Enterprise Innovation"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4252"/>
+              <availableCourses
+                  name="Applied Data Science"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4259"/>
+            </slots>
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Enterprise Architecture for Enterprise Innovation"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4252"/>
+              <availableCourses
+                  name="Advanced Software Design"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4250"/>
+              <availableCourses
+                  name="User Interface Design"
+                  credits="7.5"
+                  level="Third Degree Subject"
+                  code="IT3402"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2021"
+              semesterType="Spring">
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Software Architecture"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4240"/>
+            </slots>
+            <slots>
+              <availableCourses
+                  name="Empirical research methodologies in IT and digitalization"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="IT3010"/>
+            </slots>
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Software Security and Data Privacy"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4237"/>
+              <availableCourses
+                  name="Digital Service Innovation"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4257"/>
+              <availableCourses
+                  name="Advanced Software Engineering"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4242"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2021">
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Master in Informatics, Preparatory Project"
+                  credits="15.0"
+                  level="Higher Degree Subject"
+                  code="IT3915"/>
+            </slots>
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Current Topics in Informatics"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="IT3020"/>
+              <availableCourses
+                  name="Game+"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="IT3021"/>
+              <availableCourses
+                  name="Learning Technology and Analytics"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="IT3023"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2022"
+              semesterType="Spring">
+            <slots
+                requiredCredits="30.0">
+              <availableCourses
+                  name="Master Thesis for MSIT"
+                  credits="30.0"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="IT3920"/>
+            </slots>
+          </semesters>
+        </specializations>
+        <specializations
+            name="Databases and Search">
+          <semesters>
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Information Retrieval"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4117"/>
+            </slots>
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Very Large, Distributed Data Volumes"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4225"/>
+            </slots>
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Software Security and Data Privacy"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4237"/>
+              <availableCourses
+                  name="Parallel Computing"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4200"/>
+              <availableCourses
+                  name="Algorithms for Bioinformatics"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4287"/>
+              <availableCourses
+                  name="Introduction to Artificial Intelligence"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  code="TDT4136"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2021"
+              semesterType="Spring">
+            <slots
+                requiredCredits="7.5">
+              <availableCourses
+                  name="Empirical research methodologies in IT and digitalization"
+                  credits="7.5"
+                  taughtInSemester="Spring"
+                  code="IT3010"/>
+            </slots>
+            <slots>
+              <availableCourses
+                  name="Data Warehousing and Data Mining"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4300"/>
+            </slots>
+            <slots
+                requiredCredits="15.0">
+              <availableCourses
+                  name="Advanced Database Management Systems"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4150"/>
+              <availableCourses
+                  name="Big Data Architecture"
+                  credits="7.5"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="TDT4305"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2021">
+            <slots>
+              <availableCourses
+                  name="Master in Informatics, Preparatory Project"
+                  credits="15.0"
+                  level="Higher Degree Subject"
+                  code="IT3915"/>
+            </slots>
+            <slots>
+              <availableCourses
+                  name="Very Large, Distributed Data Volumes"
+                  credits="7.5"
+                  code="TDT4225"/>
+            </slots>
+          </semesters>
+          <semesters
+              year="2022"
+              semesterType="Spring">
+            <slots
+                requiredCredits="30.0">
+              <availableCourses
+                  name="Master Thesis for MSIT"
+                  credits="30.0"
+                  level="Higher Degree Subject"
+                  taughtInSemester="Spring"
+                  code="IT3920"/>
+            </slots>
+          </semesters>
+        </specializations>
+        <specializations
+            name="Artificial Intelligence"/>
+      </semesters>
+    </programYears>
+  </programs>
+</no.espegu:School>

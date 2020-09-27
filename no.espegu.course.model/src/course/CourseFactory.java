@@ -103,6 +103,15 @@ public interface CourseFactory extends EFactory {
 	ProgramYear createProgramYear();
 
 	/**
+	 * Returns a new object of class '<em>Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slot</em>'.
+	 * @generated
+	 */
+	Slot createSlot();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

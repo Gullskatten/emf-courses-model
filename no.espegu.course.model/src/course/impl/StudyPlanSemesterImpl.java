@@ -11,7 +11,6 @@ import course.StudyPlanSemester;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,9 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getYear <em>Year</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getSemesterType <em>Semester Type</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getTeachedInSemester <em>Teached In Semester</em>}</li>
- *   <li>{@link course.impl.StudyPlanSemesterImpl#getSelectedCourses <em>Selected Courses</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getTotalCredits <em>Total Credits</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getStudyPlan <em>Study Plan</em>}</li>
  *   <li>{@link course.impl.StudyPlanSemesterImpl#getRelatedProgramSemester <em>Related Program Semester</em>}</li>
@@ -86,16 +82,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSelectedCourses() <em>Selected Courses</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectedCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> selectedCourses;
 
 	/**
 	 * The default value of the '{@link #getTotalCredits() <em>Total Credits</em>}' attribute.
@@ -216,19 +202,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Course> getSelectedCourses() {
-		if (selectedCourses == null) {
-			selectedCourses = new EObjectContainmentEList<Course>(Course.class, this, CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES);
-		}
-		return selectedCourses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -341,32 +314,21 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	@Override
-	public StudyPlanSemester addCourseToSemester(Course courseToAdd) throws RuntimeException {
-		if(courseToAdd == null) {
-			return this;
-		}
+	public ArrayList<Course> getAllCoursesInSemester() {
+		ArrayList<Course> allCourses = new ArrayList<>();
 		
-		for(Course existingCourse : getAllCoursesInSemester()) {
-			if(existingCourse.isSameCourse(courseToAdd)) {
-				throw new CourseAlreadyExistsException(courseToAdd);
+		if(relatedProgramSemester != null) {
+			if(!relatedProgramSemester.getSlots().isEmpty()) {
+				relatedProgramSemester.getSlots().forEach(slot -> {
+					if(slot.isMandatory()) {
+						allCourses.addAll(slot.getAvailableCourses());
+					} else {
+						allCourses.addAll(slot.getSelectedCoursesInSlot());
+					}
+				});
 			}
 		}
 		
-		selectedCourses.add(courseToAdd);
-		
-		return this;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public ArrayList<Course> getAllCoursesInSemester() {
-		ArrayList<Course> allCourses = new ArrayList<>();
-		allCourses.addAll(getSelectedCourses());
-		allCourses.addAll(relatedProgramSemester.getMandatoryCourses());
 		return allCourses;
 	}
 
@@ -394,8 +356,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
-				return ((InternalEList<?>)getSelectedCourses()).basicRemove(otherEnd, msgs);
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				return basicSetStudyPlan(null, msgs);
 		}
@@ -430,8 +390,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 				return getSemesterType();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER:
 				return getTeachedInSemester();
-			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
-				return getSelectedCourses();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
 				return getTotalCredits();
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
@@ -448,7 +406,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -457,10 +414,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
 				setSemesterType((SemesterType) newValue);
-				return;
-			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
-				getSelectedCourses().clear();
-				getSelectedCourses().addAll((Collection<? extends Course>)newValue);
 				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				setStudyPlan((StudyPlan)newValue);
@@ -486,9 +439,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 			case CoursePackage.STUDY_PLAN_SEMESTER__SEMESTER_TYPE:
 				setSemesterType((SemesterType)null);
 				return;
-			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
-				getSelectedCourses().clear();
-				return;
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
 				setStudyPlan((StudyPlan)null);
 				return;
@@ -513,8 +463,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 				return semesterType != null;
 			case CoursePackage.STUDY_PLAN_SEMESTER__TEACHED_IN_SEMESTER:
 				return isSetTeachedInSemester();
-			case CoursePackage.STUDY_PLAN_SEMESTER__SELECTED_COURSES:
-				return selectedCourses != null && !selectedCourses.isEmpty();
 			case CoursePackage.STUDY_PLAN_SEMESTER__TOTAL_CREDITS:
 				return isSetTotalCredits();
 			case CoursePackage.STUDY_PLAN_SEMESTER__STUDY_PLAN:
@@ -533,8 +481,6 @@ public class StudyPlanSemesterImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case CoursePackage.STUDY_PLAN_SEMESTER___ADD_COURSE_TO_SEMESTER__COURSE:
-				return addCourseToSemester((Course)arguments.get(0));
 			case CoursePackage.STUDY_PLAN_SEMESTER___GET_ALL_COURSES_IN_SEMESTER:
 				return getAllCoursesInSemester();
 		}

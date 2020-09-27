@@ -72,17 +72,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlanSemester" eSuperTypes="#//Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isAllCoursesTaughtThisSemester isValidRelatedProgramSemester"/>
+      <details key="constraints" value="isValidRelatedProgramSemester"/>
     </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
-      <details key="isAllCoursesTaughtThisSemester" value="self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester == self.semesterType)"/>
-    </eAnnotations>
-    <eOperations name="addCourseToSemester" eType="#//StudyPlanSemester" eExceptions="#//CourseAlreadyExistsException">
-      <eParameters name="course" eType="#//Course"/>
-    </eOperations>
     <eOperations name="getAllCoursesInSemester" eType="#//AllCoursesList"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedCourses" upperBound="-1"
-        eType="#//Course" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalCredits" eType="#//PositiveFloatNumber"
         changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="studyPlan" lowerBound="1"
@@ -91,16 +83,14 @@
         lowerBound="1" eType="#//ProgramSemester"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramSemester" eSuperTypes="#//Semester">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryCourses" upperBound="-1"
-        eType="#//Course" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="electiveCourses" upperBound="-1"
-        eType="#//Course" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializations" upperBound="-1"
         eType="#//ProgramDirection" containment="true" eOpposite="#//ProgramDirection/chosenInSemester"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programYear" unique="false"
         eType="#//ProgramYear" eOpposite="#//ProgramYear/semesters"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentProgramDirection"
         eType="#//ProgramDirection" eOpposite="#//ProgramDirection/semesters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slots" upperBound="-1"
+        eType="#//Slot" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramYear">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//Year" defaultValueLiteral="2020"/>
@@ -135,4 +125,16 @@
   <eClassifiers xsi:type="ecore:EDataType" name="CourseAlreadyExistsException" instanceClassName="java.lang.RuntimeException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="AllCoursesList" instanceClassName="java.util.ArrayList"
       serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Slot">
+    <eOperations name="addCourseToSlot" eType="#//Slot" eExceptions="#//CourseAlreadyExistsException">
+      <eParameters name="course" eType="#//Course"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableCourses" lowerBound="1"
+        upperBound="-1" eType="#//Course" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedCoursesInSlot"
+        upperBound="-1" eType="#//Course" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

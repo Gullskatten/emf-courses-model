@@ -2,13 +2,13 @@
  */
 package course.impl;
 
-import course.Course;
 import course.CoursePackage;
 import course.ProgramDirection;
 import course.ProgramSemester;
 
 import course.ProgramYear;
 import course.SemesterType;
+import course.Slot;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,11 +37,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link course.impl.ProgramSemesterImpl#getYear <em>Year</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getSemesterType <em>Semester Type</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getTeachedInSemester <em>Teached In Semester</em>}</li>
- *   <li>{@link course.impl.ProgramSemesterImpl#getMandatoryCourses <em>Mandatory Courses</em>}</li>
- *   <li>{@link course.impl.ProgramSemesterImpl#getElectiveCourses <em>Elective Courses</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getProgramYear <em>Program Year</em>}</li>
  *   <li>{@link course.impl.ProgramSemesterImpl#getParentProgramDirection <em>Parent Program Direction</em>}</li>
+ *   <li>{@link course.impl.ProgramSemesterImpl#getSlots <em>Slots</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,26 +87,6 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 	protected static final String TEACHED_IN_SEMESTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMandatoryCourses() <em>Mandatory Courses</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMandatoryCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> mandatoryCourses;
-
-	/**
-	 * The cached value of the '{@link #getElectiveCourses() <em>Elective Courses</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElectiveCourses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Course> electiveCourses;
-
-	/**
 	 * The cached value of the '{@link #getSpecializations() <em>Specializations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +95,16 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<ProgramDirection> specializations;
+
+	/**
+	 * The cached value of the '{@link #getSlots() <em>Slots</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSlots()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Slot> slots;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,14 +182,7 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 			return "";
 		}
 		
-		switch(semesterType.getValue()) {
-		case SemesterType.AUTUMN_VALUE: 
-			return "Autumn";
-		case SemesterType.SPRING_VALUE:
-			return "Spring";
-		default:
-			return "Unknown";
-		}
+		return semesterType.getLiteral();
 	}
 
 	/**
@@ -211,32 +193,6 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean isSetTeachedInSemester() {
 		return semesterType != null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Course> getMandatoryCourses() {
-		if (mandatoryCourses == null) {
-			mandatoryCourses = new EObjectContainmentEList<Course>(Course.class, this, CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES);
-		}
-		return mandatoryCourses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Course> getElectiveCourses() {
-		if (electiveCourses == null) {
-			electiveCourses = new EObjectContainmentEList<Course>(Course.class, this, CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES);
-		}
-		return electiveCourses;
 	}
 
 	/**
@@ -343,6 +299,19 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Slot> getSlots() {
+		if (slots == null) {
+			slots = new EObjectContainmentEList<Slot>(Slot.class, this, CoursePackage.PROGRAM_SEMESTER__SLOTS);
+		}
+		return slots;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -369,16 +338,14 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
-				return ((InternalEList<?>)getMandatoryCourses()).basicRemove(otherEnd, msgs);
-			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
-				return ((InternalEList<?>)getElectiveCourses()).basicRemove(otherEnd, msgs);
 			case CoursePackage.PROGRAM_SEMESTER__SPECIALIZATIONS:
 				return ((InternalEList<?>)getSpecializations()).basicRemove(otherEnd, msgs);
 			case CoursePackage.PROGRAM_SEMESTER__PROGRAM_YEAR:
 				return basicSetProgramYear(null, msgs);
 			case CoursePackage.PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION:
 				return basicSetParentProgramDirection(null, msgs);
+			case CoursePackage.PROGRAM_SEMESTER__SLOTS:
+				return ((InternalEList<?>)getSlots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -413,16 +380,14 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 				return getSemesterType();
 			case CoursePackage.PROGRAM_SEMESTER__TEACHED_IN_SEMESTER:
 				return getTeachedInSemester();
-			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
-				return getMandatoryCourses();
-			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
-				return getElectiveCourses();
 			case CoursePackage.PROGRAM_SEMESTER__SPECIALIZATIONS:
 				return getSpecializations();
 			case CoursePackage.PROGRAM_SEMESTER__PROGRAM_YEAR:
 				return getProgramYear();
 			case CoursePackage.PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION:
 				return getParentProgramDirection();
+			case CoursePackage.PROGRAM_SEMESTER__SLOTS:
+				return getSlots();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -442,14 +407,6 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
 				setSemesterType((SemesterType) newValue);
 				return;
-			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
-				getMandatoryCourses().clear();
-				getMandatoryCourses().addAll((Collection<? extends Course>)newValue);
-				return;
-			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
-				getElectiveCourses().clear();
-				getElectiveCourses().addAll((Collection<? extends Course>)newValue);
-				return;
 			case CoursePackage.PROGRAM_SEMESTER__SPECIALIZATIONS:
 				getSpecializations().clear();
 				getSpecializations().addAll((Collection<? extends ProgramDirection>)newValue);
@@ -459,6 +416,10 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case CoursePackage.PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION:
 				setParentProgramDirection((ProgramDirection)newValue);
+				return;
+			case CoursePackage.PROGRAM_SEMESTER__SLOTS:
+				getSlots().clear();
+				getSlots().addAll((Collection<? extends Slot>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -478,12 +439,6 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 			case CoursePackage.PROGRAM_SEMESTER__SEMESTER_TYPE:
 				setSemesterType((SemesterType)null);
 				return;
-			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
-				getMandatoryCourses().clear();
-				return;
-			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
-				getElectiveCourses().clear();
-				return;
 			case CoursePackage.PROGRAM_SEMESTER__SPECIALIZATIONS:
 				getSpecializations().clear();
 				return;
@@ -492,6 +447,9 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case CoursePackage.PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION:
 				setParentProgramDirection((ProgramDirection)null);
+				return;
+			case CoursePackage.PROGRAM_SEMESTER__SLOTS:
+				getSlots().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -511,16 +469,14 @@ public class ProgramSemesterImpl extends MinimalEObjectImpl.Container implements
 				return semesterType != null;
 			case CoursePackage.PROGRAM_SEMESTER__TEACHED_IN_SEMESTER:
 				return isSetTeachedInSemester();
-			case CoursePackage.PROGRAM_SEMESTER__MANDATORY_COURSES:
-				return mandatoryCourses != null && !mandatoryCourses.isEmpty();
-			case CoursePackage.PROGRAM_SEMESTER__ELECTIVE_COURSES:
-				return electiveCourses != null && !electiveCourses.isEmpty();
 			case CoursePackage.PROGRAM_SEMESTER__SPECIALIZATIONS:
 				return specializations != null && !specializations.isEmpty();
 			case CoursePackage.PROGRAM_SEMESTER__PROGRAM_YEAR:
 				return getProgramYear() != null;
 			case CoursePackage.PROGRAM_SEMESTER__PARENT_PROGRAM_DIRECTION:
 				return getParentProgramDirection() != null;
+			case CoursePackage.PROGRAM_SEMESTER__SLOTS:
+				return slots != null && !slots.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

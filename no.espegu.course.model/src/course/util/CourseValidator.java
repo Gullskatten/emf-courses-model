@@ -238,22 +238,28 @@ public class CourseValidator extends EObjectValidator {
 		if(requiredCredits != 120f) {
 			return true;
 		}
-		// Maximum allowed credits for lower level subjects in a masters degree
-		float maximumAllowedCredits = 22.5f;
 		
-		// Find all courses of any lower degree
-		List<Course> lowerDegreeCourses = studyPlan.getSemesters()
-		.stream()
-		.map(StudyPlanSemester::getSelectedCourses)
-		.map(selectedCoursesList -> 
-				selectedCoursesList.stream()
-					.filter(course -> course.getLevel() != CourseLevel.HIGHER_DEGREE).collect(Collectors.toList()))
-		.flatMap(List::stream)
-        .collect(Collectors.toList());
+		// Maximum allowed credits for lower level subjects in a masters degree
+		// It is only allowed to pick 3 lower level subjects
+		float maximumAllowedCredits = 22.5f;
+		List<Course> lowerDegreeCoursesInStudyPlan = new ArrayList<>();
+		
+		studyPlan.getSemesters().forEach(semester -> {
+			semester.getRelatedProgramSemester().getSlots().forEach(slot -> {
+				
+				lowerDegreeCoursesInStudyPlan.addAll(
+						slot
+						.getSelectedCoursesInSlot()
+						.stream()
+						.filter(course -> course.getLevel() != CourseLevel.HIGHER_DEGREE)
+						.collect(Collectors.toList()));
+			});
+		});
+		
 		
 		float totalCreditsFromLowerDegreeCourses = 0;
 		
-		for(Course lowerDegreeCourse : lowerDegreeCourses) {
+		for(Course lowerDegreeCourse : lowerDegreeCoursesInStudyPlan) {
 			totalCreditsFromLowerDegreeCourses += lowerDegreeCourse.getCredits();
 		}
 		
@@ -271,6 +277,7 @@ public class CourseValidator extends EObjectValidator {
 			}
 			return false;
 		}
+		
 		return true;
 	}
 
@@ -307,38 +314,8 @@ public class CourseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(studyPlanSemester, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(studyPlanSemester, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(studyPlanSemester, diagnostics, context);
-		if (result || diagnostics != null) result &= validateStudyPlanSemester_isAllCoursesTaughtThisSemester(studyPlanSemester, diagnostics, context);
 		if (result || diagnostics != null) result &= validateStudyPlanSemester_isValidRelatedProgramSemester(studyPlanSemester, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the isAllCoursesTaughtThisSemester constraint of '<em>Study Plan Semester</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION = "self.selectedCourses -> collect(selectedCourse | selectedCourse.taughtInSemester) -> forAll(semester | semester == self.semesterType)";
-
-	/**
-	 * Validates the isAllCoursesTaughtThisSemester constraint of '<em>Study Plan Semester</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateStudyPlanSemester_isAllCoursesTaughtThisSemester(StudyPlanSemester studyPlanSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(CoursePackage.Literals.STUDY_PLAN_SEMESTER,
-				 studyPlanSemester,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/acceleo/query/1.0",
-				 "isAllCoursesTaughtThisSemester",
-				 STUDY_PLAN_SEMESTER__IS_ALL_COURSES_TAUGHT_THIS_SEMESTER__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -386,6 +363,15 @@ public class CourseValidator extends EObjectValidator {
 	 */
 	public boolean validateProgramYear(ProgramYear programYear, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(programYear, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSlot(Slot slot, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(slot, diagnostics, context);
 	}
 
 	/**

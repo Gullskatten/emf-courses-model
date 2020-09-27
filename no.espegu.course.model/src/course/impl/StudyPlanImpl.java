@@ -194,13 +194,11 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isSetTotalCredits() {
-		// TODO: implement this method to return whether the 'Total Credits' attribute is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return semesters != null && !semesters.isEmpty() && getTotalCredits() > 0;
 	}
 
 	/**
